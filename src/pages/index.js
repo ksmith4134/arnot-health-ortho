@@ -40,7 +40,7 @@ export async function getStaticProps() {
                     id: condition?.id,
                     entry: condition?.name,
                     filter: condition?.content?.arthritis,
-                    link: `/${item.slug}/${condition.slug}?index=Background`,
+                    link: `/${item.slug}/${condition.slug}`,
                 }
             })
         }

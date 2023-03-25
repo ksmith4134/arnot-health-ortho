@@ -12,6 +12,9 @@ module.exports = {
         extend: {
             colors: {
                 arnotBlue: "#437FB8",
+                arnotTeal: "#3EB0B0",
+                arnotPeach: "#E69886",
+                arnotRed: "#BF2B2B"
             },
         },
     },
