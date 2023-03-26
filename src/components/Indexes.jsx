@@ -14,7 +14,7 @@ export default function Indexes(props) {
             <ul className="border-l-2">
                 {
                     indexes.map((item) => (
-                        <li key={item.id} onClick={() => handleClick(item.label)} className={`block pl-3 -ml-px hover:cursor-pointer mt-4 text-sm hover:font-normal ${item.label === selected ? 'text-arnotBlue font-semibold border-l-2 border-arnotBlue' : 'font-light'}`}>
+                        <li key={item.id} onClick={() => handleClick(item.label)} className={`block pl-3 -ml-[1.25px] hover:cursor-pointer mt-4 text-sm ${item.label === selected ? 'text-arnotBlue font-semibold border-l-2 border-arnotBlue' : 'font-light hover:font-normal'}`}>
                             {item.label}
                         </li>
                     ))

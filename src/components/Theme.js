@@ -2,6 +2,8 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import KneeIcon from "../../public/svg/KneeIcon.svg"
 import HipIcon from "../../public/svg/HipIcon.svg"
 import ShoulderIcon from "../../public/svg/ShoulderIcon.svg"
+import Paragraph from "./Paragraph";
+import SideVideo from "./SideVideo";
 
 export const ICONS = {
     Plus: FiPlus,
@@ -11,7 +13,10 @@ export const ICONS = {
     shoulder: ShoulderIcon
 };
 
-export const COMPONENTS = {}
+export const COMPONENTS = {
+    Paragraph: Paragraph,
+    SideVideo: SideVideo
+}
 
 export const FONT_COLORS = {
     primary: 'text-arnotBlue',

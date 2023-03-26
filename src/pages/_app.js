@@ -3,7 +3,10 @@ import Layout from "@/components/Layout";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import { Open_Sans } from 'next/font/google'
 
-const openSans = Open_Sans({ subsets: ['latin'] })
+const openSans = Open_Sans({
+    subsets: ['latin'],
+    variable: '--font-openSans',
+  })
 
 storyblokInit({
     accessToken: "wVZA9BrOYAJXl3MVXh8BOQtt",
@@ -18,7 +21,7 @@ export default function App({ Component, pageProps }) {
 
     return (
         <Layout>
-            <main className={openSans.className}>
+            <main className={`${openSans.variable} font-sans`}>
                 <Component {...pageProps} />
             </main>
         </Layout>

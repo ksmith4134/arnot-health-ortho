@@ -4,7 +4,7 @@ import { getStoryblokApi } from "@storyblok/react"
 
 export default function Home({ accordion, data }) {
 
-    console.log('API response', accordion)
+    // console.log('API response', accordion)
     
     return (
         <>

@@ -2,18 +2,37 @@ import { useState } from "react"
 import { getStoryblokApi } from "@storyblok/react"
 import Indexes from "@/components/Indexes"
 import ConditionHeader from "@/components/ConditionHeader"
+import { COMPONENTS } from "@/components/Theme"
 
 export default function Condition(props) {
 
-    const { condition, params, indexes, conditionHeader } = props
+    const { condition, params, indexes, conditionHeader, page = null } = props
 
-    console.log('API Response', condition)
+    // console.log('API Response', condition)
 
     const [ index, setIndex ] = useState('Background')
 
     const handleClick = (id) => {
         setIndex(id)
     }
+
+    const getComponent = (item) => {
+        if(typeof COMPONENTS[item.component] !== 'undefined') {
+            const Component = COMPONENTS[item.component]
+            return <Component {...item} />
+        } else {
+            return (<div>Component was not found</div>)
+        }
+    }
+
+    const layout = page.map((item) => {
+        return {
+            index: item.index,
+            components: item.content.map((comp) => {
+                return getComponent(comp)
+            })
+        }
+    })
 
     return (
         <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row space-x-4 items-start">
@@ -23,14 +42,15 @@ export default function Condition(props) {
             <div className="basis-4/5">
                 <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
                 {
-                    condition.indexes.find(item => item.component === index).page.map(j => (
-                        <div key={j._uid}>{j.component}</div>
+                    layout.find(item => item.index === index).components.map((component, index) => (
+                        <div key={index}>{component}</div>
                     ))
                 }
             </div>
         </div>
     )
 }
+
 
 export async function getStaticPaths() {
     
@@ -80,12 +100,46 @@ export async function getStaticProps(context) {
         description: condition.shortDescription
     }
 
+    let page = condition.indexes.map((item) => {
+        return {
+            index: item.component,
+            content: item.page.map((j) => {
+                switch (j.component) {
+                    case 'Paragraph':
+                        return {
+                            component: 'Paragraph',
+                            media: j.media, // needs update to handle array of images
+                            text: j.text.content[0].content[0].text
+                        }
+                    case 'SideVideo': 
+                        return {
+                            component: 'SideVideo',
+                            asset: j.asset[0] ? {
+                                type: j.asset[0].component,
+                                icon: j.asset[0].icon,
+                                url: j.asset[0].url,
+                                title: j.asset[0].title,
+                            } : null,
+                            title: j.title,
+                            description: j.description.content[0].content[0].text,
+                            videoUrl: j.videoUrl.url,
+                            image: j.media ? j.media.filename : null
+                        }
+                    default:
+                        return []
+                        break;
+                }
+            })
+        }
+    })
+
     return {
         props: {
             condition,
             params,
             indexes,
-            conditionHeader
+            conditionHeader,
+            page
         }
     }
 }

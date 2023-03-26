@@ -1,4 +1,7 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
     content: [
         "./app/**/*.{js,ts,jsx,tsx}",
@@ -15,6 +18,9 @@ module.exports = {
                 arnotTeal: "#3EB0B0",
                 arnotPeach: "#E69886",
                 arnotRed: "#BF2B2B"
+            },
+            fontFamily: {
+                sans: ['var(--font-openSans)', ...fontFamily.sans],
             },
         },
     },
