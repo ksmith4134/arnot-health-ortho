@@ -2,6 +2,7 @@ import { useState } from "react"
 import { getStoryblokApi } from "@storyblok/react"
 import Indexes from "@/components/Indexes"
 import ConditionHeader from "@/components/ConditionHeader"
+import VideoModal from "@/components/VideoModal"
 import { COMPONENTS } from "@/components/Theme"
 
 export default function Condition(props) {
@@ -11,15 +12,30 @@ export default function Condition(props) {
     // console.log('API Response', condition)
 
     const [ index, setIndex ] = useState('Background')
+    const [ videoModal, setVideoModal ] = useState(null)
 
     const handleClick = (id) => {
         setIndex(id)
     }
 
+    // open full screen video modal
+    const openModal = (url) => {
+        console.log('Open modal click', url)
+        setVideoModal(url)
+    }
+
+    const closeModal = () => {
+        setVideoModal(null)
+    }
+
     const getComponent = (item) => {
         if(typeof COMPONENTS[item.component] !== 'undefined') {
             const Component = COMPONENTS[item.component]
-            return <Component {...item} />
+            if(item.component === 'SideVideo'){ 
+                return <Component {...item} handleClick={openModal} />
+            } else {
+                return <Component {...item} />
+            }
         } else {
             return (<div>Component was not found</div>)
         }
@@ -35,18 +51,21 @@ export default function Condition(props) {
     })
 
     return (
-        <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row space-x-4 items-start">
-            <div className="basis-1/5 sticky top-8">
-                <Indexes indexes={indexes} selected={index} handleClick={handleClick} />
+        <div className="relative">
+            <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row space-x-4 items-start px-8">
+                <div className="basis-1/5 sticky top-8">
+                    <Indexes indexes={indexes} selected={index} handleClick={handleClick} />
+                </div>
+                <div className="basis-4/5">
+                    <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
+                    {
+                        layout.find(item => item.index === index).components.map((component, index) => (
+                            <div key={index} className="mt-12 flex flex-col">{component}</div>
+                        ))
+                    }
+                </div>
             </div>
-            <div className="basis-4/5">
-                <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
-                {
-                    layout.find(item => item.index === index).components.map((component, index) => (
-                        <div key={index}>{component}</div>
-                    ))
-                }
-            </div>
+            {videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )
 }
@@ -117,7 +136,7 @@ export async function getStaticProps(context) {
                             asset: j.asset[0] ? {
                                 type: j.asset[0].component,
                                 icon: j.asset[0].icon,
-                                url: j.asset[0].url,
+                                url: j.asset[0].url, // fix this, go to Asset type, not url string
                                 title: j.asset[0].title,
                             } : null,
                             title: j.title,

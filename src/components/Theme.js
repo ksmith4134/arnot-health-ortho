@@ -1,7 +1,9 @@
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { BsFileEarmarkPdf } from "react-icons/bs"
 import KneeIcon from "../../public/svg/KneeIcon.svg"
 import HipIcon from "../../public/svg/HipIcon.svg"
 import ShoulderIcon from "../../public/svg/ShoulderIcon.svg"
+import PlayIcon from "../../public/svg/PlayIcon.svg"
 import Paragraph from "./Paragraph";
 import SideVideo from "./SideVideo";
 
@@ -10,7 +12,9 @@ export const ICONS = {
     Minus: FiMinus,
     knee: KneeIcon,
     hip: HipIcon,
-    shoulder: ShoulderIcon
+    shoulder: ShoulderIcon,
+    pdf: BsFileEarmarkPdf,
+    play: PlayIcon,
 };
 
 export const COMPONENTS = {

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { COMPONENTS } from '../components/Theme'
+import { COMPONENTS } from '../../components/Theme'
 
 
 export default function Test({ results }) {
