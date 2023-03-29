@@ -1,20 +1,20 @@
 import React from 'react'
-import { FaBookmark } from "react-icons/fa"
+import { BsFillBookmarksFill } from "react-icons/bs"
 
 export default function Indexes(props) {
 
-    const { indexes, handleClick, selected } = props;
+    const { indexes, selectIndex, selected } = props;
 
     return (
         <>
             <div className="flex items-center space-x-2 mt-1 mb-4 -ml-[1.5px]">
-                <FaBookmark className="text-lg text-arnotPeach" />
+                {/* <BsFillBookmarksFill className="text-xl text-arnotPeach" /> */}
                 <h4 className="font-semibold text-xl text-arnotPeach/90">Index</h4>
             </div>
             <ul className="border-l-2">
                 {
                     indexes.map((item) => (
-                        <li key={item.id} onClick={() => handleClick(item.label)} className={`block pl-3 -ml-px hover:cursor-pointer mt-4 text-sm ${item.label === selected ? 'text-arnotBlue font-semibold border-l-2 border-arnotBlue' : 'font-light hover:font-normal'}`}>
+                        <li key={item.id} onClick={() => selectIndex(item.label)} className={`block pl-3 hover:cursor-pointer mt-4 text-sm ${item.label === selected ? 'text-arnotBlue font-bold border-l-2 border-arnotBlue -ml-px pl-[11.5px]' : 'text-black hover:border-l-2 hover:border-gray-400 hover:-ml-px hover:pl-[11.5px]'}`}>
                             {item.label}
                         </li>
                     ))

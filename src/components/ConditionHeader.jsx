@@ -15,7 +15,7 @@ export default function ConditionHeader(props) {
     const bodyPartIcon = ICONS[`${bodyPart}`]
 
     return (
-        <>
+        <div className="-mb-4">
             <h1 className="text-4xl font-bold">{title}</h1>
             <h3 className="mt-2 text-lg font-light">{description}</h3>
             <div className="mt-12 flex justify-center items-center space-x-6">
@@ -25,6 +25,6 @@ export default function ConditionHeader(props) {
                 </div>
                 <hr className="bg-arnotBlue h-[0.5px] w-full border-none flex-initial"></hr>
             </div>
-        </>
+        </div>
     )
 }

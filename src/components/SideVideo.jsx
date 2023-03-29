@@ -7,7 +7,7 @@ import { ICONS } from './Theme'
 
 export default function SideVideo(props) {
 
-    // asset has a type (component), icon, url, and title
+    // asset has a type (component name), icon, url, and title
     const {
         asset = {}, 
         title = '', 
@@ -26,21 +26,21 @@ export default function SideVideo(props) {
     const videoThumbnail = image ? image : defaultPic
 
     return (
-        <div className="flex flex-row justify-center items-center space-x-8">
-            <div className="basis-1/2">
+        <div className="flex md:flex-row flex-col justify-center items-center md:space-x-8">
+            <div className="basis-7/12">
                 <h2 className="text-2xl">{title}</h2>
                 <p className="mt-2 text-sm">{description}</p>
                 {
                     asset && (
                         <Link href={asset.url ? asset.url : router.asPath} className="mt-4 flex items-center space-x-2">
-                            {AssetIcon && <AssetIcon className="text-arnotRed text-3xl" />}
+                            {AssetIcon && <AssetIcon className="text-red-500 text-3xl" />}
                             {asset.title && <p className="text-sm font-semibold">{asset.title}</p>}
                         </Link>
                     )
                 }
             </div>
-            <div className="basis-1/2">
-                <div onClick={() => handleClick(videoUrl)} className="aspect-video relative block overflow-hidden rounded-md hover:cursor-pointer group">
+            <div className="basis-5/12 mt-4 md:mt-0">
+                <div onClick={() => handleClick(videoUrl)} className="aspect-video relative block overflow-hidden hover:cursor-pointer group">
                     <Image 
                         src={videoThumbnail}
                         alt="video thumbnail"
@@ -50,7 +50,7 @@ export default function SideVideo(props) {
                         <Image 
                             src={playButton} 
                             alt="play button"
-                            className="w-24 h-24 opacity-80 group-hover:opacity-100 transition ease-in-out duration-500" 
+                            className="w-24 h-24 md:w-16 md:h-16 lg:w-20 lg:h-20 md:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500" 
                         />
                     </div>
                 </div>

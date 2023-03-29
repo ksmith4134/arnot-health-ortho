@@ -1,5 +1,5 @@
 import { FiPlus, FiMinus } from "react-icons/fi";
-import { BsFileEarmarkPdf } from "react-icons/bs"
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs"
 import KneeIcon from "../../public/svg/KneeIcon.svg"
 import HipIcon from "../../public/svg/HipIcon.svg"
 import ShoulderIcon from "../../public/svg/ShoulderIcon.svg"
@@ -15,6 +15,8 @@ export const ICONS = {
     shoulder: ShoulderIcon,
     pdf: BsFileEarmarkPdf,
     play: PlayIcon,
+    carouselArrowLeft: BsArrowLeftCircle,
+    carouselArrowRight: BsArrowRightCircle
 };
 
 export const COMPONENTS = {

@@ -1,26 +1,46 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 import { getStoryblokApi } from "@storyblok/react"
-import Indexes from "@/components/Indexes"
+import IndexesDesktop from "@/components/IndexesDesktop"
+import IndexesMobile from "@/components/IndexesMobile"
 import ConditionHeader from "@/components/ConditionHeader"
 import VideoModal from "@/components/VideoModal"
 import { COMPONENTS } from "@/components/Theme"
+import LoadingSpinner from "@/components/LoadingSpinner"
 
 export default function Condition(props) {
 
     const { condition, params, indexes, conditionHeader, page = null } = props
 
     // console.log('API Response', condition)
+    // console.log('Normalized Response', page)
 
-    const [ index, setIndex ] = useState('Background')
+    const router = useRouter()
+
+    const [ index, setIndex ] = useState(null)
+    const [ openDropdown, setOpenDropdown ] = useState(false)
+    const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
 
-    const handleClick = (id) => {
-        setIndex(id)
+    useEffect(() => {
+        router.isReady && setIndex(router.query.index)
+    }, [router])
+
+    useEffect(() => {
+        setLoading(false)
+    }, [index])
+
+    const handleIndexClick = (index) => {
+        setOpenDropdown(false)
+        router.push(`/${params.body}/${params.condition}?index=${index}`)
+    }
+
+    const openDropdownClick = () => {
+        setOpenDropdown(!openDropdown)
     }
 
     // open full screen video modal
     const openModal = (url) => {
-        console.log('Open modal click', url)
         setVideoModal(url)
     }
 
@@ -37,7 +57,7 @@ export default function Condition(props) {
                 return <Component {...item} />
             }
         } else {
-            return (<div>Component was not found</div>)
+            return (<div></div>)
         }
     }
 
@@ -52,18 +72,28 @@ export default function Condition(props) {
 
     return (
         <div className="relative">
-            <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row space-x-4 items-start px-8">
-                <div className="basis-1/5 sticky top-8">
-                    <Indexes indexes={indexes} selected={index} handleClick={handleClick} />
+            <div className="block md:hidden sticky top-0 z-10">
+                <IndexesMobile indexes={indexes} selected={index} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
+            </div>
+            <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row md:space-x-8 items-start px-8">
+                <div className="hidden md:block md:basis-1/5 sticky top-8">
+                    <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
                 </div>
-                <div className="basis-4/5">
-                    <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
-                    {
-                        layout.find(item => item.index === index).components.map((component, index) => (
-                            <div key={index} className="mt-12 flex flex-col">{component}</div>
-                        ))
-                    }
-                </div>
+                {
+                    loading 
+                    ?   <div className="mt-1 w-full flex justify-center">
+                            <LoadingSpinner />
+                        </div> 
+                    :   <div className="md:basis-4/5">
+                            <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
+                            {
+                                index && 
+                                layout.find(item => item.index === index).components.map((component, index) => (
+                                    <div key={index} className="mt-16 flex flex-col">{component}</div>
+                                ))
+                            }
+                        </div>
+                }
             </div>
             {videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
@@ -127,8 +157,8 @@ export async function getStaticProps(context) {
                     case 'Paragraph':
                         return {
                             component: 'Paragraph',
-                            media: j.media, // needs update to handle array of images
-                            text: j.text.content[0].content[0].text
+                            media: j.media[0] ? j.media.map(img => img.filename) : null,
+                            text: j.text.content.map(text => text.content.map(para => para.text)).flat() // Fix: render rich text
                         }
                     case 'SideVideo': 
                         return {
@@ -136,7 +166,7 @@ export async function getStaticProps(context) {
                             asset: j.asset[0] ? {
                                 type: j.asset[0].component,
                                 icon: j.asset[0].icon,
-                                url: j.asset[0].url, // fix this, go to Asset type, not url string
+                                url: j.asset[0].url, // Fix: switch field to hosted asset, not url string
                                 title: j.asset[0].title,
                             } : null,
                             title: j.title,
@@ -145,8 +175,7 @@ export async function getStaticProps(context) {
                             image: j.media ? j.media.filename : null
                         }
                     default:
-                        return []
-                        break;
+                        return [];
                 }
             })
         }

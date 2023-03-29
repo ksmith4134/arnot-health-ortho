@@ -39,7 +39,7 @@ export default function Accordion(props) {
                             entry.id === selected && entry.contents.map((item) => (
                                 <div key={item.id} className="my-1">
                                     <p className={`text-md ${HOVER_FONT_COLORS[theme]}`}>
-                                        {item.link ? (<Link href={item.link}>{item.entry}</Link>) : item.entry}
+                                        {item.link ? (<Link href={`${item.link}/?index=Background`}>{item.entry}</Link>) : item.entry}
                                     </p>
                                 </div>
                             ))
