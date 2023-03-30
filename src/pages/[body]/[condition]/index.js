@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
-import { getStoryblokApi } from "@storyblok/react"
+import { getStoryblokApi, renderRichText } from "@storyblok/react"
 import IndexesDesktop from "@/components/IndexesDesktop"
 import IndexesMobile from "@/components/IndexesMobile"
 import ConditionHeader from "@/components/ConditionHeader"
 import VideoModal from "@/components/VideoModal"
 import { COMPONENTS } from "@/components/Theme"
 import LoadingSpinner from "@/components/LoadingSpinner"
+import { render } from "react-dom"
 
 export default function Condition(props) {
 
@@ -71,9 +72,9 @@ export default function Condition(props) {
     })
 
     return (
-        <div className="relative">
+        <div className="relative z-0">
             <div className="block md:hidden sticky top-0 z-10">
-                <IndexesMobile indexes={indexes} selected={index} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
+                <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
             </div>
             <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row md:space-x-8 items-start px-8">
                 <div className="hidden md:block md:basis-1/5 sticky top-8">
@@ -158,11 +159,19 @@ export async function getStaticProps(context) {
                         return {
                             component: 'Paragraph',
                             media: j.media[0] ? j.media.map(img => img.filename) : null,
-                            text: j.text.content.map(text => text.content.map(para => para.text)).flat() // Fix: render rich text
+                            richText: renderRichText(j.text)
+                        }
+                    case 'DropdownCard': 
+                        return {
+                            component: 'DropdownCard',
+                            defaultOpen: j.defaultOpen,
+                            title: j.title,
+                            richText: renderRichText(j.contents)
                         }
                     case 'SideVideo': 
                         return {
-                            component: 'SideVideo',
+                            component: 'Video',
+                            orientation: 'row', // row, col
                             asset: j.asset[0] ? {
                                 type: j.asset[0].component,
                                 icon: j.asset[0].icon,

@@ -3,7 +3,7 @@ import Carousel from './Carousel'
 
 export default function Paragraph(props) {
 
-    const { media, text } = props
+    const { media, text, richText } = props
 
     return (
         <div className="flex flex-col md:block">
@@ -23,6 +23,10 @@ export default function Paragraph(props) {
                     ))
                 }
             </div>
+            <div className="order-1">
+                <article className="first:mt-0 mt-4 prose max-w-none prose-sm" dangerouslySetInnerHTML={{__html:richText}}></article>
+            </div>
+            
         </div>
     )
 }

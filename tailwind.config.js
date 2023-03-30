@@ -22,7 +22,16 @@ module.exports = {
             fontFamily: {
                 sans: ['var(--font-openSans)', ...fontFamily.sans],
             },
+            typography: (theme) => ({
+                DEFAULT: {
+                  css: {
+                    '--tw-prose-bullets': 'text-black',
+                  },
+                },
+            }),
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 };

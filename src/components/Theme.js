@@ -5,7 +5,8 @@ import HipIcon from "../../public/svg/HipIcon.svg"
 import ShoulderIcon from "../../public/svg/ShoulderIcon.svg"
 import PlayIcon from "../../public/svg/PlayIcon.svg"
 import Paragraph from "./Paragraph";
-import SideVideo from "./SideVideo";
+import Video from "./Video";
+import DropdownCard from "./DropdownCard";
 
 export const ICONS = {
     Plus: FiPlus,
@@ -21,7 +22,8 @@ export const ICONS = {
 
 export const COMPONENTS = {
     Paragraph: Paragraph,
-    SideVideo: SideVideo
+    Video: Video,
+    DropdownCard: DropdownCard
 }
 
 export const FONT_COLORS = {

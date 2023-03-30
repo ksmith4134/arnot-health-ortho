@@ -5,11 +5,12 @@ import Link from 'next/link'
 import defaultPic from '../../public/Same Day Surgery Tour.jpg'
 import { ICONS } from './Theme'
 
-export default function SideVideo(props) {
+export default function Video(props) {
 
     // asset has a type (component name), icon, url, and title
     const {
         asset = {}, 
+        orientation = 'row',
         title = '', 
         description = '', 
         videoUrl = 'https://www.youtube.com/watch?v=uUmAUxWFYCw', 
@@ -26,7 +27,7 @@ export default function SideVideo(props) {
     const videoThumbnail = image ? image : defaultPic
 
     return (
-        <div className="flex md:flex-row flex-col justify-center items-center md:space-x-8">
+        <div className={`flex ${orientation === 'row' ? 'md:flex-row flex-col md:space-x-8' : 'flex-col'} justify-center items-center`}>
             <div className="basis-7/12">
                 <h2 className="text-2xl">{title}</h2>
                 <p className="mt-2 text-sm">{description}</p>
@@ -39,7 +40,7 @@ export default function SideVideo(props) {
                     )
                 }
             </div>
-            <div className="basis-5/12 mt-4 md:mt-0">
+            <div className={`basis-5/12 ${orientation === 'row' ? 'mt-4 md:mt-0' : 'mt-4'}`}>
                 <div onClick={() => handleClick(videoUrl)} className="aspect-video relative block overflow-hidden hover:cursor-pointer group">
                     <Image 
                         src={videoThumbnail}
