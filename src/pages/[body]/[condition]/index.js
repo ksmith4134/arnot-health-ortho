@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
-import { getStoryblokApi, renderRichText } from "@storyblok/react"
-import IndexesDesktop from "@/components/IndexesDesktop"
-import IndexesMobile from "@/components/IndexesMobile"
-import ConditionHeader from "@/components/ConditionHeader"
-import VideoModal from "@/components/VideoModal"
-import { COMPONENTS } from "@/components/Theme"
-import LoadingSpinner from "@/components/LoadingSpinner"
-import { render } from "react-dom"
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { getStoryblokApi, renderRichText } from '@storyblok/react'
+import IndexesDesktop from '@/components/IndexesDesktop'
+import IndexesMobile from '@/components/IndexesMobile'
+import ConditionHeader from '@/components/ConditionHeader'
+import VideoModal from '@/components/VideoModal'
+import { COMPONENTS } from '@/components/Theme'
+import LoadingSpinner from '@/components/LoadingSpinner'
+
 
 export default function Condition(props) {
 
@@ -52,7 +52,7 @@ export default function Condition(props) {
     const getComponent = (item) => {
         if(typeof COMPONENTS[item.component] !== 'undefined') {
             const Component = COMPONENTS[item.component]
-            if(item.component === 'SideVideo'){ 
+            if(item.component === 'Video'){ 
                 return <Component {...item} handleClick={openModal} />
             } else {
                 return <Component {...item} />
@@ -71,26 +71,30 @@ export default function Condition(props) {
         }
     })
 
+    // console.log('Layout', layout)
+
     return (
-        <div className="relative z-0">
-            <div className="block md:hidden sticky top-0 z-10">
+        <div className='relative z-0'>
+            <div className='block md:hidden sticky top-0 z-10'>
                 <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
             </div>
-            <div className="max-w-4xl min-h-screen my-16 mx-auto flex flex-row md:space-x-8 items-start px-8">
-                <div className="hidden md:block md:basis-1/5 sticky top-8">
+            <div className='max-w-4xl min-h-screen my-16 mx-auto flex flex-row md:space-x-8 items-start px-8'>
+                <div className='hidden md:block md:basis-1/5 sticky top-8'>
                     <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
                 </div>
                 {
                     loading 
-                    ?   <div className="mt-1 w-full flex justify-center">
+                    ?   <div className='mt-1 w-full flex justify-center'>
                             <LoadingSpinner />
                         </div> 
-                    :   <div className="md:basis-4/5">
+                    :   <div className='md:basis-4/5'>
                             <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
                             {
                                 index && 
-                                layout.find(item => item.index === index).components.map((component, index) => (
-                                    <div key={index} className="mt-16 flex flex-col">{component}</div>
+                                layout.find(item => item.index === index).components.map((component, i) => (
+                                    <div key={i} className={`flex flex-col mt-16`}>
+                                        {component}
+                                    </div>
                                 ))
                             }
                         </div>
@@ -107,9 +111,9 @@ export async function getStaticPaths() {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories`, {
-        version: "draft",
-        starts_with: "body",
-        resolve_relations: "body.conditions",
+        version: 'draft',
+        starts_with: 'body',
+        resolve_relations: 'body.conditions',
     });
 
     let paths = data.stories.map((body) => 
@@ -133,7 +137,7 @@ export async function getStaticProps(context) {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories/conditions/${params.condition}`, {
-        version: "draft",
+        version: 'draft',
     });
 
     let condition = data.story.content
@@ -150,41 +154,100 @@ export async function getStaticProps(context) {
         description: condition.shortDescription
     }
 
-    let page = condition.indexes.map((item) => {
+    let page = condition.indexes.map((component) => {
         return {
-            index: item.component,
-            content: item.page.map((j) => {
-                switch (j.component) {
+            index: component.component,
+            content: component.page.map((item) => {
+                switch (item.component) {
                     case 'Paragraph':
                         return {
                             component: 'Paragraph',
-                            media: j.media[0] ? j.media.map(img => img.filename) : null,
-                            richText: renderRichText(j.text)
+                            title: item.title ? item.title : null,
+                            media: item.media[0] ? item.media.map(img => img.filename) : null,
+                            richText: renderRichText(item.text)
                         }
                     case 'DropdownCard': 
                         return {
                             component: 'DropdownCard',
-                            defaultOpen: j.defaultOpen,
-                            title: j.title,
-                            richText: renderRichText(j.contents)
+                            defaultOpen: item.defaultOpen,
+                            title: item.title,
+                            richText: renderRichText(item.contents)
                         }
-                    case 'SideVideo': 
+                    case 'InfoBox': 
+                        return {
+                            component: 'InfoBox',
+                            richText: renderRichText(item.message)
+                        }
+                    case 'VideoRow': 
                         return {
                             component: 'Video',
                             orientation: 'row', // row, col
-                            asset: j.asset[0] ? {
-                                type: j.asset[0].component,
-                                icon: j.asset[0].icon,
-                                url: j.asset[0].url, // Fix: switch field to hosted asset, not url string
-                                title: j.asset[0].title,
+                            asset: item.asset[0] ? {
+                                type: item.asset[0].component,
+                                title: item.asset[0].title,
+                                url: item.asset[0].document.filename, // Fix: switch field to hosted asset, not url string
+                                icon: item.asset[0].icon,
                             } : null,
-                            title: j.title,
-                            description: j.description.content[0].content[0].text,
-                            videoUrl: j.videoUrl.url,
-                            image: j.media ? j.media.filename : null
+                            title: item.title,
+                            description: item.description.content[0].content[0].text,
+                            videoUrl: item.videoUrl.url,
+                            image: item.media ? item.media.filename : null
                         }
-                    default:
-                        return [];
+                    case 'VideoColumn': 
+                        return {
+                            component: 'Video',
+                            orientation: 'col', // row, col
+                            asset: item.asset[0] ? {
+                                type: item.asset[0].component,
+                                title: item.asset[0].title,
+                                url: item.asset[0].document.filename, // Fix: switch field to hosted asset, not url string
+                                icon: item.asset[0].icon,
+                            } : null,
+                            title: item.title,
+                            description: item.description.content[0].content[0].text,
+                            videoUrl: item.videoUrl.url,
+                            image: item.media ? item.media.filename : null
+                        }
+                    case 'Accordion':
+                        return {
+                            component: 'Accordion2',
+                            id: item._uid,
+                            title: item.title,
+                            showTitle: item.showTitle,
+                            contents: item.content.map((comp) => {
+                                return {
+                                    component: 'Dropdown',
+                                    id: comp._uid,
+                                    label: comp.label ? comp.label : null,
+                                    showIcon: comp.showIcon,
+                                    defaultOpen: comp.defaultOpen,
+                                    content: comp.content.map((j) => {
+                                        switch(j.component){
+                                            case 'Paragraph':
+                                                return {
+                                                    component: 'Paragraph',
+                                                    title: j.title ? j.title : null,
+                                                    media: j.media[0] ? j.media.map(img => img.filename) : null,
+                                                    richText: renderRichText(j.text)
+                                                }
+                                            case 'Download':
+                                                return {
+                                                    component: 'Download',
+                                                    title: j.title,
+                                                    url: j.document ? j.document.filename : null,
+                                                    icon: j.icon,
+                                                }
+                                            case 'Link':
+                                                return {
+
+                                                }
+                                            default: return []
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    default: return [];
                 }
             })
         }

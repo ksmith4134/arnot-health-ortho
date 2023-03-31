@@ -1,12 +1,16 @@
-import { FiPlus, FiMinus } from "react-icons/fi";
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs"
-import KneeIcon from "../../public/svg/KneeIcon.svg"
-import HipIcon from "../../public/svg/HipIcon.svg"
-import ShoulderIcon from "../../public/svg/ShoulderIcon.svg"
-import PlayIcon from "../../public/svg/PlayIcon.svg"
-import Paragraph from "./Paragraph";
-import Video from "./Video";
-import DropdownCard from "./DropdownCard";
+import { FiPlus, FiMinus } from 'react-icons/fi';
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs'
+import KneeIcon from '../../public/svg/KneeIcon.svg'
+import HipIcon from '../../public/svg/HipIcon.svg'
+import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
+import PlayIcon from '../../public/svg/PlayIcon.svg'
+import Paragraph from './Paragraph';
+import Video from './Video';
+import DropdownCard from './DropdownCard';
+import InfoBox from './InfoBox';
+import Accordion from './Accordion';
+import Accordion2 from './Accordion2';
+import Download from './Download';
 
 export const ICONS = {
     Plus: FiPlus,
@@ -23,7 +27,10 @@ export const ICONS = {
 export const COMPONENTS = {
     Paragraph: Paragraph,
     Video: Video,
-    DropdownCard: DropdownCard
+    DropdownCard: DropdownCard,
+    InfoBox: InfoBox,
+    Accordion2: Accordion2,
+    Download: Download,
 }
 
 export const FONT_COLORS = {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs"
+import { BsArrowLeftCircle, BsArrowRightCircle } from 'react-icons/bs'
 
 export default function Carousel(props) {
 
@@ -50,16 +50,16 @@ export function CarouselControls(props) {
     }
 
     return (
-        <div className="flex flex-row justify-center items-center space-x-4 mt-4 h-8">
-            <BsArrowLeftCircle onClick={decrement} className="text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer" />
-            <div className="flex flex-row justify-center items-center">
+        <div className='flex flex-row justify-center items-center space-x-4 mt-4 h-8'>
+            <BsArrowLeftCircle onClick={decrement} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
+            <div className='flex flex-row justify-center items-center'>
                 {
                     media.map((index) => (
                         <div key={index} className={`w-6 h-[2px] mx-1 ${index === selected ? 'bg-arnotBlue' : 'bg-gray-300 '} rounded-full`}></div>
                     ))
                 }
             </div>
-            <BsArrowRightCircle onClick={increment} className="text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer" />
+            <BsArrowRightCircle onClick={increment} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
         </div>
     )
 }

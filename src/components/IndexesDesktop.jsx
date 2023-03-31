@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsFillBookmarksFill } from "react-icons/bs"
+import { BsFillBookmarksFill } from 'react-icons/bs'
 
 export default function Indexes(props) {
 
@@ -7,11 +7,11 @@ export default function Indexes(props) {
 
     return (
         <>
-            <div className="flex items-center space-x-2 mt-1 mb-4 -ml-[1.5px]">
-                {/* <BsFillBookmarksFill className="text-xl text-arnotPeach" /> */}
-                <h4 className="font-semibold text-xl text-arnotPeach/90">Index</h4>
+            <div className='flex items-center space-x-2 mt-1 mb-4 -ml-[1.5px]'>
+                {/* <BsFillBookmarksFill className='text-xl text-arnotPeach' /> */}
+                <h4 className='font-semibold text-xl text-arnotPeach/90'>Index</h4>
             </div>
-            <ul className="border-l-2">
+            <ul className='border-l-2'>
                 {
                     indexes.map((item) => (
                         <li key={item.id} onClick={() => selectIndex(item.label)} 

@@ -1,7 +1,7 @@
-import Dropdown from "@/components/Dropdown";
-import { useState } from "react"
-import { HOVER_FONT_COLORS, FONT_COLORS } from "./Theme"
-import Link from "next/link";
+import Dropdown from '@/components/Dropdown';
+import { useState } from 'react'
+import { HOVER_FONT_COLORS, FONT_COLORS } from './Theme'
+import Link from 'next/link';
 
 export default function Accordion(props) {
     
@@ -20,7 +20,7 @@ export default function Accordion(props) {
     // const opened = id === selected
 
     return (
-        <div className="max-w-xs">
+        <div className='max-w-xs'>
             {title && <h3 className={`mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
             {
                 accordion.map((entry) => (
@@ -37,7 +37,7 @@ export default function Accordion(props) {
                     >
                         {
                             entry.id === selected && entry.contents.map((item) => (
-                                <div key={item.id} className="my-1">
+                                <div key={item.id} className='my-1'>
                                     <p className={`text-md ${HOVER_FONT_COLORS[theme]}`}>
                                         {item.link ? (<Link href={`${item.link}/?index=Background`}>{item.entry}</Link>) : item.entry}
                                     </p>

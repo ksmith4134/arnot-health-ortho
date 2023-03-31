@@ -1,6 +1,6 @@
 import React from 'react'
-import { BsFillBookmarksFill } from "react-icons/bs"
-import { TfiAngleDown } from "react-icons/tfi"
+import { BsFillBookmarksFill } from 'react-icons/bs'
+import { TfiAngleDown } from 'react-icons/tfi'
 
 
 export default function IndexesMobile(props) {
@@ -18,7 +18,7 @@ export default function IndexesMobile(props) {
         <div className='w-full bg-arnotBlue text-white'>
             <div className={`relative z-20 px-8 py-4 hover:cursor-pointer `} onClick={openDropdownClick}>
                 <div className='text-xs font-light'>{title}</div>
-                <div className="flex items-center justify-between">
+                <div className='flex items-center justify-between'>
                     <div className='font-semibold'>{selected}</div>
                     <TfiAngleDown className={`text-white text-lg ${opened ? '-rotate-180' : 'rotate-0'} transition ease-in-out duration-500`} />
                 </div>
