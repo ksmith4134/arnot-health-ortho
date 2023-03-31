@@ -1,15 +1,14 @@
 import Dropdown from '@/components/Dropdown';
 import { useState } from 'react'
-import { COMPONENTS, HOVER_FONT_COLORS, FONT_COLORS } from './Theme'
-import Link from 'next/link';
+import { COMPONENTS } from './Theme'
 
 export default function Accordion2(props) {
   
     const {
-        title = '',
-        showTitle = true,
+        id,
+        title = null,
+        contents = [], // Paragraph, DownloadList, or LinkList
         theme = 'primary',
-        contents
     } = props;
 
     const getComponent = (item) => {
@@ -21,15 +20,16 @@ export default function Accordion2(props) {
         }
     }
 
-    const layout = contents.map((item) => {
+    // Returns Paragraph, DownloadList, or LinkList
+    // Renders as children of Dropdown
+    const layout = contents.map((item) => { 
         return {
             id: item.id,
             components: item.content.map((comp) => {
                 return getComponent(comp)
             })
         }
-    }
-    )
+    })
 
     const [selected, setSelected] = useState(null)
 
@@ -39,29 +39,23 @@ export default function Accordion2(props) {
 
     return (
         <div className='w-full'>
-            <h3 className={`mb-6 text-2xl`}>{title}</h3>
+            { title && <h3 className={`mb-6 text-2xl`}>{title}</h3> }
             {
                 contents.map((entry) => (
                     <Dropdown 
                         key={entry.id}
                         id={entry.id}
                         label={entry.label}
-                        showIcon={entry.showIcon}
-                        defaultOpen={entry.defaultOpen}
                         IconOpen={'Plus'}
                         IconClose={'Minus'}
                         selected={selected}
                         handleClick={handleClick}
                     >
-                        {   
-                            (entry.id === selected || entry.defaultOpen) && 
-                                <div className={`${layout.find(item => item.id === entry.id).components.length > 1 && 'grid grid-cols-2'}`}>
-                                    { 
-                                        layout.find(item => item.id === entry.id).components.map((component, index) => (
-                                            <div key={index}>{component}</div>
-                                        ))
-                                    }
-                                </div>
+                        { 
+                            entry.id === selected && 
+                                layout.find(item => item.id === entry.id).components.map((component, index) => (
+                                    <div key={index}>{component}</div>
+                                ))
                         }
                     </Dropdown>
                 ))

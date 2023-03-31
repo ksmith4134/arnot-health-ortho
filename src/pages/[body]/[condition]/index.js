@@ -11,7 +11,14 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default function Condition(props) {
 
-    const { condition, params, indexes, conditionHeader, page = null } = props
+    const { 
+        // condition, 
+        params, 
+        indexes, 
+        arthritis, 
+        conditionHeader, 
+        page = null 
+    } = props
 
     // console.log('API Response', condition)
     // console.log('Normalized Response', page)
@@ -71,15 +78,13 @@ export default function Condition(props) {
         }
     })
 
-    // console.log('Layout', layout)
-
     return (
-        <div className='relative z-0'>
+        <div className='relative z-0 mb-40'>
             <div className='block md:hidden sticky top-0 z-10'>
                 <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
             </div>
-            <div className='max-w-4xl min-h-screen my-16 mx-auto flex flex-row md:space-x-8 items-start px-8'>
-                <div className='hidden md:block md:basis-1/5 sticky top-8'>
+            <div className='max-w-5xl min-h-screen my-16 mx-auto flex flex-row md:space-x-10 items-start px-8'>
+                <div className='hidden md:block md:basis-1/5 sticky top-8 flex-none'>
                     <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
                 </div>
                 {
@@ -151,8 +156,10 @@ export async function getStaticProps(context) {
 
     let conditionHeader = {
         title: condition.title,
-        description: condition.shortDescription
+        description: condition.shortDescription,
     }
+
+    let arthritis = condition.arthritis ? condition.arthritis : false
 
     let page = condition.indexes.map((component) => {
         return {
@@ -162,13 +169,54 @@ export async function getStaticProps(context) {
                     case 'Paragraph':
                         return {
                             component: 'Paragraph',
+                            id: item._uid,
                             title: item.title ? item.title : null,
                             media: item.media[0] ? item.media.map(img => img.filename) : null,
                             richText: renderRichText(item.text)
                         }
+                    case 'Resource':
+                        return {
+                            component: 'Resource',
+                            id: item._uid,
+                            label: item.title,
+                            content: item.info.map((component) => {
+                                switch (component.component) {
+                                    case 'LinkList':
+                                        return {
+                                            component: 'LinkList',
+                                            id: component._uid,
+                                            links: component.links.map((link) => {
+                                                return {
+                                                    component: 'Link',
+                                                    id: link._uid,
+                                                    title: link.title,
+                                                    url: link.url.url,
+                                                    target: link.url.target ? link.url.target : "_blank"
+                                                }
+                                            })
+                                        }
+                                    case 'DownloadList': 
+                                        return {
+                                            component: 'DownloadList',
+                                            id: component._uid,
+                                            downloads: component.asset.map((download) => {
+                                                return {
+                                                    component: 'Download',
+                                                    id: download._uid,
+                                                    title: download.title,
+                                                    download: download.document.filename,
+                                                }
+                                            })
+                                        }
+                                    default: return {} 
+                                }
+                            })
+
+                        }
                     case 'DropdownCard': 
                         return {
                             component: 'DropdownCard',
+                            id: item._uid,
                             defaultOpen: item.defaultOpen,
                             title: item.title,
                             richText: renderRichText(item.contents)
@@ -176,70 +224,76 @@ export async function getStaticProps(context) {
                     case 'InfoBox': 
                         return {
                             component: 'InfoBox',
+                            id: item._uid,
                             richText: renderRichText(item.message)
                         }
-                    case 'VideoRow': 
+                    case 'Video': 
                         return {
                             component: 'Video',
-                            orientation: 'row', // row, col
-                            asset: item.asset[0] ? {
-                                type: item.asset[0].component,
-                                title: item.asset[0].title,
-                                url: item.asset[0].document.filename, // Fix: switch field to hosted asset, not url string
-                                icon: item.asset[0].icon,
-                            } : null,
+                            orientation: item.layout,
                             title: item.title,
                             description: item.description.content[0].content[0].text,
                             videoUrl: item.videoUrl.url,
-                            image: item.media ? item.media.filename : null
-                        }
-                    case 'VideoColumn': 
-                        return {
-                            component: 'Video',
-                            orientation: 'col', // row, col
+                            image: item.Thumbnail.filename ? item.Thumbnail.filename : null,
                             asset: item.asset[0] ? {
-                                type: item.asset[0].component,
+                                component: item.asset[0].component, // Download, Link
                                 title: item.asset[0].title,
-                                url: item.asset[0].document.filename, // Fix: switch field to hosted asset, not url string
-                                icon: item.asset[0].icon,
-                            } : null,
-                            title: item.title,
-                            description: item.description.content[0].content[0].text,
-                            videoUrl: item.videoUrl.url,
-                            image: item.media ? item.media.filename : null
+                                download: item.asset[0].document ? item.asset[0].document.filename : null,
+                                link: item.asset[0].url ? {
+                                        url: item.asset[0].url.url ? item.asset[0].url.url : null,
+                                        target: item.asset[0].url.target ? item.asset[0].url.target : "_blank"
+                                }: null,
+                            } : null
                         }
                     case 'Accordion':
                         return {
                             component: 'Accordion2',
                             id: item._uid,
-                            title: item.title,
-                            showTitle: item.showTitle,
-                            contents: item.content.map((comp) => {
+                            title: item.title ? item.title : null,
+                            contents: item.content.map((drop) => {
                                 return {
                                     component: 'Dropdown',
-                                    id: comp._uid,
-                                    label: comp.label ? comp.label : null,
-                                    showIcon: comp.showIcon,
-                                    defaultOpen: comp.defaultOpen,
-                                    content: comp.content.map((j) => {
+                                    id: drop._uid,
+                                    label: drop.label ? drop.label : null,
+                                    content: drop.content.map((j) => {
                                         switch(j.component){
                                             case 'Paragraph':
                                                 return {
                                                     component: 'Paragraph',
+                                                    id: j._uid,
+                                                    accordion: true,
                                                     title: j.title ? j.title : null,
                                                     media: j.media[0] ? j.media.map(img => img.filename) : null,
                                                     richText: renderRichText(j.text)
                                                 }
-                                            case 'Download':
+                                            case 'DownloadList':
                                                 return {
-                                                    component: 'Download',
-                                                    title: j.title,
-                                                    url: j.document ? j.document.filename : null,
-                                                    icon: j.icon,
+                                                    component: 'DownloadList',
+                                                    id: j._uid,
+                                                    accordion: true,
+                                                    downloads: j.asset.map((listItem) => {
+                                                        return {
+                                                            component: 'Download',
+                                                            id: listItem._uid,
+                                                            title: listItem.title,
+                                                            download: listItem.document.filename,
+                                                        }
+                                                    })
                                                 }
-                                            case 'Link':
+                                            case 'LinkList':
                                                 return {
-
+                                                    component: 'LinkList',
+                                                    id: j._uid,
+                                                    accordion: true,
+                                                    links: j.links.map((listItem) => {
+                                                        return {
+                                                            component: 'Link',
+                                                            id: listItem._uid,
+                                                            title: listItem.title,
+                                                            url: listItem.url.url,
+                                                            target: listItem.url.target ? listItem.url.target : "_blank"
+                                                        }
+                                                    })
                                                 }
                                             default: return []
                                         }
@@ -255,9 +309,10 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            condition,
+            // condition,
             params,
             indexes,
+            arthritis,
             conditionHeader,
             page
         }

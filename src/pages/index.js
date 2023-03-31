@@ -14,7 +14,7 @@ export default function Home({ accordion, data }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className="px-8">
+            <main className="max-w-5xl mx-auto px-8 mt-12 min-h-screen">
                 <Accordion accordion={accordion} title={"All Treatments"} />
             </main>
         </>

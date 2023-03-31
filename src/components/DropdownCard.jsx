@@ -6,6 +6,7 @@ import { ICONS } from './Theme'
 export default function DropdownCard(props) {
 
     const {
+        id,
         defaultOpen = false,
         title,
         richText

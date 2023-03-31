@@ -1,5 +1,6 @@
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs'
+import { GiStethoscope } from 'react-icons/gi'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -11,17 +12,22 @@ import InfoBox from './InfoBox';
 import Accordion from './Accordion';
 import Accordion2 from './Accordion2';
 import Download from './Download';
+import Resource from './Resource';
+import LinkList from './LinkList';
+import DownloadList from './DownloadList';
+import Dropdown from './Dropdown';
 
 export const ICONS = {
     Plus: FiPlus,
     Minus: FiMinus,
+    pdf: BsFileEarmarkPdf,
+    play: PlayIcon,
+    stethoscope: GiStethoscope,
+    carouselArrowLeft: BsArrowLeftCircle,
+    carouselArrowRight: BsArrowRightCircle,
     knee: KneeIcon,
     hip: HipIcon,
     shoulder: ShoulderIcon,
-    pdf: BsFileEarmarkPdf,
-    play: PlayIcon,
-    carouselArrowLeft: BsArrowLeftCircle,
-    carouselArrowRight: BsArrowRightCircle
 };
 
 export const COMPONENTS = {
@@ -31,6 +37,10 @@ export const COMPONENTS = {
     InfoBox: InfoBox,
     Accordion2: Accordion2,
     Download: Download,
+    Resource: Resource,
+    LinkList: LinkList,
+    DownloadList: DownloadList,
+    Dropdown: Dropdown,
 }
 
 export const FONT_COLORS = {

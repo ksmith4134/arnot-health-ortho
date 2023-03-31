@@ -5,13 +5,15 @@ import Prose from './Prose'
 export default function Paragraph(props) {
 
     const { 
+        id,
+        accordion = false,
         media, 
         title = null, 
         richText 
     } = props
 
     return (
-        <div className='flex flex-col md:block'>
+        <div className={`flex flex-col md:block ${accordion && 'mt-6 mb-6'}`}>
             { title &&
                 <h2 className='order-1 text-2xl mb-4'>{title}</h2>
             }

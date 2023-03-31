@@ -1,17 +1,18 @@
 import Image from 'next/image'
 import defaultPic from '../../public/Same Day Surgery Tour.jpg'
 import Download from './Download'
+import LinkWrapper from './LinkWrapper'
 import { ICONS } from './Theme'
 
 export default function Video(props) {
 
     const {
-        asset = {}, 
         orientation = 'row',
         title = '', 
         description = '', 
         videoUrl = 'https://www.youtube.com/watch?v=uUmAUxWFYCw', 
         image = '',
+        asset = {}, // goes to either Download or LinkWrapper component
         handleClick = () => console.log('Video modal open')
     } = props
 
@@ -25,8 +26,11 @@ export default function Video(props) {
             <div className='basis-6/12'>
                 <h2 className='text-2xl'>{title}</h2>
                 <p className='mt-2 text-sm'>{description}</p>
-                { asset && 
-                    <Download title={asset.title} url={asset.url} icon={asset.icon} fontSize={'small'} />
+                { asset?.component === 'Download' && 
+                    <Download title={asset.title} download={asset.download} fontSize={'small'} />
+                }
+                { asset?.component === 'Link' && 
+                    <LinkWrapper title={asset.title} url={asset.link.url} target={asset.link.target} />
                 }
             </div>
             <div className={`basis-6/12 ${orientation === 'row' ? 'mt-4 md:mt-0' : 'mt-4'}`}>

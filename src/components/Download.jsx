@@ -6,9 +6,10 @@ import { ICONS } from './Theme'
 export default function Download(props) {
 
     const {
+        id,
         title, 
-        url, 
-        icon,
+        download,
+        icon = 'pdf',
         fontSize = 'normal'
     } = props
 
@@ -17,11 +18,9 @@ export default function Download(props) {
     const AssetIcon = icon ? ICONS[icon] : null
     
     return (
-        <div className=''>
-            <Link href={url ? url : router.asPath} target='_blank' className='mt-4 flex items-center space-x-2'>
-                {AssetIcon && <AssetIcon className='text-red-500 text-3xl' />}
-                {title && <p className={`${fontSize === 'small' ? 'text-sm' : ''}`}>{title}</p>}
-            </Link>
-        </div>
+        <Link href={download ? download : router.asPath} target='_blank' className='mt-4 flex items-center space-x-2 text-arnotRed hover:underline hover:underline-offset-4'>
+            {AssetIcon && <AssetIcon className={`text-red-500 ${fontSize === 'small' ?'text-2xl' : 'text-3xl'}`} />}
+            {title && <p className={`${fontSize === 'small' ? 'text-sm' : ''}`}>{title}</p>}
+        </Link>
   )
 }
