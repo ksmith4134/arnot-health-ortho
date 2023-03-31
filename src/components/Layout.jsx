@@ -13,7 +13,7 @@ export default function Layout({children}) {
     <div className={`${openSans.variable} font-sans`}>
         <Header />
         <Breadcrumbs />
-        {children}
+        { children }
         <Footer />
     </div>
   )

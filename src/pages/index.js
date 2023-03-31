@@ -26,7 +26,7 @@ export async function getStaticProps() {
     const storyblokApi = getStoryblokApi();
 
     let { data } = await storyblokApi.get(`cdn/stories`, {
-        version: "published",
+        version: "draft",
         starts_with: "body",
         resolve_relations: "body.conditions",
     });

@@ -7,7 +7,7 @@ export default function Body() {
 
     useEffect(() => {
         router.back()
-    }, [])
+    }, [router])
 
     return (
         <LoadingSpinner />

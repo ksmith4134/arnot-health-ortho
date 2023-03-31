@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../../../public/svg/Logo.svg'
+import { FaAngleDown } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
 export default function Header() {
