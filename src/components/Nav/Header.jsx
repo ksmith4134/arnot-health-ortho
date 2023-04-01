@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../../../public/svg/Logo.svg'
 import { FaAngleDown } from 'react-icons/fa'
+import { RxHamburgerMenu } from 'react-icons/rx'
 import { useRouter } from 'next/router'
 
 export default function Header() {
@@ -10,14 +11,14 @@ export default function Header() {
 
     return (
         <div className='w-full'>
-            <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-end'>
-                <Link href="/">
-                    <Image src={Logo} alt="logo" className='w-36' />
+            <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end'>
+                <Link href="/" className='flex-none'>
+                    <Image src={Logo} alt="logo" className='w-28 md:w-36' />
                 </Link>
-                <div className='flex justify-start items-center'>
+                <div className='hidden md:flex justify-start items-center'>
                     {
                         nav.map((item) => (
-                            <div key={item.id} className='pl-12 text-md text-arnotBlue font-semibold'>
+                            <div key={item.id} className='pl-8 lg:pl-12 text-md text-arnotBlue font-semibold'>
                                 { item.url
                                     ? <Link href={item.url}>{item.label}</Link>
                                     : <div>{item.label}</div>
@@ -25,6 +26,9 @@ export default function Header() {
                             </div>
                         ))
                     }
+                </div>
+                <div className='block md:hidden'>
+                    <RxHamburgerMenu className='text-3xl' />
                 </div>
             </div>
         </div>
