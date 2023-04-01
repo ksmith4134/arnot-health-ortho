@@ -17,6 +17,25 @@ import LinkList from './LinkList';
 import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
 
+export const SKELETON_LOCATIONS = {
+    Elbow: '',
+    Foot_ankle: '',
+    Hand_wrist: '',
+    Hip: 'top-[250px] left-[90px]',
+    Knee: 'top-[378px] right-[96px]',
+    Shoulder: '',
+}
+
+export const SKELETON_BG = {
+    primary: 'bg-arnotBlue/40',
+    secondary: 'bg-teal-500/40',
+}
+
+export const SKELETON_BORDER = {
+    primary: 'border-arnotBlue',
+    secondary: 'border-teal-500',
+}
+
 export const ICONS = {
     Plus: FiPlus,
     Minus: FiMinus,
@@ -46,6 +65,11 @@ export const COMPONENTS = {
 export const FONT_COLORS = {
     primary: 'text-arnotBlue',
     secondary: 'text-teal-500',
+}
+
+export const BG_COLORS = {
+    primary: 'bg-arnotBlue',
+    secondary: 'bg-teal-500',
 }
 
 export const HOVER_FONT_COLORS = {

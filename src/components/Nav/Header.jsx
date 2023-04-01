@@ -18,7 +18,7 @@ export default function Header() {
                 <div className='hidden md:flex justify-start items-center'>
                     {
                         nav.map((item) => (
-                            <div key={item.id} className='pl-8 lg:pl-12 text-md text-arnotBlue font-semibold'>
+                            <div key={item.id} className='pl-8 lg:pl-12 text-sm text-arnotBlue font-semibold'>
                                 { item.url
                                     ? <Link href={item.url}>{item.label}</Link>
                                     : <div>{item.label}</div>

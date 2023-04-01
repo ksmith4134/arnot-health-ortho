@@ -315,6 +315,7 @@ export async function getStaticProps(context) {
             arthritis,
             conditionHeader,
             page
-        }
+        },
+        revalidate: 3600,
     }
 }

@@ -1,6 +1,7 @@
-import Head from "next/head";
-import Accordion from "@/components/Accordion";
-import { getStoryblokApi } from "@storyblok/react"
+import Head from 'next/head';
+import Hero from '@/components/Homepage/Hero';
+import Body from '@/components/Homepage/Body';
+import { getStoryblokApi } from '@storyblok/react'
 
 export default function Home({ accordion, data }) {
 
@@ -10,12 +11,13 @@ export default function Home({ accordion, data }) {
         <>
             <Head>
                 <title>Arnot Orthopedics</title>
-                <meta name="description" content="Patient and Professional Resources" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name='description' content='Patient and Professional Resources' />
+                <meta name='viewport' content='width=device-width, initial-scale=1' />
+                <link rel='icon' href='/favicon.ico' />
             </Head>
-            <main className="max-w-5xl mx-auto px-8 mt-12 min-h-screen">
-                <Accordion accordion={accordion} title={"All Treatments"} />
+            <main>
+                <Hero />
+                <Body accordion={accordion} />
             </main>
         </>
     );
@@ -26,9 +28,9 @@ export async function getStaticProps() {
     const storyblokApi = getStoryblokApi();
 
     let { data } = await storyblokApi.get(`cdn/stories`, {
-        version: "draft",
-        starts_with: "body",
-        resolve_relations: "body.conditions",
+        version: 'draft',
+        starts_with: 'body',
+        resolve_relations: 'body.conditions',
     });
 
     const accordion = data.stories.map((item) => {

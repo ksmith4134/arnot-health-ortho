@@ -20,7 +20,7 @@ export default function Accordion(props) {
     // const opened = id === selected
 
     return (
-        <div className='max-w-xs'>
+        <div className='max-w-sm'>
             {title && <h3 className={`mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
             {
                 accordion.map((entry) => (
