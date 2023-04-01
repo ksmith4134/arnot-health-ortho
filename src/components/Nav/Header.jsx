@@ -11,7 +11,7 @@ export default function Header() {
 
     return (
         <div className='w-full'>
-            <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end'>
+            <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end border-b-[1px] shadow-md shadow-gray-200/50 md:border-none md:shadow-none'>
                 <Link href="/" className='flex-none'>
                     <Image src={Logo} alt="logo" className='w-28 md:w-36' />
                 </Link>

@@ -25,8 +25,8 @@ export default function Dropdown(props) {
                     <h4 className={`${opened && FONT_COLORS[theme]+' font-bold'} text-md`}>{label}</h4>
                 }
                 { opened
-                    ? <CloseIcon className='text-xl' />
-                    : <OpenIcon className='text-xl' />
+                    ? <CloseIcon className='text-xl flex-none' />
+                    : <OpenIcon className='text-xl flex-none' />
                 }
             </div>
             <div className='my-4'>
