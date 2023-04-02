@@ -10,7 +10,7 @@ export default function Hero(props) {
             {id: 2, label: 'Physical therapy'}
         ],
         title = 'Arnot Health Orthopedics',
-        subTitle = 'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative edicational content.',
+        subTitle = 'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative educational content.',
         buttonLabel = 'Find My Condition',
         url = '#body-diagram'
     } = props
@@ -19,7 +19,7 @@ export default function Hero(props) {
         <div className='relative overflow-hidden w-full h-[600px] bg-gray-200 shadow-lg shadow-slate-400/10'>
             
             {/* Image */}
-            <div className='absolute right-0 w-3/4 h-full z-0'>
+            <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
                 <Image src={'/HeroTest.jpg'} alt="hero image" fill quality={100} priority className='object-cover' placeholder="blur" 
                 blurDataURL={'/HeroTest.jpg'} />
             </div>
@@ -28,7 +28,7 @@ export default function Hero(props) {
             <div className='absolute left-0 top-0 w-3/4 h-full z-10 bg-gradient-to-r from-white via-white ...'></div>
 
             {/* Text and Button */}
-            <div className='max-w-5xl h-full mx-auto px-8 flex items-center'>
+            <div className='max-w-5xl h-full mx-auto px-8 flex justify-center md:justify-start items-center'>
                 <div className='max-w-lg z-40'>
                     <div className='flex flex-row space-x-4'>
                         { 

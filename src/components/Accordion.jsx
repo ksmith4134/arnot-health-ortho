@@ -9,18 +9,12 @@ export default function Accordion(props) {
         accordion = {}, 
         title = '',
         theme = 'primary',
+        selected, 
+        handleClick
     } = props;
 
-    const [selected, setSelected] = useState(null)
-
-    const handleClick = (id) => {
-        id === selected ? setSelected(null) : setSelected(id)
-    }
-
-    // const opened = id === selected
-
     return (
-        <div className='max-w-sm'>
+        <div className='max-w-xl md:max-w-sm w-full flex-grow'>
             {title && <h3 className={`mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
             {
                 accordion.map((entry) => (

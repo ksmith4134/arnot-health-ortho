@@ -232,7 +232,7 @@ export async function getStaticProps(context) {
                             component: 'Video',
                             orientation: item.layout,
                             title: item.title,
-                            description: item.description.content[0].content[0].text,
+                            description: renderRichText(item.description),
                             videoUrl: item.videoUrl.url,
                             image: item.Thumbnail.filename ? item.Thumbnail.filename : null,
                             asset: item.asset[0] ? {

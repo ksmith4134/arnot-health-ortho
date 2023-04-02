@@ -18,12 +18,12 @@ import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
 
 export const SKELETON_LOCATIONS = {
-    Elbow: '',
+    Elbow: 'top-[30%] right-[16%]',
     Foot_ankle: '',
     Hand_wrist: '',
-    Hip: 'top-[250px] left-[90px]',
-    Knee: 'top-[378px] right-[96px]',
-    Shoulder: '',
+    Hip: 'top-[44%] left-[32%]',
+    Knee: 'bottom-[23.3%] right-[34.5%]',
+    Shoulder: 'top-[14%] left-[26%]',
 }
 
 export const SKELETON_BG = {
