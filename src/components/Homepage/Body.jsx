@@ -21,6 +21,9 @@ export default function Body(props) {
     const [ skeleton, setSkeleton ] = useState(null)
     const [ openDropdown, setOpenDropdown ] = useState(null)
 
+    useEffect(() => {
+        console.log('dropdown id', openDropdown)
+    }, [openDropdown])
 
     const handleAccordionClick = (id) => {
         id === openDropdown ? setOpenDropdown(null) : setOpenDropdown(id)
@@ -78,7 +81,7 @@ export default function Body(props) {
                         }
                     </div>
                     <div className='hidden md:block order-2 basis-4/12 relative flex-none'>
-                        <Skeleton skeleton={skeleton} theme={conditionCategories[category].theme} handleAccordionClick={handleAccordionClick}  />
+                        <Skeleton skeleton={skeleton} theme={conditionCategories[category].theme} handleAccordionClick={handleAccordionClick} selected={openDropdown}  />
                     </div>
                 </div>
             </div>

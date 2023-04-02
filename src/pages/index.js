@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
+import Team from '@/components/Homepage/Team';
 import Body from '@/components/Homepage/Body';
 import { getStoryblokApi } from '@storyblok/react'
 
@@ -17,6 +18,7 @@ export default function Home({ accordion, data }) {
             </Head>
             <main>
                 <Hero />
+                <Team />
                 <Body accordion={accordion} />
             </main>
         </>

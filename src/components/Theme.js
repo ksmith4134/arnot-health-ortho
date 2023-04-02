@@ -1,5 +1,7 @@
 import { FiPlus, FiMinus } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs'
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink } from 'react-icons/bs'
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
+import { HiOutlinePlayCircle } from 'react-icons/hi2'
 import { GiStethoscope } from 'react-icons/gi'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
@@ -18,17 +20,22 @@ import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
 
 export const SKELETON_LOCATIONS = {
-    Elbow: 'top-[30%] right-[16%]',
-    Foot_ankle: '',
-    Hand_wrist: '',
-    Hip: 'top-[44%] left-[32%]',
-    Knee: 'bottom-[23.3%] right-[34.5%]',
-    Shoulder: 'top-[14%] left-[26%]',
+    'Elbow': 'top-[30%] right-[16%]',
+    'Foot / Ankle': 'top-[45%] left-[3%]',
+    'Hand / Wrist': '',
+    'Hip': 'top-[44%] left-[32%]',
+    'Knee': 'bottom-[23.3%] right-[34.5%]',
+    'Shoulder': 'top-[14%] left-[26%]',
 }
 
 export const SKELETON_BG = {
     primary: 'bg-arnotBlue/40',
     secondary: 'bg-teal-500/40',
+}
+
+export const SKELETON_BG_SELECTED = {
+    primary: 'bg-arnotBlue/60',
+    secondary: 'bg-teal-500/60',
 }
 
 export const SKELETON_BORDER = {
@@ -42,6 +49,9 @@ export const ICONS = {
     pdf: BsFileEarmarkPdf,
     play: PlayIcon,
     stethoscope: GiStethoscope,
+    checkCircle: IoIosCheckmarkCircleOutline,
+    playCircle: HiOutlinePlayCircle,
+    linkCircle: BsLink,
     carouselArrowLeft: BsArrowLeftCircle,
     carouselArrowRight: BsArrowRightCircle,
     knee: KneeIcon,

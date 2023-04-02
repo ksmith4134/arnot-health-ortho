@@ -1,13 +1,14 @@
 import Image from "next/image"
 import skeletonImg from '../../../public/skeleton_1_No Background.png'
-import { SKELETON_LOCATIONS, SKELETON_BG, SKELETON_BORDER } from '../Theme'
+import { SKELETON_LOCATIONS, SKELETON_BG, SKELETON_BG_SELECTED, SKELETON_BORDER } from '../Theme'
 
 export default function Skeleton(props) {
 
     const {
         skeleton,
         theme,
-        handleAccordionClick
+        handleAccordionClick,
+        selected
     } = props
 
     return (
@@ -19,9 +20,12 @@ export default function Skeleton(props) {
                         key={location.id}
                         onClick={() => handleAccordionClick(location.id)}
                         className={`
-                            w-10 h-10 absolute rounded-full flex justify-center items-center text-xs border-2 
+                            w-10 h-10 absolute rounded-full flex justify-center items-center text-xs
                             hover:animate-customPing hover:cursor-pointer
-                            ${SKELETON_BG[theme]}
+                            ${selected === location.id 
+                                ? `${SKELETON_BG_SELECTED[theme]} border-4`
+                                : `${SKELETON_BG[theme]} border-2`
+                            }
                             ${SKELETON_BORDER[theme]}
                             ${SKELETON_LOCATIONS[location.label]}
                         `}
