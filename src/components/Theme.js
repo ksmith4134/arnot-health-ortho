@@ -6,6 +6,9 @@ import { GiStethoscope } from 'react-icons/gi'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
+import ElbowIcon from '../../public/svg/ElbowIcon.svg'
+import FootAnkleIcon from '../../public/svg/FootAnkleIcon.svg'
+import HandIcon from '../../public/svg/HandIcon.svg'
 import PlayIcon from '../../public/svg/PlayIcon.svg'
 import Paragraph from './Paragraph';
 import Video from './Video';
@@ -22,8 +25,8 @@ import CarouselWrapper from './CarouselWrapper';
 
 export const SKELETON_LOCATIONS = {
     'Elbow': 'top-[30%] right-[16%]',
-    'Foot / Ankle': 'top-[45%] left-[3%]',
-    'Hand / Wrist': '',
+    'Foot / Ankle': 'bottom-[0%] left-[34%]',
+    'Hand / Wrist': 'top-[45%] left-[3%]',
     'Hip': 'top-[44%] left-[32%]',
     'Knee': 'bottom-[23.3%] right-[34.5%]',
     'Shoulder': 'top-[14%] left-[26%]',
@@ -55,10 +58,16 @@ export const ICONS = {
     linkCircle: BsLink,
     carouselArrowLeft: BsArrowLeftCircle,
     carouselArrowRight: BsArrowRightCircle,
-    knee: KneeIcon,
-    hip: HipIcon,
-    shoulder: ShoulderIcon,
 };
+
+export const BODY_ICONS = {
+    'knee': KneeIcon,
+    'hip': HipIcon,
+    'shoulder': ShoulderIcon,
+    'elbow': ElbowIcon,
+    'hand-wrist': HandIcon,
+    'foot-ankle': FootAnkleIcon 
+}
 
 export const COMPONENTS = {
     Paragraph: Paragraph,

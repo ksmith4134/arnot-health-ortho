@@ -1,6 +1,5 @@
-import React from 'react'
 import Image from 'next/image'
-import { ICONS } from './Theme'
+import { BODY_ICONS } from './Theme'
 
 
 export default function ConditionHeader(props) {
@@ -12,7 +11,7 @@ export default function ConditionHeader(props) {
         description 
     } = props
 
-    const bodyPartIcon = ICONS[`${bodyPart}`]
+    const bodyPartIcon = BODY_ICONS[`${bodyPart}`]
 
     return (
         <div className='-mb-4'>
@@ -21,7 +20,7 @@ export default function ConditionHeader(props) {
             <div className='mt-12 flex justify-center items-center space-x-6'>
                 <div className='flex-none inline-flex items-center space-x-3'>
                     { bodyPartIcon && 
-                        <Image src={bodyPartIcon} alt='body part icon' className='w-12 aspect-square' />
+                        <Image src={bodyPartIcon} alt='body part icon' className='w-16 aspect-square' />
                     }
                     <div className='text-arnotBlue font-bold uppercase'>{label}</div>
                 </div>
