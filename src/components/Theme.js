@@ -18,6 +18,7 @@ import Resource from './Resource';
 import LinkList from './LinkList';
 import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
+import CarouselWrapper from './CarouselWrapper';
 
 export const SKELETON_LOCATIONS = {
     'Elbow': 'top-[30%] right-[16%]',
@@ -34,8 +35,8 @@ export const SKELETON_BG = {
 }
 
 export const SKELETON_BG_SELECTED = {
-    primary: 'bg-arnotBlue/60',
-    secondary: 'bg-teal-500/60',
+    primary: 'bg-arnotBlue/80',
+    secondary: 'bg-teal-500/80',
 }
 
 export const SKELETON_BORDER = {
@@ -70,6 +71,7 @@ export const COMPONENTS = {
     LinkList: LinkList,
     DownloadList: DownloadList,
     Dropdown: Dropdown,
+    CarouselWrapper: CarouselWrapper,
 }
 
 export const FONT_COLORS = {
@@ -80,6 +82,11 @@ export const FONT_COLORS = {
 export const BG_COLORS = {
     primary: 'bg-arnotBlue',
     secondary: 'bg-teal-500',
+}
+
+export const MENU_BG_COLORS = {
+    primary: 'bg-arnotBlue/10',
+    secondary: 'bg-teal-500/10',
 }
 
 export const HOVER_FONT_COLORS = {

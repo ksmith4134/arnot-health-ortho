@@ -24,7 +24,7 @@ export default function Video(props) {
 
     return (
         <div className={`flex ${orientation === 'row' ? 'lg:flex-row flex-col lg:space-x-8' : 'flex-col'} justify-center items-center`}>
-            <div className='basis-6/12 flex-shrink'>
+            <div className={`${orientation === 'row' ? 'basis-6/12 flex-shrink' : 'w-full'}`}>
                 <h2 className='text-2xl'>{title}</h2>
                 <div className='mt-2'>
                     <Prose richText={description} />

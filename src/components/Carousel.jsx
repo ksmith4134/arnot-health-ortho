@@ -28,7 +28,7 @@ export default function Carousel(props) {
     }
 
     return (
-        <div className={`w-full ${float && `md:w-80 order-2 float-none md:float-right md:ml-12 mt-8 md:mt-1`}`}>
+        <div className={`w-full mt-8 md:mt-1 ${float && `md:w-80 order-2 float-none md:float-right md:ml-12`}`}>
             { children[index] }
             <CarouselControls selected={index} length={length} increment={handleIncrement} decrement={handleDecrement} />
         </div>

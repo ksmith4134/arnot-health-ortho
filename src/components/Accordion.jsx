@@ -1,6 +1,5 @@
 import Dropdown from '@/components/Dropdown';
-import { useState } from 'react'
-import { HOVER_FONT_COLORS, FONT_COLORS } from './Theme'
+import { HOVER_FONT_COLORS, FONT_COLORS, MENU_BG_COLORS } from './Theme'
 import Link from 'next/link';
 
 export default function Accordion(props) {
@@ -30,13 +29,21 @@ export default function Accordion(props) {
                         handleClick={handleClick}
                     >
                         {
-                            entry.id === selected && entry.contents.map((item) => (
-                                <div key={item.id} className='my-1'>
-                                    <p className={`text-md ${HOVER_FONT_COLORS[theme]}`}>
-                                        {item.link ? (<Link href={`${item.link}/?index=Background`}>{item.entry}</Link>) : item.entry}
-                                    </p>
-                                </div>
-                            ))
+                            entry.id === selected && 
+                            <div className={`pl-4`}>
+                                {
+                                    entry.contents.map((item) => (
+                                        <div key={item.id} className='my-2'>
+                                            <p className={`text-md ${HOVER_FONT_COLORS[theme]}`}>
+                                                { item.link 
+                                                    ? (<Link href={`${item.link}/?index=Background`}>{item.entry}</Link>) 
+                                                    : item.entry
+                                                }
+                                            </p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
                         }
                     </Dropdown>
                 ))

@@ -9,7 +9,7 @@ export default function LinkList(props) {
     } = props
 
     return (
-        <div className='mt-4 mb-8'>
+        <div className={`${accordion ? 'mt-4 mb-8' : 'mt-8'}`}>
             {
                 links.map((link) => (
                     <LinkWrapper key={link.id} title={link.title} url={link.url} target={link.target} showIcon={true} />

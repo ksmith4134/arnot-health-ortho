@@ -26,7 +26,7 @@ export default function Condition(props) {
     const router = useRouter()
 
     const [ index, setIndex ] = useState(null)
-    const [ openDropdown, setOpenDropdown ] = useState(false)
+    const [ openMobileIndex, setOpenMobileIndex ] = useState(false)
     const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
 
@@ -39,12 +39,12 @@ export default function Condition(props) {
     }, [index])
 
     const handleIndexClick = (index) => {
-        setOpenDropdown(false)
+        setOpenMobileIndex(false)
         router.push(`/${params.body}/${params.condition}?index=${index}`)
     }
 
     const openDropdownClick = () => {
-        setOpenDropdown(!openDropdown)
+        setOpenMobileIndex(!openMobileIndex)
     }
 
     // open full screen video modal
@@ -81,7 +81,7 @@ export default function Condition(props) {
     return (
         <div className='relative z-0 mb-40'>
             <div className='block md:hidden sticky top-0 z-10'>
-                <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openDropdown} />
+                <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openMobileIndex} />
             </div>
             <div className='max-w-5xl min-h-screen my-16 mx-auto flex flex-row md:space-x-10 items-start px-8'>
                 <div className='hidden md:block md:basis-1/5 sticky top-8 flex-none'>
@@ -173,6 +173,13 @@ export async function getStaticProps(context) {
                             title: item.title ? item.title : null,
                             media: item.media[0] ? item.media.map(img => img.filename) : null,
                             richText: renderRichText(item.text)
+                        }
+                    case 'ImageCarousel':
+                        return {
+                            component: 'CarouselWrapper',
+                            id: item._uid,
+                            media: item.media[0] ? item.media.map(img => img.filename) : null,
+                            title: item.title ? item.title : null,
                         }
                     case 'Resource':
                         return {

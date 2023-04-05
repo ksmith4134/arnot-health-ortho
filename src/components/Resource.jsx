@@ -13,7 +13,7 @@ export default function Resource(props) {
     // use getComponent to render content: LinksList, DownloadList
 
     return (
-        <div className=''>
+        <div>
             <h2 className='text-2xl'>{label}</h2>
             {
                 content[0].component === 'LinkList' && <LinkList links={content[0].links} />
