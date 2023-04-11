@@ -2,6 +2,7 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink } from 'react-icons/bs'
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
 import { HiOutlinePlayCircle } from 'react-icons/hi2'
+import { FaStethoscope, FaBookMedical } from 'react-icons/fa'
 import { GiStethoscope } from 'react-icons/gi'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
@@ -52,7 +53,8 @@ export const ICONS = {
     Minus: FiMinus,
     pdf: BsFileEarmarkPdf,
     play: PlayIcon,
-    stethoscope: GiStethoscope,
+    stethoscope: FaStethoscope,
+    book: FaBookMedical,
     checkCircle: IoIosCheckmarkCircleOutline,
     playCircle: HiOutlinePlayCircle,
     linkCircle: BsLink,

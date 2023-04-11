@@ -11,7 +11,7 @@ export default function Video(props) {
         orientation = 'row',
         title = '', 
         description = '', 
-        videoUrl = 'https://www.youtube.com/watch?v=uUmAUxWFYCw', 
+        videoUrl = 'https://www.youtube.com/embed/uUmAUxWFYCw', 
         image = '',
         asset = {}, // goes to either Download or LinkWrapper component
         handleClick = () => console.log('Video modal open')

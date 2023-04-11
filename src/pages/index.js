@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
 import Team from '@/components/Homepage/Team';
 import Body from '@/components/Homepage/Body';
+import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 
 export default function Home({ accordion, data }) {
 
     // console.log('API response', accordion)
+
+    const [ videoModal, setVideoModal ] = useState(null)
+
+    // open full screen video modal
+    const openModal = (url) => {
+        setVideoModal(url)
+    }
+
+    const closeModal = () => {
+        setVideoModal(null)
+    }
     
     return (
         <>
@@ -16,10 +29,13 @@ export default function Home({ accordion, data }) {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <main>
+            <main className='relative z-0'>
                 <Hero />
                 <Team />
                 <Body accordion={accordion} />
+                { videoModal && 
+                    <VideoModal url={videoModal} handleClick={closeModal} />
+                }
             </main>
         </>
     );

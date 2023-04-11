@@ -6,14 +6,30 @@ export default function ButtonPrimary(props) {
     const {
         label = 'Learn More',
         url,
+        invert = false,
         // handleClick = () => console.log('Button clicked...')
     } = props
 
     return (
         <Link href={url}>
-            <button className='bg-arnotBlue rounded-sm px-6 py-3 text-white text-md flex justify-center items-center group hover:shadow-lg transition ease-in-out duration-300'>
+            <button className={`
+                ${ invert 
+                    ? 'bg-none text-arnotBlue border border-arnotBlue' 
+                    : 'bg-arnotBlue text-white'
+                }
+                rounded-sm px-6 py-4 text-md flex justify-center items-center 
+                group hover:shadow-lg hover:shadow-gray-200/50 
+                transition ease-in-out duration-300
+            `}>
                 <div>{label}</div>
-                <RxArrowRight className='text-xl text-white ml-2 group-hover:translate-x-1 transition ease-in-out duration-300' />
+                <RxArrowRight className={`
+                    ${invert 
+                        ? 'text-arnotBlue' 
+                        : 'text-white'
+                    }
+                    text-xl ml-2 
+                    group-hover:translate-x-1 transition ease-in-out duration-300
+                `} />
             </button>
         </Link>
     )

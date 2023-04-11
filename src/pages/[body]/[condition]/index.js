@@ -65,7 +65,7 @@ export default function Condition(props) {
                 return <Component {...item} />
             }
         } else {
-            return (<div></div>)
+            return (<></>)
         }
     }
 
