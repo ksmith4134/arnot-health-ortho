@@ -6,6 +6,8 @@ export default function Team(props) {
 
     const {
         title = 'Meet Your Physicians',
+        showTitle = true,
+        meetTheTeam = true,
         team = [
             {
                 id: 0, 
@@ -51,7 +53,16 @@ export default function Team(props) {
 
     return (
         <div className='max-w-5xl mx-auto px-8 py-36'>
-            <h1 className='mt-6 text-4xl font-bold text-center'>{title}</h1>
+            { showTitle &&
+                <div className='flex flex-col items-center max-w-xl mx-auto'>
+                    <h4 className='uppercase text-sm text-center'>It&apos;s what we do</h4>
+                    <h1 className='mt-6 text-4xl font-bold text-center'>{title}</h1>
+                    <p className='mt-6 font-light text-lg text-center'></p>
+                    <Link href={'/team'} className='mt-6 px-6 py-3 rounded-full w-fit text-arnotBlue text-md flex justify-center hover:bg-gray-200'>Meet the Whole Team</Link>
+                </div>
+            }
+
+
             <div className={`
                 mt-8 grid grid-cols-1
                 ${team.length % 2 === 0 
@@ -60,7 +71,7 @@ export default function Team(props) {
             `}>
                 {
                     team.map(person => (
-                        <div key={person.id} className='mt-16 w-2/3 mx-auto space-y-6 flex flex-col items-center sm:items-start'>
+                        <div key={person.id} className={`${showTitle && 'mt-16'} w-2/3 mx-auto space-y-6 flex flex-col items-center sm:items-start`}>
                             <ProfilePic url={person.profilePic} />
                             <div className='text-center sm:text-left'>
                                 <h3 className='text-md font-bold'>{person.name + ', ' + person.title}</h3>
@@ -81,7 +92,9 @@ export default function Team(props) {
                     ))
                 }
             </div>
-            <Link href={'/team'} className='mt-24 text-arnotBlue underline underline-offset-4 text-sm flex justify-center'>Meet the Whole Team</Link>
+            { meetTheTeam && 
+                <Link href={'/team'} className='mt-24 px-6 py-3 rounded-full w-fit text-arnotBlue text-md flex justify-center hover:bg-gray-200'>Meet the Whole Team</Link>
+            }
         </div>
     )
 }

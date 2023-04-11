@@ -62,7 +62,7 @@ export default function Body(props) {
                 <div className='flex flex-col items-center max-w-xl mx-auto'>
                     <h4 className='uppercase text-sm text-center'>Patient Resources</h4>
                     <h1 className='mt-6 text-4xl font-bold text-center'>Learn About Your Condition</h1>
-                    <p className='mt-6 font-light text-lg text-center'>Click on the dropdown menus below <span className='hidden md:inline'>or the highlighted areas of the skeleton </span>to access information about your othropedic condition.</p>
+                    <p className='mt-6 font-light text-lg text-center'>Click on the dropdown menus below <span className='hidden md:inline'>or the highlighted areas of the skeleton </span>to access information about your orthopedic condition.</p>
                     <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
                 </div>
                 <div className='mt-12 md:mt-24 max-w-3xl mx-auto flex flex-row justify-between items-start'>
