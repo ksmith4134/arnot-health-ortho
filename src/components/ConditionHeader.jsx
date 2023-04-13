@@ -20,7 +20,7 @@ export default function ConditionHeader(props) {
             <div className='mt-12 flex justify-center items-center space-x-6'>
                 <div className='flex-none inline-flex items-center space-x-3'>
                     { bodyPartIcon && 
-                        <Image src={bodyPartIcon} alt='body part icon' className='w-16 aspect-square' />
+                        <Image src={bodyPartIcon} alt='body part icon' className='w-14 aspect-square' />
                     }
                     <div className='text-arnotBlue font-bold uppercase'>{label}</div>
                 </div>

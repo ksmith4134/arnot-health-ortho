@@ -2,7 +2,7 @@ import Accordion from '../Accordion'
 import { useState, useEffect } from 'react'
 import Skeleton from './Skeleton'
 import ButtonFilter from './ButtonFilter'
-import { ICONS } from '../Theme'
+import TitleBlock from '../Shared/TitleBlock'
 
 export default function Body(props) {
 
@@ -19,10 +19,6 @@ export default function Body(props) {
     const [ skeleton, setSkeleton ] = useState(null)
     const [ openDropdown, setOpenDropdown ] = useState(null)
 
-    // useEffect(() => {
-    //     console.log('dropdown id', openDropdown)
-    // }, [openDropdown])
-
     const handleAccordionClick = (id) => {
         id === openDropdown ? setOpenDropdown(null) : setOpenDropdown(id)
     }
@@ -30,7 +26,6 @@ export default function Body(props) {
     const handleFilterClick = (id) => {
         setCategory(id)
     }
-
 
     useEffect(() => {
         let updateAccordion = accordion.map((item) => {
@@ -56,20 +51,16 @@ export default function Body(props) {
         setSkeleton(skeletonLocations)
     }, [filteredAccordion])
 
-    const Book = ICONS['book']
-
     return (
         <div id="body-diagram" className='w-full bg-slate-50'>
             <div className='max-w-5xl mx-auto px-8 py-36'>
-                <div className='flex flex-col items-center max-w-xl mx-auto'>
-                    <div className='flex items-center space-x-2'>
-                        <Book className='text-2xl text-arnotPeach' />
-                        <h4 className='uppercase text-sm text-center'>Patient Resources</h4>
-                    </div>
-                    <h1 className='mt-6 text-4xl font-bold text-center'>Learn About Your Condition</h1>
-                    <p className='mt-6 font-light text-lg text-center'>Click on the dropdown menus below <span className='hidden md:inline'>or the highlighted areas of the skeleton </span>to access information about your orthopedic condition.</p>
-                    <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
-                </div>
+                <TitleBlock 
+                    icon={'book'} 
+                    kicker={'Patient Resources'} 
+                    title={'Learn About Your Condition'} 
+                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to access information about your orthopedic condition.'} 
+                />
+                <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
                 <div className='mt-12 md:mt-24 max-w-3xl mx-auto flex flex-row justify-between items-start'>
                     <div className='order-1 w-full md:basis-8/12 flex justify-center md:justify-start'>
                         { filteredAccordion &&

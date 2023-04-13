@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Carousel from './Carousel'
-import Prose from './Prose'
+import Prose from './markdown/Prose'
 
 export default function Paragraph(props) {
 

@@ -4,7 +4,7 @@ export default function Icon(props) {
     const {
         icon,
         color,
-        size = 'text-2xl'
+        size = 'text-xl'
     } = props
 
     const RenderIcon = ICONS[icon]

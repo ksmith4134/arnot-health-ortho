@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
-import Team from '@/components/Homepage/Team';
+import Team from '@/components/Team/Team';
 import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
+import { team } from '@/data/schema';
 
 export default function Home({ accordion, data }) {
 
@@ -31,11 +32,9 @@ export default function Home({ accordion, data }) {
             </Head>
             <main className='relative z-0'>
                 <Hero />
-                <Team />
+                <Team team={team} openModal={openModal} />
                 <Body accordion={accordion} />
-                { videoModal && 
-                    <VideoModal url={videoModal} handleClick={closeModal} />
-                }
+                { videoModal && <VideoModal url={videoModal} handleClick={closeModal} /> }
             </main>
         </>
     );
@@ -71,6 +70,7 @@ export async function getStaticProps() {
         props: {
             data, 
             accordion,
+            team
         },
         revalidate: 3600,
     };

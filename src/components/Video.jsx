@@ -2,7 +2,7 @@ import Image from 'next/image'
 import defaultPic from '../../public/Same Day Surgery Tour.jpg'
 import Download from './Download'
 import LinkWrapper from './LinkWrapper'
-import Prose from './Prose'
+import Prose from './markdown/Prose'
 import { ICONS } from './Theme'
 
 export default function Video(props) {

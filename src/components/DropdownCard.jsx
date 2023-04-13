@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TfiAngleDown } from 'react-icons/tfi'
-import Prose from './Prose'
+import Prose from './markdown/Prose'
 import { ICONS } from './Theme'
 
 export default function DropdownCard(props) {

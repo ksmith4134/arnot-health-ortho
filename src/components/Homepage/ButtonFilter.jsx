@@ -9,7 +9,7 @@ export default function ButtonFilter(props) {
     } = props
 
     return (
-        <div className='mt-16 w-full md:w-[400px]'>
+        <div className='mt-16 w-full md:w-[400px] mx-auto'>
             <label className='text-sm font-semibold block md:hidden'>Filter</label>
             <div className='rounded-lg mt-1 md:mt-0 md:rounded-full border border-gray-300 p-1 bg-gray-100 md:bg-none'>
                 <div className='flex flex-col md:flex-row justify-between'>

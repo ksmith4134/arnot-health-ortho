@@ -5,7 +5,7 @@ export default function VideoModal(props) {
     const { url, handleClick } = props;
 
     return (
-        <div className='fixed w-full h-full top-0' onClick={handleClick}>
+        <div className='fixed w-full h-full top-0 z-30' onClick={handleClick}>
             <div className='relative w-full h-full'>
                 <div className='absolute bg-gray-900 opacity-80 w-full h-full'>
                 </div>

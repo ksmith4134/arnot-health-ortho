@@ -1,9 +1,6 @@
-import { FiPlus, FiMinus } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink } from 'react-icons/bs'
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io'
-import { HiOutlinePlayCircle } from 'react-icons/hi2'
+import { FiPlus, FiMinus, FiMapPin } from 'react-icons/fi';
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone } from 'react-icons/bs'
 import { FaStethoscope, FaBookMedical } from 'react-icons/fa'
-import { GiStethoscope } from 'react-icons/gi'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -55,9 +52,12 @@ export const ICONS = {
     play: PlayIcon,
     stethoscope: FaStethoscope,
     book: FaBookMedical,
-    checkCircle: IoIosCheckmarkCircleOutline,
-    playCircle: HiOutlinePlayCircle,
+    checkCircle: BsCheckCircle,
+    playCircle: BsPlayCircle,
     linkCircle: BsLink,
+    plusCircle: BsPlusCircle,
+    telephone: BsTelephone,
+    map: FiMapPin,
     carouselArrowLeft: BsArrowLeftCircle,
     carouselArrowRight: BsArrowRightCircle,
 };

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ButtonPrimary from '../ButtonPrimary'
+import ButtonPrimary from '../Shared/ButtonPrimary'
 import CarouselWrapper from '../CarouselWrapper'
 
 export default function Hero(props) {
@@ -36,7 +36,7 @@ export default function Hero(props) {
 
             {/* Text and Button */}
             <div className='max-w-5xl h-full mx-auto px-8 flex justify-center md:justify-start items-center'>
-                <div className='max-w-lg z-40'>
+                <div className='max-w-lg z-20'>
                     { kicker &&  
                         <div className='flex flex-row space-x-4'>
                             {

@@ -1,7 +1,7 @@
-import Header from "./Nav/Header"
-import Footer from "./Nav/Footer"
+import Header from "./nav/Header"
+import Footer from "./nav/Footer"
 import { Open_Sans } from 'next/font/google'
-import Breadcrumbs from "./Nav/Breadcrumbs"
+import Breadcrumbs from "./nav/Breadcrumbs"
 
 const openSans = Open_Sans({
     subsets: ['latin'],

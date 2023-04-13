@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '@/components/Homepage/Hero'
-import Team from '@/components/Homepage/Team'
+import Team from '@/components/Team/Team'
 
 export default function TeamHome() {
   return (

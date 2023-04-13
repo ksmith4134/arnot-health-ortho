@@ -18,7 +18,7 @@ export default function ButtonPrimary(props) {
                     : 'bg-arnotBlue text-white'
                 }
                 rounded-sm px-6 py-4 text-md flex justify-center items-center 
-                group hover:shadow-lg hover:shadow-gray-200/50 
+                group hover:shadow-lg hover:shadow-arnotBlue/20 
                 transition ease-in-out duration-300
             `}>
                 <div>{label}</div>
