@@ -1,6 +1,6 @@
-import Header from '@/components/nav/Header'
-import Footer from '@/components/nav/Footer';
 import { Open_Sans } from 'next/font/google';
+import Header from './Header';
+import Footer from './Footer';
 
 const openSans = Open_Sans({
     subsets: ['latin'],

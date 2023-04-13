@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '../../../public/svg/Logo.svg'
+import Logo from '../../public/svg/Logo.svg'
 import { FaAngleDown } from 'react-icons/fa'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { useRouter } from 'next/router'
