@@ -15,7 +15,6 @@ export default function TeamHome() {
             carousel={true}
             url={'#'}
         />
-        <Team showTitle={false} meetTheTeam={false} />
     </div>
   )
 }
