@@ -3,10 +3,15 @@ import { useState, useEffect } from 'react'
 import Skeleton from './Skeleton'
 import ButtonFilter from './ButtonFilter'
 import TitleBlock from '../Shared/TitleBlock'
+import ButtonFilter2 from './ButtonFilter2'
 
 export default function Body(props) {
 
     const {
+        icon,
+        kicker,
+        title,
+        subTitle,
         conditionCategories = [
             { id: 0, label: 'All Treatments', theme: 'primary', filter: false},
             { id: 1, label: 'Arthritis & Joint Replacement', theme: 'secondary', filter: true},
@@ -55,18 +60,17 @@ export default function Body(props) {
         <div id="body-diagram" className='w-full bg-slate-50'>
             <div className='max-w-5xl mx-auto px-8 py-36'>
                 <TitleBlock 
-                    icon={'book'} 
-                    kicker={'Patient Resources'} 
-                    title={'Learn About Your Condition'} 
-                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to access information about your orthopedic condition.'} 
+                    kicker={kicker}
+                    title={title}
+                    subTitle={subTitle}
                 />
                 <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
-                <div className='mt-12 md:mt-24 max-w-3xl mx-auto flex flex-row justify-between items-start'>
+                <div className='mt-12 md:mt-28 max-w-3xl mx-auto flex flex-row justify-between items-start'>
                     <div className='order-1 w-full md:basis-8/12 flex justify-center md:justify-start'>
-                        { filteredAccordion &&
+                        { filteredAccordion &&                                
                             <Accordion 
                                 accordion={filteredAccordion} 
-                                title={`${conditionCategories[category].label}`} 
+                                title={`${conditionCategories[category].label}`}
                                 theme={`${conditionCategories[category].theme}`} 
                                 selected={openDropdown}
                                 handleClick={handleAccordionClick}

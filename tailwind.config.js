@@ -15,8 +15,10 @@ module.exports = {
         extend: {
             colors: {
                 arnotBlue: '#437FB8',
+                arnotLightBlue: '#47ADC5',
                 arnotTeal: '#3EB0B0',
                 arnotPeach: '#E69886',
+                arnotYellow: '#FFBB00',
                 arnotRed: '#BF2B2B',
                 arnotBrown: '#8A4A3B',
                 arnotDarkBrown: '#4B1A0E',

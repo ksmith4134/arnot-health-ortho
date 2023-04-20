@@ -7,7 +7,7 @@ import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import { team } from '@/data/schema';
 
-export default function Home({ accordion, data }) {
+export default function Home({ accordion, data, doctors }) {
 
     // console.log('API response', accordion)
 
@@ -31,9 +31,21 @@ export default function Home({ accordion, data }) {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <main className='relative z-0'>
-                <Hero />
-                <Team team={team} openModal={openModal} />
-                <Body accordion={accordion} />
+                <Hero 
+                    kicker={['Joint surgery', 'Sports medicine', 'Physical therapy']}
+                    title={'Arnot Health Orthopedics'}
+                    subTitle={'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative educational content.'}
+                />
+                <Team 
+                    team={doctors} 
+                    openModal={openModal}
+                />
+                <Body 
+                    accordion={accordion} 
+                    kicker={['Patient Resources']} 
+                    title={'Learn About Your Condition'} 
+                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
+                />
                 { videoModal && <VideoModal url={videoModal} handleClick={closeModal} /> }
             </main>
         </>
@@ -70,7 +82,7 @@ export async function getStaticProps() {
         props: {
             data, 
             accordion,
-            team
+            doctors: team.filter(item => item.doctor)
         },
         revalidate: 3600,
     };

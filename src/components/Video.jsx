@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import defaultPic from '../../public/Same Day Surgery Tour.jpg'
+import defaultPic from '../../public/defaultVideoThumb.png'
 import Download from './Download'
 import LinkWrapper from './LinkWrapper'
 import Prose from './markdown/Prose'
@@ -46,7 +46,7 @@ export default function Video(props) {
                     <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
                         <Image 
                             src={playButton} alt='play button'
-                            className='w-24 h-24 lg:w-16 lg:h-16 lg:w-20 lg:h-20 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500' 
+                            className='w-24 h-24 lg:w-24 lg:h-24 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-white/30 rounded-full' 
                         />
                     </div>
                 </div>

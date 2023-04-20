@@ -1,10 +1,9 @@
-import Icon from './Icon'
+import IconImage from './IconImage'
 import { useRouter } from 'next/router'
 
 export default function IconList(props) {
 
     const {
-        layout = 'column',
         items = [],
         profile = '',
         url = '',
@@ -15,7 +14,7 @@ export default function IconList(props) {
     const router = useRouter()
 
     return (
-        <div className={`flex ${layout === 'column' ? 'flex-col space-y-1' : 'flex-row w-48 flex-wrap justify-between items-center'}`}>
+        <div className='space-y-1'>
             { items.map((item) => {
 
                 let trigger = () => { goToProfile(profile) }
@@ -29,7 +28,7 @@ export default function IconList(props) {
                         break;
                     case 'Accepting Patients':
                         icon = 'plusCircle'
-                        color = 'text-arnotPeach'
+                        color = 'text-arnotLightBlue'
                         break;
                     case 'Video Interview':
                         trigger = () => { playVideo(url) }
@@ -46,13 +45,18 @@ export default function IconList(props) {
                         icon = 'map'
                         color = 'text-arnotRed'
                         break;
+                    case 'See Reviews':
+                        trigger = () => { goToProfile(profile+'#reviews') }
+                        icon = 'star'
+                        color = 'text-arnotYellow'
+                        break;
                     default:
                         break;
                 }
 
                 return (
                     <div key={item.id} onClick={trigger} className='inline-flex items-center space-x-1 hover:cursor-pointer'>
-                        <Icon icon={icon} color={color} />
+                        <IconImage icon={icon} color={color} />
                         <p className={`text-sm ${color} px-2 py-2 hover:font-bold`}>
                             {item.label}
                         </p>

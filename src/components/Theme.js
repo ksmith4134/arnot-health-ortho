@@ -1,6 +1,6 @@
 import { FiPlus, FiMinus, FiMapPin } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone } from 'react-icons/bs'
-import { FaStethoscope, FaBookMedical } from 'react-icons/fa'
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone, BsStar } from 'react-icons/bs'
+import { FaStethoscope, FaBookMedical, FaUserCircle } from 'react-icons/fa'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -8,6 +8,13 @@ import ElbowIcon from '../../public/svg/ElbowIcon.svg'
 import FootAnkleIcon from '../../public/svg/FootAnkleIcon.svg'
 import HandIcon from '../../public/svg/HandIcon.svg'
 import PlayIcon from '../../public/svg/PlayIcon.svg'
+import CircleCheck from '../../public/svg/CircleCheck.svg'
+import CircleLink from '../../public/svg/CircleLink.svg'
+import CircleMap from '../../public/svg/CircleMap.svg'
+import CirclePhone from '../../public/svg/CirclePhone.svg'
+import CirclePlay from '../../public/svg/CirclePlay.svg'
+import CircleStar from '../../public/svg/CircleStar.svg'
+import CirclePlus from '../../public/svg/CirclePlus.svg'
 import Paragraph from './Paragraph';
 import Video from './Video';
 import DropdownCard from './DropdownCard';
@@ -31,13 +38,13 @@ export const SKELETON_LOCATIONS = {
 }
 
 export const SKELETON_BG = {
-    primary: 'bg-arnotBlue/40',
-    secondary: 'bg-teal-500/40',
+    primary: 'bg-arnotBlue/20',
+    secondary: 'bg-teal-500/30',
 }
 
 export const SKELETON_BG_SELECTED = {
-    primary: 'bg-arnotBlue/80',
-    secondary: 'bg-teal-500/80',
+    primary: 'bg-arnotBlue/60',
+    secondary: 'bg-teal-500/60',
 }
 
 export const SKELETON_BORDER = {
@@ -50,14 +57,16 @@ export const ICONS = {
     Minus: FiMinus,
     pdf: BsFileEarmarkPdf,
     play: PlayIcon,
+    profile: FaUserCircle,
     stethoscope: FaStethoscope,
     book: FaBookMedical,
-    checkCircle: BsCheckCircle,
-    playCircle: BsPlayCircle,
-    linkCircle: BsLink,
-    plusCircle: BsPlusCircle,
-    telephone: BsTelephone,
-    map: FiMapPin,
+    checkCircle: CircleCheck,
+    playCircle: CirclePlay,
+    linkCircle: CircleLink,
+    plusCircle: CirclePlus,
+    telephone: CirclePhone,
+    map: CircleMap,
+    star: CircleStar,
     carouselArrowLeft: BsArrowLeftCircle,
     carouselArrowRight: BsArrowRightCircle,
 };

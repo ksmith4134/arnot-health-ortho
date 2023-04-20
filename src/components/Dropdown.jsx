@@ -4,6 +4,7 @@ export default function Dropdown(props) {
 
     const { 
         id, 
+        index,
         label, 
         IconOpen = 'Plus',
         IconClose = 'Minus',
@@ -19,7 +20,7 @@ export default function Dropdown(props) {
     const opened = id === selected
 
     return (
-        <div className={`w-full pt-6 pb-2 last:border-b-0 border-b-[1px] border-gray-400`}>
+        <div className={`w-full py-5 last:border-b-0 border-b-[1px] border-gray-400`}>
             <div className={`flex justify-between space-x-4 items-center hover:cursor-pointer ${HOVER_FONT_COLORS[theme]}`} onClick={() => handleClick(id)}>
                 { label &&
                     <h4 className={`${opened && FONT_COLORS[theme]+' font-bold'} text-md`}>{label}</h4>
@@ -29,9 +30,9 @@ export default function Dropdown(props) {
                     : <OpenIcon className={`text-xl flex-none`} />
                 }
             </div>
-            <div className='my-4'>
-                {children}
-            </div>
+            { 
+                children 
+            }
         </div>
     )
 }
