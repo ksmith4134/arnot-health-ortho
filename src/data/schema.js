@@ -1,6 +1,7 @@
 export const team = [
     {
         id: 0, 
+        slug: 'bryan-jarvis',
         doctor: true,
         profilePic: '/profilePics/bryan_square.jpg', 
         name: 'Bryan Jarvis', 
@@ -29,6 +30,7 @@ export const team = [
     },
     {
         id: 1, 
+        slug: 'jaewon-chang',
         doctor: true,
         profilePic: '/profilePics/jae_square.jpg', 
         name: 'Jaewon Chang', 
@@ -57,6 +59,7 @@ export const team = [
     },
     {
         id: 2, 
+        slug: 'jared-smith',
         doctor: true,
         profilePic: '/profilePics/jared_square.jpg', 
         name: 'Jared Smith', 

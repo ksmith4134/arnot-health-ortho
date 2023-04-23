@@ -9,7 +9,6 @@ import { useState } from 'react'
 export default function TeamHome(props) {
 
     const {
-        team,
         doctor,
         advancedPP
     } = props
@@ -57,7 +56,6 @@ export async function getStaticProps() {
 
     return {
         props: {
-            team,
             doctor: team.filter(item => item.doctor),
             advancedPP: team.filter(item => !item.doctor)
         }

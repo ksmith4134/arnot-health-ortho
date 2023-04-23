@@ -6,10 +6,13 @@ import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import { team } from '@/data/schema';
+import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 
-export default function Home({ accordion, data, doctors }) {
+export default function Home(props) {
 
-    // console.log('API response', accordion)
+    const { testimonialsResponse, testimonials, accordion, doctors } = props;
+
+    // console.log(testimonialsResponse)
 
     const [ videoModal, setVideoModal ] = useState(null)
 
@@ -35,6 +38,9 @@ export default function Home({ accordion, data, doctors }) {
                     kicker={['Joint surgery', 'Sports medicine', 'Physical therapy']}
                     title={'Arnot Health Orthopedics'}
                     subTitle={'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative educational content.'}
+                    buttonLabel={'Find My Condition'}
+                    image={'/HeroTest.jpg'}
+                    url={'#body-diagram'}
                 />
                 <Team 
                     team={doctors} 
@@ -46,6 +52,10 @@ export default function Home({ accordion, data, doctors }) {
                     title={'Learn About Your Condition'} 
                     subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
                 />
+                <TestimonialsHome 
+                    testimonials={testimonials} 
+                    title={'Patient Testimonials'}
+                />
                 { videoModal && <VideoModal url={videoModal} handleClick={closeModal} /> }
             </main>
         </>
@@ -56,13 +66,14 @@ export async function getStaticProps() {
    
     const storyblokApi = getStoryblokApi();
 
-    let { data } = await storyblokApi.get(`cdn/stories`, {
+    let accordionResponse = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'body',
+        excluding_fields: 'indexes',
         resolve_relations: 'body.conditions',
     });
 
-    const accordion = data.stories.map((item) => {
+    const accordion = accordionResponse.data.stories.map((item) => {
         return {
             id: item?.id,
             label: item?.name,
@@ -77,12 +88,37 @@ export async function getStaticProps() {
         }
     })
 
+    let testimonialsResponse = await storyblokApi.get(`cdn/stories`, {
+        version: 'draft',
+        starts_with: 'testimonials',
+        excluding_fields: 'indexes',
+        filter_query: { showOnHomepage: { is: true }},
+        resolve_relations: ['testimonials.doctor',]
+    });
+
+    let testimonials = testimonialsResponse.data.stories.map((review) => {
+        return {
+            id: review.id,
+            doctor: review.content.doctor.name,
+            profilePic: review.content.doctor.content.profilePic.filename,
+            bodyPart: review.content.bodyPart,
+            condition: review.content.condition,
+            city: review.content.city,
+            state: review.content.state,
+            reviewerName: review.content.name,
+            stars: review.content.stars,
+            reviewBody: review.content.reviewBody,
+            reviewTitle: review.content.reviewTitle,
+        }
+    })
+
 
     return {
         props: {
-            data, 
-            accordion,
-            doctors: team.filter(item => item.doctor)
+            testimonialsResponse,
+            testimonials: testimonials ? testimonials : [],
+            accordion: accordion ? accordion : [],
+            doctors: team ? team.filter(item => item.doctor) : []
         },
         revalidate: 3600,
     };

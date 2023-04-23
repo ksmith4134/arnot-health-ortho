@@ -49,7 +49,9 @@ export default function Team(props) {
                                 <p className='mt-1 text-sm font-light'>{profile.school}</p>
                             </div>
                             <p className='text-sm text-center sm:text-left line-clamp-4'>{profile.shortSummary}</p>
-                            <IconList items={profile.infoLinks} profile={profile.id} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
+                            <div className='space-y-1'>
+                                <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
+                            </div>
                         </div>
                     ))
                 }

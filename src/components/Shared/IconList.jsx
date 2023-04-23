@@ -14,7 +14,7 @@ export default function IconList(props) {
     const router = useRouter()
 
     return (
-        <div className='space-y-1'>
+        <>
             { items.map((item) => {
 
                 let trigger = () => { goToProfile(profile) }
@@ -42,12 +42,12 @@ export default function IconList(props) {
                         break;
                     case 'See Locations':
                         trigger = () => { goToProfile(profile+'#locations') }
-                        icon = 'map'
+                        icon = 'mapCircle'
                         color = 'text-arnotRed'
                         break;
                     case 'See Reviews':
                         trigger = () => { goToProfile(profile+'#reviews') }
-                        icon = 'star'
+                        icon = 'starCircle'
                         color = 'text-arnotYellow'
                         break;
                     default:
@@ -63,6 +63,6 @@ export default function IconList(props) {
                     </div>
                 )
             })}
-        </div>
+        </>
     )
 }

@@ -9,6 +9,7 @@ export default function Video(props) {
 
     const {
         orientation = 'row',
+        verticalAlign = 'center',
         title = '', 
         description = '', 
         videoUrl = 'https://www.youtube.com/embed/uUmAUxWFYCw', 
@@ -23,7 +24,7 @@ export default function Video(props) {
     const videoThumbnail = image ? image : defaultPic
 
     return (
-        <div className={`flex ${orientation === 'row' ? 'lg:flex-row flex-col lg:space-x-8' : 'flex-col'} justify-center items-center`}>
+        <div className={`flex ${orientation === 'row' ? 'lg:flex-row flex-col lg:space-x-12' : 'flex-col'} justify-center ${verticalAlign === 'start' ? 'items-start' : 'items-center'}`}>
             <div className={`${orientation === 'row' ? 'basis-6/12 flex-shrink' : 'w-full'}`}>
                 <h2 className='text-2xl'>{title}</h2>
                 <div className='mt-2'>
@@ -37,7 +38,7 @@ export default function Video(props) {
                 }
             </div>
             <div className={`basis-6/12 ${orientation === 'row' ? 'mt-4 lg:mt-0 flex-shrink-0' : 'mt-4'}`}>
-                <div onClick={() => handleClick(videoUrl)} className='w-full relative block overflow-hidden hover:cursor-pointer group'>
+                <div onClick={() => handleClick(videoUrl)} className={`w-full relative block overflow-hidden hover:cursor-pointer group ${verticalAlign === 'start' && 'mt-2'}`}>
                     <Image 
                         src={videoThumbnail} alt='video thumbnail'
                         width={1000} height={600}

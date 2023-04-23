@@ -2,20 +2,36 @@ import Image from 'next/image'
 import ButtonPrimary from '../Shared/ButtonPrimary'
 import CarouselWrapper from '../CarouselWrapper'
 import TitleBlock from '../Shared/TitleBlock'
+import IconList from '../Shared/IconList'
+import { useRouter } from 'next/router'
 
 export default function Hero(props) {
     
     const {
-        icon = '',
+        icons = [],
+        openModal,
+        profile,
+        videoUrl,
         kicker = [],
         title = '',
         subTitle = '',
-        buttonLabel = 'Find My Condition',
-        image = '/HeroTest.jpg',
+        buttonLabel = '',
+        image = '',
         media = [],
         carousel= false,
-        url = '#body-diagram'
+        url = '',
     } = props
+
+    const router = useRouter()
+    
+    const goToProfile = (id) => {
+        router.push(`/team/${id}`)
+    }
+    
+    const playVideo = (url) => {
+        openModal(url)
+    }
+
 
     return (
         <div className='relative overflow-hidden w-full h-[660px] bg-gray-200 shadow-lg shadow-slate-400/10'>
@@ -23,7 +39,8 @@ export default function Hero(props) {
             {/* Image */}
             <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
                 { media.length > 0
-                    ? <CarouselWrapper media={media} hero={carousel} />
+                    // ? <CarouselWrapper media={media} hero={carousel} />
+                    ? <Image src={media[0].url} alt="hero image" fill quality={100} priority className='object-cover' />
                     : <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
                 }
             </div>
@@ -40,7 +57,12 @@ export default function Hero(props) {
                         title={title}
                         subTitle={subTitle}
                     />
-                    <ButtonPrimary label={buttonLabel} url={url} />
+                    { buttonLabel && <ButtonPrimary label={buttonLabel} url={url} /> }
+                    { icons && 
+                        <div className='mt-8 max-w-sm grid grid-cols-2 gap-4'>
+                            <IconList items={icons} profile={profile} goToProfile={goToProfile} playVideo={playVideo} url={videoUrl} />
+                        </div>
+                    }
                 </div>
             </div>
 

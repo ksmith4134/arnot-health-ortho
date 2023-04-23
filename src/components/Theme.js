@@ -1,6 +1,6 @@
 import { FiPlus, FiMinus, FiMapPin } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone, BsStar } from 'react-icons/bs'
-import { FaStethoscope, FaBookMedical, FaUserCircle } from 'react-icons/fa'
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone, BsStar, BsFillStarFill } from 'react-icons/bs'
+import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward } from 'react-icons/fa'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -27,6 +27,13 @@ import LinkList from './LinkList';
 import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
 import CarouselWrapper from './CarouselWrapper';
+
+export const PROFILE_PIC = {
+    size: {
+        'small': 'w-20 h-20',
+        'medium': 'w-24 h-24',
+    }
+}
 
 export const SKELETON_LOCATIONS = {
     'Elbow': 'top-[30%] right-[16%]',
@@ -57,6 +64,8 @@ export const ICONS = {
     Minus: FiMinus,
     pdf: BsFileEarmarkPdf,
     play: PlayIcon,
+    star: BsFillStarFill,
+    award: FaAward,
     profile: FaUserCircle,
     stethoscope: FaStethoscope,
     book: FaBookMedical,
@@ -65,8 +74,8 @@ export const ICONS = {
     linkCircle: CircleLink,
     plusCircle: CirclePlus,
     telephone: CirclePhone,
-    map: CircleMap,
-    star: CircleStar,
+    mapCircle: CircleMap,
+    starCircle: CircleStar,
     carouselArrowLeft: BsArrowLeftCircle,
     carouselArrowRight: BsArrowRightCircle,
 };
