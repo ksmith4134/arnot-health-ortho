@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../../public/svg/Logo.svg'
-import { FaAngleDown } from 'react-icons/fa'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { useRouter } from 'next/router'
 
@@ -10,7 +9,7 @@ export default function Header() {
     const router = useRouter()
 
     return (
-        <div className='w-full border-b-[1px] shadow-md shadow-gray-200/20'> {/* md:border-none md:shadow-none */}
+        <div className='w-full'> {/* md:border-none md:shadow-none */}
             <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end'>
                 <Link href="/" className='flex-none'>
                     <Image src={Logo} alt="logo" className='w-28 md:w-40' />

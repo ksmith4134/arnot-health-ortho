@@ -12,9 +12,11 @@ export default function Credentials(props) {
     const Award = ICONS['award']
     
     return (
-        <div className='w-full py-12 px-12 rounded-md border-arnotBlue bg-arnotBlue/10 border relative'>
+        <div className='w-full py-12 px-12 rounded-md relative z-0
+            bg-gradient-to-br from-arnotBlue/10 from-10% to-arnotBlue/20 to-80%'
+        >
             <h2 className='font-bold text-2xl'>Credentials</h2>
-            <Award className='absolute top-8 right-4 w-40 h-40 text-arnotBlue/20' />
+            <Award className='z-20 absolute top-8 right-4 w-40 h-40 fill-arnotBlue/10' />
             <div className='mt-10'>
                 { credentials.map((item, index) => (
                     <div key={index} className='mt-6'>

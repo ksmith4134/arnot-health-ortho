@@ -34,7 +34,7 @@ export default function Hero(props) {
 
 
     return (
-        <div className='relative overflow-hidden w-full h-[660px] bg-gray-200 shadow-lg shadow-slate-400/10'>
+        <div className='relative overflow-hidden w-full h-[660px] bg-gray-200'>
             
             {/* Image */}
             <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>

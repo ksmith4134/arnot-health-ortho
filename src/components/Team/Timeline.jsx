@@ -8,7 +8,7 @@ export default function Timeline(props) {
 
     return (
         <div>
-            <h2 className='font-bold text-xl'>Education</h2>
+            <h2 className='font-bold text-2xl'>Education</h2>
             <div className='border-l-2 mt-6'>
                 <div className='pl-6'>
                     { timeline.map((item, index) => (

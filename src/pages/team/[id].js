@@ -7,7 +7,8 @@ import Hero from '@/components/Homepage/Hero'
 import About from '@/components/Team/About'
 import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
-import LocationsWrapper from '@/components/widgets/LocationsWrapper'
+import Locations from '@/components/widgets/Locations'
+import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
 
 export default function Person(props) {
     
@@ -22,7 +23,7 @@ export default function Person(props) {
     } = props
 
     // console.log('Raw API Data', doctorResponse)
-    console.log('Normalized Data', timeline)
+    // console.log('Normalized Data', timeline)
 
     const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
@@ -36,25 +37,24 @@ export default function Person(props) {
         setVideoModal(null)
     }
 
-    // destructure
-    // const { media, title, subTitle, icons, profile, videoUrl, } = hero;
-    // const { fullName, biography, url, videoThumbnail, } = about;
-    // const { achievement, focus, institution, url } = timeline;
-    const {} = credentials;
 
     return (
         <div className='relative z-0 mb-40'>
-            <Hero openModal={openModal} {...hero} />
-            <About openModal={openModal} {...about} />
-            <div className='flex flex-col lg:flex-row lg:justify-between max-w-5xl px-8 mx-auto'>
-                <div className='order-1 py-12'>
-                    <Timeline timeline={timeline} />
+            { hero && <Hero openModal={openModal} {...hero} /> }
+            { about && <About openModal={openModal} {...about} /> }
+            { timeline[0]&& credentials[0] &&
+                <div className='flex flex-col lg:flex-row lg:justify-between max-w-5xl px-8 mx-auto'>
+                    <div className='order-1 pt-36 pb-12'>
+                        <Timeline timeline={timeline} />
+                    </div>
+                    <div className='order-2 basis-6/12 pt-24 pb-12'>
+                        <Credentials credentials={credentials} />
+                    </div>
                 </div>
-                <div className='order-2 basis-6/12'>
-                    <Credentials credentials={credentials} />
-                </div>
-            </div>
-            {videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
+            }
+            { locations[0] && <Locations locations={locations} /> }
+            { reviews[0] && <TestimonialsTeam reviews={reviews} /> }
+            { videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )
 }
@@ -137,12 +137,9 @@ export async function getStaticProps(context) {
 
     const reviews = doctor.testimonials.map(item => ({
         id: item.id,
-        doctor: doctor.fullName,
-        profilePic: doctor.profilePic.filename,
         bodyPart: item.content.bodyPart,
         city: item.content.city,
         state: item.content.state,
-        condition: item.content.condition,
         reviewerName: item.content.name,
         reviewBody: item.content.reviewBody,
         reviewTitle: item.content.reviewTitle,

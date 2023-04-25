@@ -10,6 +10,7 @@ export default function TestimonialsContent(props) {
         name,
         city,
         state,
+        displayBodyIcon = false,
     } = props
 
     return (
@@ -17,8 +18,8 @@ export default function TestimonialsContent(props) {
             { title && <div className='font-bold text-lg'>{ title }</div> }
             <FiveStars />
             <div className='mt-6'>{ body }</div>
-            <div className='first:mt-0 mt-8 flex flex-row items-center md:space-x-4'>
-                <div className='hidden md:block'>
+            <div className='first:mt-0 mt-8 flex flex-row items-center'>
+                <div className={`${displayBodyIcon === true ? 'block pr-4' : 'hidden md:block md:pr-4'}`}>
                     <IconImage icon={bodyPart} type={'body'} size={'w-16 h-16'} />
                 </div>
                 <div>

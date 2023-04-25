@@ -35,6 +35,7 @@ export default function TestimonialsHome(props) {
                                 <div 
                                     className={`
                                         flex flex-row items-center space-x-4 
+                                        transition ease-in-out duration-150 
                                         ${selected === index || hovered === index ? 
                                             'cursor-pointer text-arnotBlue grayscale-0' : 
                                             'text-gray-500 grayscale opacity-50'
