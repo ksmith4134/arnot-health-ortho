@@ -10,19 +10,17 @@ export default function LocationsWrapper(props) {
     } = props
 
     // id, city, state, url, image, name, street, zip
-    
-    // const evenNumber = locations.length % 2 === 0 ? true : false
 
     return (
-        <div className='max-w-5xl px-8 mx-auto pt-24 pb-12'>
+        <div className='pt-24 pb-12' id='locations'>
             <h2 className='font-bold text-2xl'>Locations</h2>
-            <div className={`mt-6 grid grid-cols-1 lg:grid-cols-2 gap-12`}>
+            <div className={`mt-8 grid grid-cols-1 lg:grid-cols-2 gap-16`}>
                 { locations.map(item => (
-                    <div key={item.id} className='w-full relative flex flex-row items-center overflow-hidden border h-40 md:h-48 shadow-lg shadow-gray-300/20'>
+                    <div key={item.id} className='max-w-lg w-full relative flex flex-col sm:flex-row items-start sm:items-center rounded-md border border-gray-100 overflow-hidden h-full sm:h-48 shadow-xl shadow-gray-300/10'>
                         <Image 
                             src={item.image} alt='map'
                             width={400} height={225}
-                            className='object-cover w-40 md:w-48 h-full' 
+                            className='object-cover w-full sm:w-48 h-full rounded-top-m sm:rounded-l-md' 
                         />
                         <div className='px-8 py-12'>
                             <p className='font-bold'>{item.name}</p>

@@ -1,6 +1,5 @@
 import { getStoryblokApi, renderRichText } from '@storyblok/react'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import VideoModal from '@/components/VideoModal'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Hero from '@/components/Homepage/Hero'
@@ -13,7 +12,6 @@ import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
 export default function Person(props) {
     
     const {
-        doctor, //delete
         hero,
         about,
         timeline,
@@ -21,9 +19,6 @@ export default function Person(props) {
         locations,
         reviews,
     } = props
-
-    // console.log('Raw API Data', doctorResponse)
-    // console.log('Normalized Data', timeline)
 
     const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
@@ -37,23 +32,24 @@ export default function Person(props) {
         setVideoModal(null)
     }
 
-
     return (
         <div className='relative z-0 mb-40'>
             { hero && <Hero openModal={openModal} {...hero} /> }
-            { about && <About openModal={openModal} {...about} /> }
-            { timeline[0]&& credentials[0] &&
-                <div className='flex flex-col lg:flex-row lg:justify-between max-w-5xl px-8 mx-auto'>
-                    <div className='order-1 pt-36 pb-12'>
-                        <Timeline timeline={timeline} />
+            <div className='max-w-5xl px-8 mx-auto'>
+                { about && <About openModal={openModal} {...about} /> }
+                { timeline[0]&& credentials[0] &&
+                    <div className='flex flex-col lg:flex-row lg:justify-between'>
+                        <div className='order-1 pt-36 pb-12'>
+                            <Timeline timeline={timeline} />
+                        </div>
+                        <div className='order-2 max-w-xl pt-24 pb-12'>
+                            <Credentials credentials={credentials} />
+                        </div>
                     </div>
-                    <div className='order-2 basis-6/12 pt-24 pb-12'>
-                        <Credentials credentials={credentials} />
-                    </div>
-                </div>
-            }
-            { locations[0] && <Locations locations={locations} /> }
-            { reviews[0] && <TestimonialsTeam reviews={reviews} /> }
+                }
+                { reviews[0] && <TestimonialsTeam reviews={reviews} /> }
+                { locations[0] && <Locations locations={locations} /> }
+            </div>
             { videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )
@@ -66,6 +62,7 @@ export async function getStaticPaths() {
     let { data } = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'team',
+        filter_query: { doctor: { is: true }},
     });
 
     let paths = data.stories.map((team) => ({
@@ -148,7 +145,6 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            doctor, // delete
             hero,
             about,
             timeline,

@@ -17,7 +17,7 @@ export default function TestimonialsContent(props) {
         <div>
             { title && <div className='font-bold text-lg'>{ title }</div> }
             <FiveStars />
-            <div className='mt-6'>{ body }</div>
+            <div className='mt-6 line-clamp-[8]'>{ body }</div>
             <div className='first:mt-0 mt-8 flex flex-row items-center'>
                 <div className={`${displayBodyIcon === true ? 'block pr-4' : 'hidden md:block md:pr-4'}`}>
                     <IconImage icon={bodyPart} type={'body'} size={'w-16 h-16'} />

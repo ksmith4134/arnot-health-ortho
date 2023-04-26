@@ -28,7 +28,7 @@ export default function TitleBlock(props) {
                     }
                 </div>
             }
-            <h1 className='mt-8 text-5xl font-bold max-w-4xl'>{title}</h1>
+            <h1 className='mt-8 text-5xl font-bold max-w-4xl leading-[56px]'>{title}</h1>
             { subTitle && 
                 <p className='mt-8 font-light text-lg max-w-xl' dangerouslySetInnerHTML={{__html: subTitle}}></p>
             }

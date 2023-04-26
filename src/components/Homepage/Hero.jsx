@@ -41,7 +41,9 @@ export default function Hero(props) {
                 { media.length > 0
                     // ? <CarouselWrapper media={media} hero={carousel} />
                     ? <Image src={media[0].url} alt="hero image" fill quality={100} priority className='object-cover' />
-                    : <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
+                    : image 
+                        ? <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
+                        : <></>
                 }
             </div>
 

@@ -1,19 +1,16 @@
-import { team } from '@/data/schema'
 import Hero from '@/components/Homepage/Hero'
 import Team from '@/components/Team/Team'
-import TitleBlock from '@/components/Shared/TitleBlock'
 import VideoModal from '@/components/VideoModal'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { getStoryblokApi } from '@storyblok/react'
+
 
 export default function TeamHome(props) {
 
     const {
         doctor,
-        advancedPP
+        advancedPP,
     } = props
-
-    const router = useRouter()
 
     const [ videoModal, setVideoModal ] = useState(null)
 
@@ -54,10 +51,33 @@ export default function TeamHome(props) {
 
 export async function getStaticProps() {
 
+    const storyblokApi = getStoryblokApi();
+
+    const { data } = await storyblokApi.get(`cdn/stories`, {
+        version: 'draft',
+        starts_with: 'team',
+    });
+
+    const team = data.stories.map(item => ({
+        id: item.id,
+        doctor: item.content.doctor,
+        profilePic: item.content.profilePic.filename,
+        name: item.content.fullName,
+        title: item.content.degree,
+        school: item.content.degreeUniversity,
+        shortSummary: item.content.shortSummary,
+        infoLinks: item.content.infoLinks.map((item, index) => ({
+            id: index, label: item
+        })).slice(0,3),
+        slug: item.slug,
+        videoUrl: item.content.videoUrl.url,
+    }))
+
     return {
         props: {
             doctor: team.filter(item => item.doctor),
             advancedPP: team.filter(item => !item.doctor)
-        }
+        },
+        revalidate: 3600,
     }
 }

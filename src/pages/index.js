@@ -5,14 +5,15 @@ import Team from '@/components/Team/Team';
 import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
-import { team } from '@/data/schema';
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 
 export default function Home(props) {
 
-    const { testimonialsResponse, testimonials, accordion, doctors } = props;
-
-    // console.log(testimonialsResponse)
+    const { 
+        testimonials, 
+        body, 
+        doctors,
+    } = props;
 
     const [ videoModal, setVideoModal ] = useState(null)
 
@@ -47,7 +48,7 @@ export default function Home(props) {
                     openModal={openModal}
                 />
                 <Body 
-                    accordion={accordion} 
+                    accordion={body} 
                     kicker={['Patient Resources']} 
                     title={'Learn About Your Condition'} 
                     subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
@@ -66,14 +67,14 @@ export async function getStaticProps() {
    
     const storyblokApi = getStoryblokApi();
 
-    let accordionResponse = await storyblokApi.get(`cdn/stories`, {
+    const bodyResponse = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'body',
         excluding_fields: 'indexes',
         resolve_relations: 'body.conditions',
     });
 
-    const accordion = accordionResponse.data.stories.map((item) => {
+    const body = bodyResponse.data.stories.map((item) => {
         return {
             id: item?.id,
             label: item?.name,
@@ -88,15 +89,15 @@ export async function getStaticProps() {
         }
     })
 
-    let testimonialsResponse = await storyblokApi.get(`cdn/stories`, {
+
+    const { data } = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'testimonials',
-        excluding_fields: 'indexes',
         filter_query: { showOnHomepage: { is: true }},
         resolve_relations: ['testimonials.doctor',]
     });
 
-    let testimonials = testimonialsResponse.data.stories.map((review) => {
+    const testimonials = data.stories.map((review) => {
         return {
             id: review.id,
             doctor: review.content.doctor.name,
@@ -112,13 +113,27 @@ export async function getStaticProps() {
         }
     })
 
+    const doctors = data.rels.map(item => ({
+        id: item.id,
+        doctor: item.content.doctor,
+        profilePic: item.content.profilePic.filename,
+        name: item.content.fullName,
+        title: item.content.degree,
+        school: item.content.degreeUniversity,
+        shortSummary: item.content.shortSummary,
+        infoLinks: item.content.infoLinks.map((item, index) => ({
+            id: index, label: item
+        })).slice(0,3),
+        slug: item.slug,
+        videoUrl: item.content.videoUrl.url,
+    }))
+
 
     return {
         props: {
-            testimonialsResponse,
+            body: body ? body : [],
             testimonials: testimonials ? testimonials : [],
-            accordion: accordion ? accordion : [],
-            doctors: team ? team.filter(item => item.doctor) : []
+            doctors: doctors ? doctors : [],
         },
         revalidate: 3600,
     };

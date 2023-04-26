@@ -30,7 +30,7 @@ import CarouselWrapper from './CarouselWrapper';
 
 export const PROFILE_PIC = {
     size: {
-        'small': 'w-20 h-20',
+        'small': 'w-16 h-16',
         'medium': 'w-24 h-24',
     }
 }
