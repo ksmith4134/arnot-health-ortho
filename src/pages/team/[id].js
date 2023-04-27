@@ -97,7 +97,7 @@ export async function getStaticProps(context) {
         subTitle: doctor.shortSummary,
         icons: doctor.infoLinks.map((item, index) => ({
             id: index, label: item
-        })),
+        })).filter(item => item.label !== 'Learn More'),
         profile: doctorResponse.data.story.slug,
         videoUrl: doctor.videoUrl.url,
     }

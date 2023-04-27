@@ -12,7 +12,7 @@ export default function Header() {
         <div className='w-full'> {/* md:border-none md:shadow-none */}
             <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end'>
                 <Link href="/" className='flex-none'>
-                    <Image src={Logo} alt="logo" className='w-28 md:w-40' />
+                    <Image src={Logo} alt="logo" className='w-40 md:w-48' />
                 </Link>
                 <div className='hidden h-14 md:flex flex-col items-end justify-between space-y-2'>
                     <Link className='text-xs text-arnotPeach font-semibold' href={'/tests/component-reference'}>Components Reference</Link>

@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { RxArrowRight } from 'react-icons/rx'
 
-
 export default function LocationsWrapper(props) {
 
     const {
@@ -16,7 +15,7 @@ export default function LocationsWrapper(props) {
             <h2 className='font-bold text-2xl'>Locations</h2>
             <div className={`mt-8 grid grid-cols-1 lg:grid-cols-2 gap-16`}>
                 { locations.map(item => (
-                    <div key={item.id} className='max-w-lg w-full relative flex flex-col sm:flex-row items-start sm:items-center rounded-md border border-gray-100 overflow-hidden h-full sm:h-48 shadow-xl shadow-gray-300/10'>
+                    <div key={item.id} className='max-w-lg w-full relative flex flex-col sm:flex-row items-start sm:items-center rounded-md overflow-hidden h-full sm:h-48 shadow-xl shadow-gray-300/10 border border-gray-200'>
                         <Image 
                             src={item.image} alt='map'
                             width={400} height={225}

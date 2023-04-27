@@ -1,6 +1,7 @@
 import InfoBox from '@/components/InfoBox'
 import Link from 'next/link'
-import Locations from '@/components/widgets/Locations'
+// import Locations from '@/components/widgets/Locations'
+import GoogleMap from '@/components/widgets/GoogleMap'
 import { getStoryblokApi, renderRichText } from '@storyblok/react'
 
 
@@ -15,7 +16,7 @@ export default function Contact(props) {
     return (
         <div className='max-w-5xl mx-auto px-8 min-h-screen mt-20'>
             <InfoBox textSize={'medium'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-24 pt-24'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-16 pt-24'>
                 <div className='max-w-lg'>
                     <h2 className='font-bold text-2xl'>Contact Your Provider</h2>
                     <p className='mt-4'>If you have any questions regarding your care, appointment schedule, or test results, please contact your provider&apos;s office directly at <span className='font-bold'>(607) 734-4110</span>.</p>
@@ -25,7 +26,7 @@ export default function Contact(props) {
                     <p className='mt-4'>If you have questions regarding the patient portal such as how to sign up or login, please visit the link at the main Arnot website: <Link href={'https://www.arnothealth.org/myarnothealth'} target='_blank' className='font-bold text-arnotBlue underline underline-offset-4'>Patient Portal FAQ</Link></p>
                 </div>
             </div>
-            <Locations locations={locations} />
+            <GoogleMap locations={locations} />
         </div>
     )
 }
