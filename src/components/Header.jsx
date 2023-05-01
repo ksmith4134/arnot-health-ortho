@@ -1,32 +1,52 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import Logo from '../../public/svg/Logo.svg'
-import { RxHamburgerMenu } from 'react-icons/rx'
-import { useRouter } from 'next/router'
+import Image from 'next/image';
+import Link from 'next/link';
+import Logo from '../../public/svg/Logo.svg';
+import { RxHamburgerMenu, RxCaretDown } from 'react-icons/rx';
+import { forwardRef } from 'react';
+import SubMenu from './navigation/SubMenu';
 
-export default function Header() {
+const Header = forwardRef(function Header(props, ref) {
 
-    const router = useRouter()
+    const {
+        opened,
+        handleClick
+    } = props
 
     return (
-        <div className='w-full'> {/* md:border-none md:shadow-none */}
-            <div className='max-w-5xl mx-auto px-8 py-6 flex justify-between items-center md:items-end'>
+        <div className='w-full bg-white'> {/* sticky top-0 z-10 */}
+            <div className='max-w-5xl mx-auto px-8 py-4 flex flex-row justify-between items-center md:items-end'>
+
+                {/* LOGO */}
                 <Link href="/" className='flex-none'>
-                    <Image src={Logo} alt="logo" className='w-40 md:w-48' />
+                    <Image src={Logo} alt="logo" className='w-40 lg:w-48' />
                 </Link>
-                <div className='hidden h-14 md:flex flex-col items-end justify-between space-y-2'>
-                    <Link className='text-xs text-arnotPeach font-semibold' href={'/tests/component-reference'}>Components Reference</Link>
+
+                <div className='hidden md:flex flex-col items-end justify-between mb-2 -mr-6'>
+
+                    {/* TEMPORARY LINK: USED DURING DEV */}
+                    <Link className='mb-1 px-4 text-sm text-arnotPeach font-semibold' href={'/tests/component-reference'}>Components Reference</Link>
+
+                    {/* MAIN NAV LINKS */}
                     <div className='hidden md:flex justify-start items-center'>
-                        {
-                            nav.map((item) => (
-                                <div key={item.id} className='pl-8 lg:pl-12 text-md text-arnotBlue font-semibold'>
-                                    { item.url
-                                        ? <Link href={item.url}>{item.label}</Link>
-                                        : <div>{item.label}</div>
-                                    }
+                        
+                        <Link href={'/'} className='hidden lg:block px-4 last:mr-0 mr-3 py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Home</Link>
+
+                        { nav.map(item => (
+                            <div key={item.id} className='px-4 last:mr-0 mr-3 py-2 relative hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>
+                                <div className='flex items-center space-x-2  text-arnotBlue hover:cursor-pointer' onClick={() => handleClick(item.id)}>
+                                    <div className='text-md font-semibold'>{item.label}</div>
+                                    <RxCaretDown className={`${opened === item.id ? 'rotate-180' : ''} transition ease-in-out duration-200`} />
                                 </div>
-                            ))
-                        }
+                                { opened === item.id && 
+                                    <SubMenu ref={ref} subMenu={item.subMenu} closeMenu={handleClick} />
+                                }
+                            </div>
+                        ))}
+
+                        <Link href={'/team'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Our Team</Link>
+
+                        <Link href={'/contact'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Contact</Link>
+
                     </div>
                 </div>
                 <div className='block md:hidden'>
@@ -35,47 +55,33 @@ export default function Header() {
             </div>
         </div>
     )
-}
+})
 
-export const nav = [
-    {
-        id: 0, 
-        label: 'Home', 
-        url: '/', 
-        subMenu: null
-    },
+export default Header;
+
+const nav = [
     {
         id: 1, 
-        label: 'Patients', 
-        url: null, 
+        label: 'Patients',
         subMenu: {
+            slug: '?index=Background',
             title: 'Find My Condition',
-            headerLinkTitle: 'Patient Portal',
-            headerLinkURL: 'https://www.arnothealth.org/myarnothealth',
-            headerLinkIcon: 'stethoscope',
+            linkLabel: 'Patient Portal',
+            linkUrl: 'https://www.arnothealth.org/myarnothealth',
+            target: '_blank',
+            linkIcon: 'stethoscope',
         }
     },
     {
         id: 2, 
-        label: 'Professionals', 
-        url: null,
+        label: 'Professionals',
         subMenu: {
-            title: 'Rehab Protocols & Discharge Instructions',
-            headerLinkTitle: 'See All',
-            headerLinkURL: '/professional-resources',
-            headerLinkIcon: null,
+            slug: '?index=All%20Resources',
+            title: 'Rehab & Discharge Protocols',
+            linkLabel: 'See All',
+            linkUrl: '/professional-resources',
+            target: '',
+            linkIcon: null,
         }
-    },
-    {
-        id: 3, 
-        label: 'Our Team', 
-        url: '/team', 
-        subMenu: null
-    },
-    {
-        id: 4, 
-        label: 'Contact', 
-        url: '/contact', 
-        subMenu: null
     },
 ]

@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { RxArrowRight } from 'react-icons/rx'
 import { useState } from 'react'
 
 export default function GoogleMap(props) {
@@ -17,15 +14,15 @@ export default function GoogleMap(props) {
         <div className='pt-24 pb-12' id='locations'>
             <h2 className='font-bold text-2xl'>Locations</h2>
             <div className='flex flex-row flex-wrap justify-start items-center mt-6'>
-                    { locations.map(item => (
-                        <div key={item.id} className={`mr-4 my-2 border px-6 py-3 rounded-md font-semibold hover:cursor-pointer ${item.name === map ? 'text-arnotBlue border-arnotBlue bg-arnotBlue/10' : 'hover:border-arnotBlue bg-gray-50'}`} onClick={() => setMap(item.name)}>
-                            { item.name }
-                        </div>
-                    ))}
-                </div>
+                { locations.map(item => (
+                    <div key={item.id} className={`mr-4 my-2 border px-6 py-3 rounded-md font-semibold hover:cursor-pointer ${item.name === map ? 'text-arnotBlue border-arnotBlue bg-arnotBlue/10' : 'hover:border-arnotBlue bg-gray-50'}`} onClick={() => setMap(item.name)}>
+                        { item.city }
+                    </div>
+                ))}
+            </div>
             <iframe
                 className='w-full aspect-video mt-6'
-                style={{ border:0 }}
+                style={{ border:0, borderRadius: '6px' }}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"

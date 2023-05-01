@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 storyblokInit({
-    accessToken: process.env.CMS_STORYBLOK,
+    accessToken: process.env.NEXT_PUBLIC_CMS_STORYBLOK,
     use: [apiPlugin],
     apiOptions: { 
         region: 'us',

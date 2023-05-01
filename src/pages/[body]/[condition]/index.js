@@ -12,16 +12,12 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 export default function Condition(props) {
 
     const { 
-        // condition, 
         params, 
         indexes, 
         arthritis, 
         conditionHeader, 
         page = null 
     } = props
-
-    // console.log('API Response', condition)
-    // console.log('Normalized Response', page)
 
     const router = useRouter()
 

@@ -15,7 +15,7 @@ export default function Accordion(props) {
 
     return (
         <div className='max-w-xl md:max-w-sm w-full flex-grow'>
-            {title && <h3 className={`mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
+            {title && <h3 className={`hidden md:block mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
             {
                 accordion.map((entry, index) => (
                     <Dropdown 

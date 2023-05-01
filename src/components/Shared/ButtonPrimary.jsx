@@ -15,7 +15,7 @@ export default function ButtonPrimary(props) {
             <Link href={url}>
                 <button className={`
                     ${ invert 
-                        ? 'bg-none text-arnotBlue' 
+                        ? 'bg-none text-arnotBlue hover:rounded hover:bg-arnotBlue/10' 
                         : 'bg-arnotBlue text-white hover:shadow-lg hover:shadow-arnotBlue/20'
                     }
                     rounded-sm px-6 py-4 text-md flex justify-center items-center 
