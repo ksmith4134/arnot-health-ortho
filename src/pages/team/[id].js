@@ -8,7 +8,7 @@ import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
 import Locations from '@/components/widgets/Locations'
 import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
-import GoogleMap from '@/components/widgets/GoogleMap'
+import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 
 export default function Person(props) {
     
@@ -49,7 +49,7 @@ export default function Person(props) {
                     </div>
                 }
                 { reviews[0] && <TestimonialsTeam reviews={reviews} /> }
-                { locations[0] && <GoogleMap locations={locations} /> }
+                { locations[0] && <GoogleMapDuex locations={locations} /> }
             </div>
             { videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>

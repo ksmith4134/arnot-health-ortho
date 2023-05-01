@@ -37,18 +37,9 @@ export default function TestimonialsTeam(props) {
 
     return (
         <div className='pt-24 pb-12' id='reviews'>
-            <div className='flex flex-row justify-between items-end'>
-                <h2 className='font-bold text-2xl'>Reviews</h2>
-                <div className='flex-row items-end hidden md:flex'>
-                    {
-                        media.map((i) => (
-                            <div key={i} className={`w-6 h-[3px] mx-1 ${i === index ? 'bg-arnotBlue' : 'bg-gray-300 '} rounded-full`}></div>
-                        ))
-                    }
-                </div>
-            </div>
+            <h2 className='font-bold text-2xl'>Reviews</h2>
             <div 
-                className='mt-6 rounded-md p-8 sm:py-20 sm:px-12 bg-slate-100 flex flex-row items-center group'
+                className='mt-6 rounded-md p-8 sm:py-20 sm:px-12 bg-white border border-arnotBlue/20 flex flex-row items-center group'
             >
                 <BsArrowLeftCircleFill onClick={handleDecrement} className='hidden md:block text-2xl md:text-6xl opacity-0 group-hover:opacity-100 text-slate-300 hover:text-arnotBlue/70 hover:cursor-pointer transition ease-in-out duration-200' />
                 { reviews.map((review, i) => (
@@ -65,6 +56,13 @@ export default function TestimonialsTeam(props) {
                     </div>
                 ))}
                 <BsArrowRightCircleFill onClick={handleIncrement} className='hidden md:block text-2xl md:text-6xl opacity-0 group-hover:opacity-100 text-slate-300 hover:text-arnotBlue/70 hover:cursor-pointer transition ease-in-out duration-300' />
+            </div>
+            <div className='mt-6 flex flex-row justify-center items-end'>
+                {
+                    media.map((i) => (
+                        <div key={i} className={`w-6 h-[3px] mx-1 ${i === index ? 'bg-arnotBlue' : 'bg-gray-300 '} rounded-full`}></div>
+                    ))
+                }
             </div>
             <div className='block md:hidden'>
                 <CarouselControls 

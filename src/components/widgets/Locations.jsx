@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { RxArrowRight } from 'react-icons/rx'
 
-export default function LocationsWrapper(props) {
+export default function Locations(props) {
 
     const {
         locations,

@@ -1,7 +1,7 @@
 import InfoBox from '@/components/InfoBox'
 import Link from 'next/link'
 // import Locations from '@/components/widgets/Locations'
-import GoogleMap from '@/components/widgets/GoogleMap'
+import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 import { getStoryblokApi, renderRichText } from '@storyblok/react'
 
 
@@ -16,17 +16,18 @@ export default function Contact(props) {
     return (
         <div className='max-w-5xl mx-auto px-8 min-h-screen mt-20'>
             <InfoBox textSize={'medium'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-16 pt-24'>
-                <div className='max-w-lg'>
-                    <h2 className='font-bold text-2xl'>Contact Your Provider</h2>
-                    <p className='mt-4'>If you have any questions regarding your care, appointment schedule, or test results, please contact your provider&apos;s office directly at <span className='font-bold'>(607) 734-4110</span>.</p>
-                </div>
-                <div className='max-w-lg'>
-                    <h2 className='font-bold text-2xl'>Patient Portal</h2>
-                    <p className='mt-4'>If you have questions regarding the patient portal such as how to sign up or login, please visit the link at the main Arnot website: <Link href={'https://www.arnothealth.org/myarnothealth'} target='_blank' className='font-bold text-arnotBlue underline underline-offset-4'>Patient Portal FAQ</Link></p>
-                </div>
+
+            <div className='max-w-2xl'>
+                <h2 className='mt-16 font-bold text-2xl'>Contact Your Provider</h2>
+                <p className='mt-4'>If you have any questions regarding your care, appointment schedule, or test results, please contact your provider&apos;s office directly at <span className='font-bold'>(607) 734-4110</span>.</p>
             </div>
-            <GoogleMap locations={locations} />
+
+            <div className='max-w-2xl'>
+                <h2 className='mt-16 font-bold text-2xl'>Patient Portal</h2>
+                <p className='mt-4'>If you have questions regarding the patient portal such as how to sign up or login, please visit the link at the main Arnot website: <Link href={'https://www.arnothealth.org/myarnothealth'} target='_blank' className='font-bold text-arnotBlue underline underline-offset-4'>Patient Portal FAQ</Link></p>
+            </div>
+
+            <GoogleMapDuex locations={locations} />
         </div>
     )
 }
