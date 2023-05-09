@@ -14,8 +14,8 @@ export default function GoogleMapDuex(props) {
 
     return (
         <div id='locations' className='pt-24 pb-12'>
-            <div className='flex flex-'>
-                <div className='basis-1/3 mr-16'>
+            <div className='flex flex-col md:flex-row'>
+                <div className='md:basis-1/3 md:mr-8 lg:mr-16'>
                     <h2 className='font-bold text-2xl'>Locations</h2>
                     <p className='mt-4 text-sm'>Click the buttons below to update the map to your location. Feel free to call with any questions.</p>
                     <div className='inline-flex items-center mt-4'>
@@ -24,14 +24,14 @@ export default function GoogleMapDuex(props) {
                     </div>
                     <div className='flex flex-col mt-6'>
                         { locations.map(item => (
-                            <div key={item.id} className={`mr-4 my-2 border px-6 py-2 rounded-md text-sm font-semibold hover:cursor-pointer ${item.name === map ? 'text-arnotBlue border-arnotBlue bg-arnotBlue/10' : 'hover:border-arnotBlue bg-gray-50'}`} onClick={() => setMap(item.name)}>
+                            <div key={item.id} className={`my-2 border px-6 py-2 rounded-md text-sm font-semibold hover:cursor-pointer ${item.name === map ? 'text-arnotBlue border-arnotBlue bg-arnotBlue/10' : 'hover:border-arnotBlue bg-gray-50'}`} onClick={() => setMap(item.name)}>
                                 { item.city }
                             </div>
                         ))}
                     </div>
                 </div>
                 <iframe
-                    className='w-full h-96'
+                    className='w-full h-96 mt-6 md:mt-0'
                     style={{ border:0, borderRadius: '6px' }}
                     loading="lazy"
                     allowFullScreen

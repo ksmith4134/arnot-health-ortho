@@ -6,6 +6,8 @@ import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
+import InfoSection from '@/components/widgets/InfoSection';
+import Card from '@/components/widgets/Card';
 
 export default function Home(props) {
 
@@ -52,6 +54,44 @@ export default function Home(props) {
                     kicker={['Patient Resources']} 
                     title={'Learn About Your Condition'} 
                     subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
+                />
+                <InfoSection 
+                    background={'gray'} 
+                    title={'Prepare for Surgery'}
+                    subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
+                    content={
+                        [
+                            { id: 0, title: 'Same Day Surgery Tour', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Link', title: 'Take the Tour', link:{ url: '/', target: '' }}}
+                        ]
+                    }
+                    downloads={[
+                        {id: 0, title: 'Pre-Operative Checklist', url: '/'},
+                        {id: 1, title: 'Pain Management', url: '/'},
+                        {id: 2, title: 'Discharge Instructions', url: '/'},
+                        {id: 3, title: 'Recovery Tips', url: '/'},
+                    ]}
+                    openModal={openModal}
+                />
+                <InfoSection
+                    background={'white'} 
+                    title={'Joint Health Services'}
+                    subTitle={'Learn more about our joint health services - from conservative care to same-day, full joint replacements'}
+                    content={
+                        [
+                            { id: 0, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } }
+                        ]
+                    }
+                    downloads={[]}
+                    openModal={openModal}
+                />
+                <Card
+                    kicker={'Sports Medicine'}
+                    title={'This is a Sports Medicine Intro Video from Arnot'}
+                    description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
+                    logos={[]}
+                    videoUrl={''}
+                    videoThumbnail={''}
+                    openMOdal={openModal}
                 />
                 <TestimonialsHome 
                     testimonials={testimonials} 

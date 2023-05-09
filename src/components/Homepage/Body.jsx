@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Skeleton from './Skeleton'
 import ButtonFilter from './ButtonFilter'
 import TitleBlock from '../Shared/TitleBlock'
-import ButtonFilter2 from './ButtonFilter2'
+
 
 export default function Body(props) {
 

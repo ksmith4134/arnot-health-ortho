@@ -4,6 +4,7 @@ import ProfilePic from '../ProfilePic'
 import IconImage from '../Shared/IconImage'
 import FiveStars from '../Shared/FiveStars'
 import TestimonialsContent from '../widgets/TestimonialsContent'
+import TitleBlock from '../Shared/TitleBlock'
 
 export default function TestimonialsHome(props) {
 
@@ -24,8 +25,9 @@ export default function TestimonialsHome(props) {
     }
 
     return (
-        <div className='max-w-5xl px-8 mx-auto py-36'>
-            <h1 className='text-center text-5xl font-bold'>{title}</h1>
+        <div className='max-w-5xl px-8 mx-auto py-24'>
+            {/* <h1 className='text-center text-4xl sm:text-5xl font-bold'>{title}</h1> */}
+            <TitleBlock title={title} />
             <div className='mt-24 flex flex-col md:flex-row md:items-start'>
                 {/* Profile Pics */}
                 <div className='order-1 md:basis-5/12'>

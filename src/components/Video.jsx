@@ -4,6 +4,7 @@ import Download from './Download'
 import LinkWrapper from './LinkWrapper'
 import Prose from './markdown/Prose'
 import { ICONS } from './Theme'
+import ButtonPrimary from './Shared/ButtonPrimary'
 
 export default function Video(props) {
 
@@ -14,13 +15,13 @@ export default function Video(props) {
         description = '', 
         videoUrl = 'https://www.youtube.com/embed/uUmAUxWFYCw', 
         image = '',
-        asset = {}, // goes to either Download or LinkWrapper component
+        asset = {}, // goes to either Download, LinkWrapper, or Button component
         handleClick = () => console.log('Video modal open')
     } = props
 
     const playButton = ICONS['play']
 
-    // update the defaultPic to blue bg with arnot health logo
+    // defaultPic is blue bg with white arnot health logo
     const videoThumbnail = image ? image : defaultPic
 
     return (
@@ -35,6 +36,9 @@ export default function Video(props) {
                 }
                 { asset?.component === 'Link' && 
                     <LinkWrapper title={asset.title} url={asset.link.url} target={asset.link.target} />
+                }
+                { asset?.component === 'Button' && 
+                    <ButtonPrimary label={asset.label} url={asset.url} />
                 }
             </div>
             <div className={`basis-6/12 ${orientation === 'row' ? 'mt-4 lg:mt-0 flex-shrink-0' : 'mt-4'}`}>

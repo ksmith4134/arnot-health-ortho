@@ -1,5 +1,5 @@
-import { FiPlus, FiMinus, FiMapPin } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsLink, BsPlusCircle, BsPlayCircle, BsCheckCircle, BsTelephone, BsStar, BsFillStarFill } from 'react-icons/bs'
+import { FiPlus, FiMinus } from 'react-icons/fi';
+import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsFillStarFill } from 'react-icons/bs'
 import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward } from 'react-icons/fa'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
@@ -31,7 +31,7 @@ import CarouselWrapper from './CarouselWrapper';
 export const PROFILE_PIC = {
     size: {
         'small': 'w-16 h-16',
-        'medium': 'w-24 h-24',
+        'medium': 'w-28 h-28',
     }
 }
 
@@ -42,6 +42,11 @@ export const SKELETON_LOCATIONS = {
     'Hip': 'top-[44%] left-[32%]',
     'Knee': 'bottom-[23.3%] right-[34.5%]',
     'Shoulder': 'top-[14%] left-[26%]',
+}
+
+export const SECTION_BG_COLORS = {
+    white: 'bg-white',
+    gray: 'bg-slate-50',
 }
 
 export const SKELETON_BG = {

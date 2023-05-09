@@ -6,7 +6,6 @@ import Hero from '@/components/Homepage/Hero'
 import About from '@/components/Team/About'
 import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
-import Locations from '@/components/widgets/Locations'
 import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
 import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 

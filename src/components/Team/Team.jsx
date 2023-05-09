@@ -32,24 +32,24 @@ export default function Team(props) {
             { showTitle &&  
                 <TitleBlock
                     title={title}
-                    subTitle={subTitle}
+                    // subTitle={subTitle}
                 />
             }
-            <div className={`mt-16 grid grid-cols-1
+            <div className={`mt-8 sm:mt-16 grid grid-cols-1
                 ${team.length % 2 === 0 
                     ? 'sm:grid-cols-2' 
                     : 'sm:grid-cols-2 lg:grid-cols-3'}
             `}>
                 { 
                     team.map((profile) => (
-                        <div key={profile.id} className={`${showTitle && 'mt-16'} w-9/12 mx-auto space-y-7 flex flex-col items-center sm:items-start`}>
+                        <div key={profile.id} className={`${showTitle && 'mt-16'} sm:w-9/12 mx-auto space-y-7 flex flex-col items-start`}>
                             <ProfilePic url={profile.profilePic} />
-                            <div className='text-center sm:text-left'>
+                            <div className='text-left'>
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
                                 <p className='mt-1 text-sm font-light'>{profile.school}</p>
                             </div>
-                            <p className='text-sm text-center sm:text-left line-clamp-4'>{profile.shortSummary}</p>
-                            <div className='space-y-1'>
+                            <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p>
+                            <div className='flex flex-col space-y-1'>
                                 <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
                             </div>
                         </div>

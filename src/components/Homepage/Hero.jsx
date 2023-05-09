@@ -39,7 +39,6 @@ export default function Hero(props) {
             {/* Image */}
             <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
                 { media.length > 0
-                    // ? <CarouselWrapper media={media} hero={carousel} />
                     ? <Image src={media[0].url} alt="hero image" fill quality={100} priority className='object-cover' />
                     : image 
                         ? <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />

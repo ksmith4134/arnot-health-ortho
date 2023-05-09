@@ -29,10 +29,10 @@ const Header = forwardRef(function Header(props, ref) {
                     {/* MAIN NAV LINKS */}
                     <div className='hidden md:flex justify-start items-center'>
                         
-                        <Link href={'/'} className='hidden lg:block px-4 last:mr-0 mr-3 py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Home</Link>
+                        <Link href={'/'} className='hidden lg:block px-4 last:mr-0 mr-3 py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Home</Link>
 
                         { nav.map(item => (
-                            <div key={item.id} className='px-4 last:mr-0 mr-3 py-2 relative hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>
+                            <div key={item.id} className='px-4 last:mr-0 mr-3 py-2 relative hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>
                                 <div className='flex items-center space-x-2  text-arnotBlue hover:cursor-pointer' onClick={() => handleClick(item.id)}>
                                     <div className='text-md font-semibold'>{item.label}</div>
                                     <RxCaretDown className={`${opened === item.id ? 'rotate-180' : ''} transition ease-in-out duration-200`} />
@@ -43,9 +43,9 @@ const Header = forwardRef(function Header(props, ref) {
                             </div>
                         ))}
 
-                        <Link href={'/team'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Our Team</Link>
+                        <Link href={'/team'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Our Team</Link>
 
-                        <Link href={'/contact'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBrown/50'>Contact</Link>
+                        <Link href={'/contact'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Contact</Link>
 
                     </div>
                 </div>
