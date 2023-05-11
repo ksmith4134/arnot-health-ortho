@@ -94,7 +94,7 @@ export default function Condition(props) {
                                 index && 
                                 layout.find(item => item.index === index).components.map((component, i) => (
                                     <div key={i} className={`flex flex-col mt-16`}>
-                                        {component}
+                                        { component }
                                     </div>
                                 ))
                             }

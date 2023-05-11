@@ -20,7 +20,7 @@ export default function Skeleton(props) {
                         key={location.id}
                         onClick={() => handleAccordionClick(location.id)}
                         className={`
-                            w-10 h-10 absolute rounded-full flex justify-center items-center text-xs
+                            w-12 h-12 absolute rounded-full flex justify-center items-center text-xs
                             border-2 hover:animate-customPing hover:cursor-pointer
                             ${selected === location.id 
                                 ? `${SKELETON_BG_SELECTED[theme]}`

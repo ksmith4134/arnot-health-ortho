@@ -9,28 +9,24 @@ export default function InfoSection(props) {
 
     const {
         background = 'white',
+        topMargin = '',
         title = 'Lorem ipsum title',
         subTitle = 'Im a little subtitle boy',
         content = [
             {id: 0, title: '', description: '', videoUrl: '', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' }}
         ],
-        downloads = [
-            {id: 0, title: 'Example Download 1', url: '/'},
-            {id: 1, title: 'Example Download 2', url: '/'},
-            {id: 2, title: 'Example Download 3', url: '/'},
-            {id: 3, title: 'Example Download 4', url: '/'},
-        ],
+        downloads = null,
         openModal,
     } = props
 
     const backgroundColor = SECTION_BG_COLORS[background]
 
     return (
-        <div className={`${backgroundColor} py-24`}>
+        <section className={`${backgroundColor} pt-24 pb-36`}>
             <div className='max-w-5xl px-8 mx-auto'>
                 <TitleBlock title={title} subTitle={subTitle} />
-                <div className='mt-20'>
-                    <Carousel length={content.length}>
+                <div className='mt-24'>
+                    <Carousel length={content.length} controlsMargin={'large'}>
                         {content.map(item => (
                             <Video 
                                 key={item.id}
@@ -45,11 +41,11 @@ export default function InfoSection(props) {
                     </Carousel>
                 </div>
                 { downloads && 
-                    <div className='mt-20'>
+                    <div className='mt-24'>
                         <DownloadRow downloads={downloads} />
                     </div>
                 }
             </div>
-        </div>
+        </section>
     )
 }

@@ -5,7 +5,6 @@ import { BiLinkExternal } from 'react-icons/bi'
 export default function LinkWrapper(props) {
 
     const {
-        id,
         title,
         url,
         target,
@@ -13,7 +12,7 @@ export default function LinkWrapper(props) {
     } = props
 
     return (
-        <Link href={url} tagret={target} className='mt-4 text-arnotBlue text-sm flex items-center space-x-2 hover:underline hover:underline-offset-4'>
+        <Link href={url} tagret={target} className='text-arnotBlue text-sm flex items-center space-x-2 hover:underline hover:underline-offset-4'>
             { showIcon && <BiLinkExternal className='text-lg' /> }
             <div>{title}</div>
         </Link>

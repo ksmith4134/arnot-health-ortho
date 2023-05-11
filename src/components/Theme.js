@@ -28,6 +28,13 @@ import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
 import CarouselWrapper from './CarouselWrapper';
 
+export const CAROUSEL_CONTROLS = {
+    margin: {
+        normal: 'mt-0',
+        large: 'mt-16',
+    }
+}
+
 export const PROFILE_PIC = {
     size: {
         'small': 'w-16 h-16',
@@ -36,12 +43,12 @@ export const PROFILE_PIC = {
 }
 
 export const SKELETON_LOCATIONS = {
-    'Elbow': 'top-[30%] right-[16%]',
-    'Foot / Ankle': 'bottom-[0%] left-[34%]',
+    'Elbow': 'top-[30%] right-[17%]',
+    'Foot / Ankle': 'bottom-[1%] left-[35%]',
     'Hand / Wrist': 'top-[45%] left-[3%]',
-    'Hip': 'top-[44%] left-[32%]',
-    'Knee': 'bottom-[23.3%] right-[34.5%]',
-    'Shoulder': 'top-[14%] left-[26%]',
+    'Hip': 'top-[45%] left-[30%]',
+    'Knee': 'bottom-[24%] right-[35%]',
+    'Shoulder': 'top-[14.5%] left-[24%]',
 }
 
 export const SECTION_BG_COLORS = {

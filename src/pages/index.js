@@ -57,6 +57,7 @@ export default function Home(props) {
                 />
                 <InfoSection 
                     background={'gray'} 
+                    topMargin={'none'}
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
                     content={
@@ -78,10 +79,11 @@ export default function Home(props) {
                     subTitle={'Learn more about our joint health services - from conservative care to same-day, full joint replacements'}
                     content={
                         [
-                            { id: 0, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } }
+                            { id: 0, title: 'Joint Services Overview', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/x69ivpdbqkI', image: '', },
+                            { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
+                            { id: 2, title: 'Same Day Total Joint Program', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', },
                         ]
                     }
-                    downloads={[]}
                     openModal={openModal}
                 />
                 <Card
@@ -91,7 +93,7 @@ export default function Home(props) {
                     logos={[]}
                     videoUrl={''}
                     videoThumbnail={''}
-                    openMOdal={openModal}
+                    openModal={openModal}
                 />
                 <TestimonialsHome 
                     testimonials={testimonials} 

@@ -58,7 +58,11 @@ export default function Hero(props) {
                         title={title}
                         subTitle={subTitle}
                     />
-                    { buttonLabel && <ButtonPrimary label={buttonLabel} url={url} /> }
+                    { buttonLabel && 
+                        <div className='mt-10'>
+                            <ButtonPrimary label={buttonLabel} url={url} />
+                        </div> 
+                    }
                     { icons && 
                         <div className='mt-8 max-w-sm grid grid-cols-2 gap-4'>
                             <IconList items={icons} profile={profile} goToProfile={goToProfile} playVideo={playVideo} url={videoUrl} />

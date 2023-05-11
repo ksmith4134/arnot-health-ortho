@@ -4,7 +4,6 @@ import Download from './Download'
 export default function DownloadList(props) {
 
     const {
-        id,
         accordion = false,
         downloads = []
     } = props

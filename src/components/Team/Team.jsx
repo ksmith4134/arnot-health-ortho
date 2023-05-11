@@ -30,19 +30,28 @@ export default function Team(props) {
     return (
         <div className='max-w-5xl mx-auto px-8 py-24'>
             { showTitle &&  
-                <TitleBlock
-                    title={title}
-                    // subTitle={subTitle}
-                />
+                <>
+                    <TitleBlock
+                        alignBlock={'left'}
+                        title={title}
+                        subTitle={subTitle}
+                    />
+                    { meetTheTeam && 
+                        <div className='flex mt-8 justify-start'>
+                            <ButtonPrimary label={'Meet the Whole Team'} url={'/team'} invert={true} />
+                        </div>
+                    }
+                    <span className='mb-16'></span>
+                </>
             }
-            <div className={`mt-8 sm:mt-16 grid grid-cols-1
+            <div className={`my-16 grid grid-cols-1 gap-8 max-w-sm sm:max-w-full sm:gap-28
                 ${team.length % 2 === 0 
                     ? 'sm:grid-cols-2' 
                     : 'sm:grid-cols-2 lg:grid-cols-3'}
             `}>
                 { 
                     team.map((profile) => (
-                        <div key={profile.id} className={`${showTitle && 'mt-16'} sm:w-9/12 mx-auto space-y-7 flex flex-col items-start`}>
+                        <div key={profile.id} className={`${showTitle && 'mt-16'} mx-auto space-y-7 flex flex-col items-start`}>
                             <ProfilePic url={profile.profilePic} />
                             <div className='text-left'>
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
@@ -56,11 +65,6 @@ export default function Team(props) {
                     ))
                 }
             </div>
-            { meetTheTeam && 
-                <div className='flex mt-16 justify-center'>
-                    <ButtonPrimary label={'Meet the Whole Team'} url={'/team'} invert={true} />
-                </div>
-            }
         </div>
     )
 }

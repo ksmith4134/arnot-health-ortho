@@ -1,4 +1,4 @@
-import Download from "../Download"
+import Download from '../Download'
 
 export default function DownloadRow(props) {
 

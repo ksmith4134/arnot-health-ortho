@@ -57,16 +57,16 @@ export default function Body(props) {
     }, [filteredAccordion])
 
     return (
-        <div id="body-diagram" className='w-full bg-slate-50'>
-            <div className='max-w-5xl mx-auto px-8 py-36'>
+        <div id='body-diagram' className='w-full bg-slate-50'>
+            <div className='max-w-5xl mx-auto px-8 pt-36 pb-24'>
                 <TitleBlock 
                     kicker={kicker}
                     title={title}
                     subTitle={subTitle}
                 />
                 <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
-                <div className='mt-12 md:mt-28 max-w-3xl mx-auto flex flex-row justify-between items-start'>
-                    <div className='order-1 w-full md:basis-8/12 flex justify-center md:justify-start'>
+                <div className='mt-12 md:mt-28 max-w-5xl mx-auto flex flex-row justify-between items-start'>
+                    <div className='order-1 w-full md:basis-8/12 md:mt-12 flex justify-center md:justify-start'>
                         { filteredAccordion &&                                
                             <Accordion 
                                 accordion={filteredAccordion} 

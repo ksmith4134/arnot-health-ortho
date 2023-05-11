@@ -1,5 +1,5 @@
-import React from 'react'
-import { ImBookmarks } from 'react-icons/im'
+import { BsBook } from 'react-icons/bs'
+
 
 export default function Indexes(props) {
 
@@ -7,9 +7,9 @@ export default function Indexes(props) {
 
     return (
         <div>
-            <div className='flex items-center space-x-2 mt-1 mb-4 -ml-[1.5px]'>
-                <ImBookmarks className='text-xl text-arnotPeach -scale-x-100' />
-                <h4 className='font-semibold text-xl text-arnotPeach'>Index</h4>
+            <div className='flex items-center space-x-3 mt-1 mb-6 -ml-[1.5px]'>
+                <h4 className='font-semibold text-2xl text-arnotPeach'>Index</h4>
+                {/* <BsBook className='mt-1 text-2xl text-arnotPeach -scale-x-100' /> */}
             </div>
             <ul className='border-l-2 border-arnotBrown/10'>
                 {

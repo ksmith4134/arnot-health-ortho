@@ -18,8 +18,12 @@ export default function Download(props) {
     
     return (
         <Link href={download ? download : router.asPath} target='_blank' className='mt-4 flex items-center space-x-2 text-arnotRed hover:underline hover:underline-offset-4'>
-            {AssetIcon && <AssetIcon className={`text-red-500 ${fontSize === 'small' ? 'text-2xl' : 'text-3xl'}`} />}
-            {title && <p className={`${fontSize === 'small' ? 'text-sm' : ''}`}>{title}</p>}
+            { AssetIcon && 
+                <AssetIcon className={`text-red-500 ${fontSize === 'small' ? 'text-2xl' : 'text-3xl'}`} />
+            }
+            { title && 
+                <p className={`${fontSize === 'small' ? 'text-sm' : ''}`}>{title}</p>
+            }
         </Link>
   )
 }

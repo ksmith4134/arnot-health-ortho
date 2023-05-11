@@ -24,7 +24,7 @@ export default function TitleBlock(props) {
                         <div className='flex flex-row space-x-4'>
                             {
                                 kicker.map((item, index) => (
-                                    <h4 key={index} className='uppercase text-sm last:border-r-0 border-r-[1px] border-gray-400 h-7 flex items-center pr-4'>{item}</h4>
+                                    <h4 key={index} className='uppercase text-md last:border-r-0 border-r-[1px] border-gray-400 h-7 flex items-center pr-4'>{item}</h4>
                                 ))
                             }
                         </div>
