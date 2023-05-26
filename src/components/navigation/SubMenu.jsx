@@ -44,12 +44,12 @@ const SubMenu = forwardRef(function SubMenu(props, ref) {
                         <div>{item.bodyPart}</div>
                         <RxCaretDown className={`text-xl ${item.id === opened && 'rotate-180'}`} />
                     </div>
-                    <div className={`bg-arnotBlue/10 ${item.id === opened && 'py-2'}`}>
+                    <div className={`bg-arnotBlue/10 ${item.id === opened && 'px-4 py-2'}`}>
                         { opened === item.id && 
                             item.conditions.map(link => (
-                                <div key={link.id} className='mx-2 my-2 px-2 py-1 text-arnotBlue hover:underline hover:underline-offset-8'>
-                                    <Link href={`/${item.slug}/${link.slug}${subMenu.slug}`} onClick={() => closeMenu(null)}>{link.condition}</Link>
-                                </div>
+                                <Link key={link.id} href={`/${item.slug}/${link.slug}${subMenu.slug}`} onClick={() => closeMenu(null)}>
+                                    <p className='py-2 text-arnotBlue hover:underline hover:underline-offset-8'>{link.condition}</p>
+                                </Link>
                             ))
                         }
                     </div>

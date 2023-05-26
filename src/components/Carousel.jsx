@@ -34,9 +34,11 @@ export default function Carousel(props) {
     return (
         <div className={`w-full mt-8 md:mt-1 ${float && `md:w-80 order-2 float-none md:float-right md:ml-12`}`}>
             { children[index] }
-            <div className={`${margin}`}>
-                <CarouselControls selected={index} length={length} increment={handleIncrement} decrement={handleDecrement} />
-            </div>
+            { length > 1 &&
+                <div className={`${margin}`}>
+                    <CarouselControls selected={index} length={length} increment={handleIncrement} decrement={handleDecrement} />
+                </div>
+            }
         </div>
     )
 }
@@ -56,20 +58,16 @@ export function CarouselControls(props) {
     }
 
     return (
-        <>
-            { length > 1 && 
-                    <div className='flex flex-row justify-center items-center space-x-4 mt-4 h-8'>
-                        <BsArrowLeftCircle onClick={decrement} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
-                        <div className='flex flex-row justify-center items-center'>
-                            {
-                                media.map((index) => (
-                                    <div key={index} className={`w-6 h-[2px] mx-1 ${index === selected ? 'bg-arnotBlue' : 'bg-gray-300 '} rounded-full`}></div>
-                                ))
-                            }
-                        </div>
-                        <BsArrowRightCircle onClick={increment} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
-                </div>
-            }
-        </>
+        <div className='flex flex-row justify-center items-center space-x-4 mt-4 h-8'>
+            <BsArrowLeftCircle onClick={decrement} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
+            <div className='flex flex-row justify-center items-center'>
+                {
+                    media.map((index) => (
+                        <div key={index} className={`w-6 h-[2px] mx-1 ${index === selected ? 'bg-arnotBlue' : 'bg-gray-300 '} rounded-full`}></div>
+                    ))
+                }
+            </div>
+            <BsArrowRightCircle onClick={increment} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
+        </div>
     )
 }

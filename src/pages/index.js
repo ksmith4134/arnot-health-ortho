@@ -7,6 +7,7 @@ import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 import InfoSection from '@/components/widgets/InfoSection';
+import CardSection from '@/components/widgets/CardSection';
 import Card from '@/components/widgets/Card';
 
 export default function Home(props) {
@@ -56,25 +57,39 @@ export default function Home(props) {
                     subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
                 />
                 <InfoSection 
-                    background={'gray'} 
-                    topMargin={'none'}
+                    card={true}
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
                     content={
                         [
-                            { id: 0, title: 'Same Day Surgery Tour', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Link', title: 'Take the Tour', link:{ url: '/', target: '' }}}
+                            { id: 0, title: 'Same Day Surgery Tour', description: 'In this brief video, Arnot Health orthopedic surgeons Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '/Same Day Surgery Tour.jpg', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
                         ]
                     }
                     downloads={[
-                        {id: 0, title: 'Pre-Operative Checklist', url: '/'},
-                        {id: 1, title: 'Pain Management', url: '/'},
-                        {id: 2, title: 'Discharge Instructions', url: '/'},
-                        {id: 3, title: 'Recovery Tips', url: '/'},
+                        {id: 0, title: 'Pre-Operative Preparation', url: '/'},
+                        {id: 1, title: 'Pain Management Instructions', url: '/'},
+                        {id: 2, title: 'Discharge Preparation Checklist', url: '/'},
+                        {id: 3, title: '10 Joint Surgery Recovery Tips', url: '/'},
                     ]}
                     openModal={openModal}
                 />
+                {/* <CardSection 
+                    background={'gray'} 
+                    topMargin={'none'}
+                    title={'Prepare for Surgery'}
+                    subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
+                    videoUrl={'https://www.youtube.com/embed/x_1UusZhMFM'}
+                    videoThumbnail={'/Same Day Surgery Tour.jpg'}
+                    downloads={[
+                        {id: 0, title: 'Pre-Op Preparation', url: '/'},
+                        {id: 1, title: 'Pain Management', url: '/'},
+                        {id: 2, title: 'Discharge Checklist', url: '/'},
+                        {id: 3, title: 'Recovery Tips', url: '/'},
+                    ]}
+                    openModal={openModal}
+                /> */}
                 <InfoSection
-                    background={'white'} 
+                    card={true}
                     title={'Joint Health Services'}
                     subTitle={'Learn more about our joint health services - from conservative care to same-day, full joint replacements'}
                     content={
@@ -84,6 +99,7 @@ export default function Home(props) {
                             { id: 2, title: 'Same Day Total Joint Program', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', },
                         ]
                     }
+                    body={body}
                     openModal={openModal}
                 />
                 <Card
@@ -91,9 +107,9 @@ export default function Home(props) {
                     title={'This is a Sports Medicine Intro Video from Arnot'}
                     description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
                     logos={[]}
-                    videoUrl={''}
-                    videoThumbnail={''}
-                    openModal={openModal}
+                    videoUrl={'https://www.youtube.com/embed/6EKOCDdNjvg'}
+                    videoThumbnail={'/sports_medicine_kayak.png'}
+                    handleClick={openModal}
                 />
                 <TestimonialsHome 
                     testimonials={testimonials} 

@@ -17,7 +17,7 @@ export default function Download(props) {
     const AssetIcon = icon ? ICONS[icon] : null
     
     return (
-        <Link href={download ? download : router.asPath} target='_blank' className='mt-4 flex items-center space-x-2 text-arnotRed hover:underline hover:underline-offset-4'>
+        <Link href={download ? download : router.asPath} target='_blank' className='mt-4 flex items-center space-x-2 text-arnotRed hover:underline hover:underline-offset-8'>
             { AssetIcon && 
                 <AssetIcon className={`text-red-500 ${fontSize === 'small' ? 'text-2xl' : 'text-3xl'}`} />
             }

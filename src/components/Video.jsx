@@ -26,7 +26,7 @@ export default function Video(props) {
             case 'Link':
                 return <LinkWrapper title={asset.title} url={asset.link.url} target={asset.link.target} />
             case 'Button':
-                return <ButtonPrimary label={asset.label} url={asset.url} invert={true} />
+                return <ButtonPrimary label={asset.label} url={asset.url} type={'tertiary'} />
             default:
                 break;
         }
@@ -40,7 +40,7 @@ export default function Video(props) {
     return (
         <div className={`my-2 flex flex-col ${orientation === 'row' && 'lg:flex-row flex-col lg:space-x-12'} justify-center ${verticalAlign === 'start' ? 'items-start' : 'items-center'}`}>
             <div className={`${orientation === 'row' ? 'basis-6/12 flex-shrink' : 'w-full'}`}>
-                <h2 className='text-2xl'>{title}</h2>
+                <h2 className='text-2xl font-semibold'>{title}</h2>
                 <div className='mt-4'>
                     <Prose richText={description} />
                 </div>
@@ -53,7 +53,7 @@ export default function Video(props) {
                     <Image 
                         src={videoThumbnail} alt='video thumbnail'
                         width={1000} height={600}
-                        className='object-cover rounded-sm group-hover:scale-105 transition ease-in-out duration-500 aspect-video' 
+                        className='object-cover rounded group-hover:scale-105 transition ease-in-out duration-500 aspect-video' 
                     />
                     <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
                         <Image 

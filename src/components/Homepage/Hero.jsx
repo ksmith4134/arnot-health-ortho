@@ -59,7 +59,7 @@ export default function Hero(props) {
                         subTitle={subTitle}
                     />
                     { buttonLabel && 
-                        <div className='mt-10'>
+                        <div className='mt-12'>
                             <ButtonPrimary label={buttonLabel} url={url} />
                         </div> 
                     }

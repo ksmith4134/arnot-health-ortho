@@ -35,6 +35,7 @@ export default function TeamHome(props) {
             />
             <Team 
                 team={doctor}  
+                showTitle={false}
                 meetTheTeam={false} 
                 openModal={openModal} 
             />

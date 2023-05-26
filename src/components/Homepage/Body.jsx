@@ -60,13 +60,13 @@ export default function Body(props) {
         <div id='body-diagram' className='w-full bg-slate-50'>
             <div className='max-w-5xl mx-auto px-8 pt-36 pb-24'>
                 <TitleBlock 
-                    kicker={kicker}
+                    // kicker={kicker}
                     title={title}
                     subTitle={subTitle}
                 />
                 <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
                 <div className='mt-12 md:mt-28 max-w-5xl mx-auto flex flex-row justify-between items-start'>
-                    <div className='order-1 w-full md:basis-8/12 md:mt-12 flex justify-center md:justify-start'>
+                    <div className='order-1 w-full md:basis-6/12 md:mt-4 shrink flex justify-center md:justify-start'>
                         { filteredAccordion &&                                
                             <Accordion 
                                 accordion={filteredAccordion} 
@@ -77,7 +77,7 @@ export default function Body(props) {
                             />
                         }
                     </div>
-                    <div className='hidden md:block order-2 basis-4/12 relative flex-none'>
+                    <div className='hidden md:flex flex-none order-2 basis-6/12 justify-center'>
                         <Skeleton skeleton={skeleton} theme={conditionCategories[category].theme} handleAccordionClick={handleAccordionClick} selected={openDropdown}  />
                     </div>
                 </div>

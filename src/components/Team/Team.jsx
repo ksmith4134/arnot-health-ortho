@@ -11,8 +11,6 @@ export default function Team(props) {
         meetTheTeam = true,
         team,
         openModal,
-        icon = '',
-        kicker = [],
         title = 'Meet Your Physicians',
         subTitle = 'Click below to learn more about our team of experienced orthopedic physicians and advanced practice providers.'
     } = props
@@ -38,7 +36,7 @@ export default function Team(props) {
                     />
                     { meetTheTeam && 
                         <div className='flex mt-8 justify-start'>
-                            <ButtonPrimary label={'Meet the Whole Team'} url={'/team'} invert={true} />
+                            <ButtonPrimary label={'Meet the Whole Team'} url={'/team'} type={'tertiary'} />
                         </div>
                     }
                     <span className='mb-16'></span>

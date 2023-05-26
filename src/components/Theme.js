@@ -134,3 +134,9 @@ export const HOVER_FONT_COLORS = {
     primary: 'hover:text-arnotBlue',
     secondary: 'hover:text-teal-500',
 }
+
+export const PRIMARY_BUTTON = {
+    primary: 'bg-arnotBlue text-white hover:shadow-lg hover:shadow-arnotBlue/20 rounded-sm px-6 py-4',
+    secondary: 'bg-slate-100 text-arnotBlue hover:rounded hover:bg-arnotBlue/10 rounded-sm px-6 py-3',
+    tertiary: 'text-arnotBlue',
+}

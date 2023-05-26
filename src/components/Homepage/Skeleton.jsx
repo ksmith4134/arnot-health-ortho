@@ -12,8 +12,8 @@ export default function Skeleton(props) {
     } = props
 
     return (
-        <>
-            <Image src={skeletonImg} alt="skeleton" className='object-contain' />
+        <div className='relative'>
+            <Image src={skeletonImg} alt="skeleton" className='object-contain w-80' />
             { skeleton && 
                 skeleton.map(location => (
                     <div 
@@ -32,6 +32,6 @@ export default function Skeleton(props) {
                     ></div>
                 ))
             }
-        </>
+        </div>
     )
 }
