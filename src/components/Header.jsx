@@ -56,9 +56,9 @@ const Header = forwardRef(function Header(props, ref) {
                 {/* MOBILE: MAIN NAV LINKS */}
                 <div className='block md:hidden'>
                     { mobileMainMenu ? 
-                        <RxCross1 className='text-3xl' onClick={toggleMobileMainMenu} />
+                        <RxCross1 className='text-3xl hover:cursor-pointer' onClick={toggleMobileMainMenu} />
                      : 
-                        <RxHamburgerMenu className='text-3xl' onClick={toggleMobileMainMenu} />
+                        <RxHamburgerMenu className='text-3xl hover:cursor-pointer' onClick={toggleMobileMainMenu} />
                     }
                 </div>
             </div>
@@ -68,7 +68,7 @@ const Header = forwardRef(function Header(props, ref) {
 
                     <div className='flex flex-col'>
                         
-                        <Link href={'/'} className='py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Home</Link>
+                        <Link href={'/'} className='py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50' onClick={toggleMobileMainMenu}>Home</Link>
 
                         { nav.map(item => (
                             <div key={item.id} className='py-2'>
@@ -77,16 +77,16 @@ const Header = forwardRef(function Header(props, ref) {
                                     <RxCaretDown className={`text-xl ${subMenu === item.id ? 'rotate-180' : ''} transition ease-in-out duration-200`} />
                                 </div>
                                 { subMenu === item.id && 
-                                    <MobileSubMenu ref={ref} subMenu={item.subMenu} closeMenu={toggleSubMenu} />
+                                    <MobileSubMenu ref={ref} subMenu={item.subMenu} closeMenu={toggleSubMenu} toggleMobileMainMenu={toggleMobileMainMenu} />
                                 }
                             </div>
                         ))}
 
-                        <Link href={'/all-resources'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>All Resources</Link>
+                        <Link href={'/all-resources'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50' onClick={toggleMobileMainMenu}>All Resources</Link>
 
-                        <Link href={'/team'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Our Team</Link>
+                        <Link href={'/team'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50' onClick={toggleMobileMainMenu}>Our Team</Link>
 
-                        <Link href={'/contact'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Contact</Link>
+                        <Link href={'/contact'} className='py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50' onClick={toggleMobileMainMenu}>Contact</Link>
 
                     </div>
                 </div>

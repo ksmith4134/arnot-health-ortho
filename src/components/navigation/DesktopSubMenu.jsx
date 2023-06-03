@@ -12,7 +12,7 @@ const DesktopSubMenu = forwardRef(function DesktopSubMenu(props, ref) {
     const { navDropdown } = useNavContext()
     const [ opened, setOpened ] = useState(null)
 
-    const handleClick = (id) => {
+    const handleDropdownClick = (id) => {
         id === opened ? setOpened(null) : setOpened(id)
     }
 
@@ -38,7 +38,7 @@ const DesktopSubMenu = forwardRef(function DesktopSubMenu(props, ref) {
                         border-t text-sm hover:cursor-pointer bg-slate-50 
                         ${item.id !== opened && 'hover:bg-slate-200'} 
                     `} 
-                    onClick={() => handleClick(item.id)}
+                    onClick={() => handleDropdownClick(item.id)}
                 >
                     <div className={`flex justify-between items-center p-4 ${item.id === opened && 'bg-arnotBlue text-white shadow-md shadow-arnotBlue/30'}`}>
                         <div>{item.bodyPart}</div>
@@ -46,12 +46,15 @@ const DesktopSubMenu = forwardRef(function DesktopSubMenu(props, ref) {
                     </div>
                     {/* Condition Links */}
                     <div className={`bg-arnotBlue/10 ${item.id === opened && 'px-4 py-2'}`}>
-                        { opened === item.id && 
-                            item.conditions.map(link => (
-                                <Link key={link.id} href={`/${item.slug}/${link.slug}${subMenu.slug}`} onClick={() => closeMenu(null)}>
-                                    <p className='py-2 text-arnotBlue hover:underline hover:underline-offset-8'>{link.condition}</p>
-                                </Link>
-                            ))
+                        { opened === item.id ?  
+                            item.conditions.length > 0 ? 
+                                item.conditions.map(link => (
+                                    <Link key={link.id} href={`/${item.slug}/${link.slug}${subMenu.slug}`} onClick={() => closeMenu(null)}>
+                                        <p className='py-2 text-arnotBlue hover:underline hover:underline-offset-8'>{link.condition}</p>
+                                    </Link>
+                                )) : 
+                                <p className='py-2 text-arnotBlue'>No conditions present</p>
+                            : null
                         }
                     </div>
                 </div>
