@@ -25,7 +25,7 @@ export default function Contact(props) {
                         <p className='ml-2 text-sm'>(607) 734-4110</p>
                     </div>
                 </div>
-                <div className='order-1 basis-1/2 border rounded-lg px-8 py-12 hover:bg-slate-50/50'>
+                <div className='order-1 basis-1/2 border rounded-lg px-8 py-12 mt-8 md:mt-0 hover:bg-slate-50/50'>
                     <h2 className='font-bold text-2xl'>Patient Portal</h2>
                     <p className='mt-4 text-sm'>If you have questions regarding the patient portal such as how to sign up or login, please visit the link at the main Arnot website:</p>
                     <div className='mt-6'>

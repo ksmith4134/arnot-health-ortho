@@ -3,10 +3,12 @@ import Carousel from '../Carousel'
 import Video from '../Video'
 import DownloadRow2 from './DownloadRow2'
 import LinkRow from './LinkRow'
+import { BG_COLORS } from '../Theme'
 
 export default function InfoSection(props) {
 
     const {
+        background = 'white',
         card = false,
         title = 'Lorem ipsum title',
         subTitle = 'Im a little subtitle boy',
@@ -19,10 +21,10 @@ export default function InfoSection(props) {
     } = props
 
     return (
-        <section className={`bg-gradient-to-b from-slate-50 to-white pt-24 pb-36`}>
+        <section className={`${BG_COLORS[background]} pt-24 pb-24`}>
             <div className='max-w-5xl px-8 mx-auto'>
                 <TitleBlock title={title} subTitle={subTitle} />
-                <div className={`${card && 'border border-slate-300 rounded-lg p-12'} mt-20 flex flex-row items-center`}>
+                <div className={`${card && 'bg-white border border-slate-300 rounded-lg p-12 shadow-lg shadow-gray-50'} mt-20 flex flex-row items-center`}>
                     <Carousel length={content.length} controlsMargin={'large'}>
                         { content.map(item => (
                             <Video 
@@ -44,7 +46,7 @@ export default function InfoSection(props) {
                 }
                 { body && 
                     <div className='mt-8'>
-                        <LinkRow body={body} />
+                        <LinkRow />
                     </div>
                 }
             </div>

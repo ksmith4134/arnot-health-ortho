@@ -7,7 +7,6 @@ import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 import InfoSection from '@/components/widgets/InfoSection';
-import CardSection from '@/components/widgets/CardSection';
 import Card from '@/components/widgets/Card';
 
 export default function Home(props) {
@@ -51,18 +50,19 @@ export default function Home(props) {
                     openModal={openModal}
                 />
                 <Body 
-                    accordion={body} 
-                    kicker={['Patient Resources']} 
-                    title={'Learn About Your Condition'} 
-                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'} 
+                    accordion={body}
+                    kicker={['Patient Resources']}
+                    title={'Learn About Your Condition'}
+                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'}
                 />
                 <InfoSection 
+                    background={'gradient'}
                     card={true}
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
                     content={
                         [
-                            { id: 0, title: 'Same Day Surgery Tour', description: 'In this brief video, Arnot Health orthopedic surgeons Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '/Same Day Surgery Tour.jpg', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
+                            { id: 0, title: 'Same Day Surgery Tour', description: 'In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '/Same Day Surgery Tour.jpg', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
                         ]
                     }
                     downloads={[
@@ -73,21 +73,6 @@ export default function Home(props) {
                     ]}
                     openModal={openModal}
                 />
-                {/* <CardSection 
-                    background={'gray'} 
-                    topMargin={'none'}
-                    title={'Prepare for Surgery'}
-                    subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
-                    videoUrl={'https://www.youtube.com/embed/x_1UusZhMFM'}
-                    videoThumbnail={'/Same Day Surgery Tour.jpg'}
-                    downloads={[
-                        {id: 0, title: 'Pre-Op Preparation', url: '/'},
-                        {id: 1, title: 'Pain Management', url: '/'},
-                        {id: 2, title: 'Discharge Checklist', url: '/'},
-                        {id: 3, title: 'Recovery Tips', url: '/'},
-                    ]}
-                    openModal={openModal}
-                /> */}
                 <InfoSection
                     card={true}
                     title={'Joint Health Services'}
@@ -99,7 +84,7 @@ export default function Home(props) {
                             { id: 2, title: 'Same Day Total Joint Program', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', },
                         ]
                     }
-                    body={body}
+                    body={true}
                     openModal={openModal}
                 />
                 <Card

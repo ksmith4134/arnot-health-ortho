@@ -18,8 +18,8 @@ export default function Card(props) {
     const playButton = ICONS['play']
 
     return (
-        <div className='w-full flex flex-col md:flex-row min-h-[600px]'>
-            <div onClick={() => handleClick(videoUrl)} className='order-1 basis-1/2 bg-slate-100 relative overflow-hidden group hover:cursor-pointer'>
+        <div className='mt-20 w-full flex flex-col md:flex-row min-h-[600px]'>
+            <div onClick={() => handleClick(videoUrl)} className='order-1 basis-1/2 bg-slate-100 relative overflow-hidden group hover:cursor-pointer m-8'>
                 <Image 
                     src={videoThumbnail} alt='sports medicine video thumbnail'
                     fill={true}
@@ -32,7 +32,7 @@ export default function Card(props) {
                     />
                 </div>
             </div>
-            <div className='order-2 basis-1/2 bg-slate-50 flex flex-col justify-center items-start px-12 py-16'>
+            <div className='order-2 basis-1/2 bg-white flex flex-col justify-center items-start px-8 py-16'>
                 <div className='max-w-lg'>
                     <h3 className='font-bold text-arnotBlue'>{kicker.toUpperCase()}</h3>
                     <h2 className='text-4xl mt-8 font-light'>{title}</h2>

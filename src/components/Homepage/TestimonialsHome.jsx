@@ -26,21 +26,21 @@ export default function TestimonialsHome(props) {
 
     return (
         <div className='max-w-5xl px-8 mx-auto py-24'>
-            {/* <h1 className='text-center text-4xl sm:text-5xl font-bold'>{title}</h1> */}
             <TitleBlock title={title} />
-            <div className='mt-24 flex flex-col md:flex-row md:items-start'>
+            <div className='mt-24 flex flex-col md:flex-row md:items-start md:space-x-6'>
                 {/* Profile Pics */}
-                <div className='order-1 md:basis-5/12'>
+                <div className='order-1 md:basis-5/12 flex-none'>
                     {
                         testimonials.map((item, index) => (
-                            <div key={item.id} className='first:mt-0 mt-12'>
+                            <div key={item.id} className='last:mb-0 mb-6 md:w-[320px] lg:w-[360px]'>
                                 <div 
                                     className={`
-                                        flex flex-row items-center space-x-4 
+                                        flex flex-row items-center space-x-4 px-6 py-4
                                         ${selected === index || hovered === index ? 
-                                            'cursor-pointer text-arnotBlue grayscale-0' : 
-                                            'text-gray-500 grayscale opacity-50'
+                                            'cursor-pointer text-arnotBlue grayscale-0 border rounded-lg' : 
+                                            'text-gray-500 grayscale opacity-50 border border-white'
                                         }
+                                        ${selected === index ? 'bg-slate-50' : 'bg-white'}
                                     `} 
                                     onMouseEnter={() => handleHover(index)} 
                                     onMouseLeave={() => handleHover(null)}
@@ -56,7 +56,7 @@ export default function TestimonialsHome(props) {
                                     <div className={`${selected === index ? 'block' : 'hidden'}`}>
                                         {
                                             testimonials.map((item, index) => (
-                                                <div key={item.id} className={`mt-4 mb-16 py-8 border-b-2 ${selected === index ? 'block' : 'hidden'}`}>
+                                                <div key={item.id} className={`mt-6 mb-6 border rounded-lg p-6 ${selected === index ? 'block' : 'hidden'}`}>
                                                     <TestimonialsContent 
                                                         title={item.reviewTitle}
                                                         body={item.reviewBody}
@@ -75,7 +75,7 @@ export default function TestimonialsHome(props) {
                     }
                 </div>
                 {/* Testimonial */}
-                <div className='order-2 mt-16 md:mt-0 md:basis-7/12 hidden md:block'>
+                <div className='order-2 basis-8/12 hidden md:block border rounded-lg p-8'>
                     {
                         testimonials.map((item, index) => (
                             <div key={item.id} className={`${selected === index ? 'block' : 'hidden'}`}>

@@ -22,7 +22,7 @@ export default function Video(props) {
     const renderAsset = (asset) => {
         switch (asset?.component) {
             case 'Download':
-                return <Download title={asset.title} download={asset.download} fontSize={'small'} />
+                return <Download title={asset.title} download={asset.download} fontSize={'normal'} />
             case 'Link':
                 return <LinkWrapper title={asset.title} url={asset.link.url} target={asset.link.target} />
             case 'Button':
@@ -40,7 +40,7 @@ export default function Video(props) {
     return (
         <div className={`my-2 flex flex-col ${orientation === 'row' && 'lg:flex-row flex-col lg:space-x-12'} justify-center ${verticalAlign === 'start' ? 'items-start' : 'items-center'}`}>
             <div className={`${orientation === 'row' ? 'basis-6/12 flex-shrink' : 'w-full'}`}>
-                <h2 className='text-2xl font-semibold'>{title}</h2>
+                <h2 className='text-2xl'>{title}</h2>
                 <div className='mt-4'>
                     <Prose richText={description} />
                 </div>

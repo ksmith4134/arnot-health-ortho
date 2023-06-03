@@ -93,12 +93,12 @@ export const ICONS = {
 };
 
 export const BODY_ICONS = {
-    'knee': KneeIcon,
-    'hip': HipIcon,
-    'shoulder': ShoulderIcon,
     'elbow': ElbowIcon,
+    'foot-ankle': FootAnkleIcon ,
     'hand-wrist': HandIcon,
-    'foot-ankle': FootAnkleIcon 
+    'hip': HipIcon,
+    'knee': KneeIcon,
+    'shoulder': ShoulderIcon,
 }
 
 export const COMPONENTS = {
@@ -123,6 +123,9 @@ export const FONT_COLORS = {
 export const BG_COLORS = {
     primary: 'bg-arnotBlue',
     secondary: 'bg-teal-500',
+    gradient: 'bg-gradient-to-b from-slate-50 to-white',
+    gray: 'bg-slate-50',
+    white: 'bg-white',
 }
 
 export const MENU_BG_COLORS = {

@@ -16,7 +16,7 @@ export default function TitleBlock(props) {
     const FancyIcon = ICONS[fancyIcon]
 
     return (
-        <div className={`flex flex-col ${alignBlock === 'center' ? 'items-center mx-auto text-center' : ''}`}>
+        <header className={`flex flex-col ${alignBlock === 'center' ? 'items-center mx-auto text-center' : ''}`}>
             { kicker && 
                 <div className='flex items-center space-x-4'>
                     { icon && <Icon className='text-2xl text-arnotBlue' /> }
@@ -42,6 +42,6 @@ export default function TitleBlock(props) {
                     <hr className='bg-arnotBlue w-8 h-[2px] border-none flex-initial'></hr>
                 </div>
             }
-        </div>
+        </header>
     )
 }
