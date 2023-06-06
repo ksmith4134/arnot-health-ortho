@@ -15,6 +15,7 @@ import CirclePhone from '../../public/svg/CirclePhone.svg'
 import CirclePlay from '../../public/svg/CirclePlay.svg'
 import CircleStar from '../../public/svg/CircleStar.svg'
 import CirclePlus from '../../public/svg/CirclePlus.svg'
+import { MdSportsFootball } from 'react-icons/md'
 import Paragraph from './Paragraph';
 import Video from './Video';
 import DropdownCard from './DropdownCard';
@@ -81,6 +82,7 @@ export const ICONS = {
     profile: FaUserCircle,
     stethoscope: FaStethoscope,
     book: FaBookMedical,
+    football: MdSportsFootball,
     checkCircle: CircleCheck,
     playCircle: CirclePlay,
     linkCircle: CircleLink,

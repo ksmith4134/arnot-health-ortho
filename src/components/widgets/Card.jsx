@@ -1,25 +1,26 @@
 import Image from 'next/image'
 import { ICONS } from '../Theme'
 import { RxArrowRight } from 'react-icons/rx'
+import TitleBlock from '../Shared/TitleBlock'
 
 export default function Card(props) {
 
     const {
+        icon = '',
         kicker = '',
         title = '',
         description = '',
         logos = [],
         videoUrl = '',
         videoThumbnail = '',
-        openModal,
         handleClick
     } = props
 
     const playButton = ICONS['play']
 
     return (
-        <div className='mt-20 w-full flex flex-col md:flex-row min-h-[600px]'>
-            <div onClick={() => handleClick(videoUrl)} className='order-1 basis-1/2 bg-slate-100 relative overflow-hidden group hover:cursor-pointer m-8'>
+        <div className='py-24 max-w-6xl px-8 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div onClick={() => handleClick(videoUrl)} className='relative overflow-hidden group hover:cursor-pointer rounded-md min-h-[200px]'>
                 <Image 
                     src={videoThumbnail} alt='sports medicine video thumbnail'
                     fill={true}
@@ -32,11 +33,10 @@ export default function Card(props) {
                     />
                 </div>
             </div>
-            <div className='order-2 basis-1/2 bg-white flex flex-col justify-center items-start px-8 py-16'>
-                <div className='max-w-lg'>
-                    <h3 className='font-bold text-arnotBlue'>{kicker.toUpperCase()}</h3>
-                    <h2 className='text-4xl mt-8 font-light'>{title}</h2>
-                    <p className='mt-8'>{description}</p>
+            <div className='flex flex-col justify-center items-start w-full'>
+                <div className='border rounded-md p-8'>
+
+                    <TitleBlock alignBlock={'left'} icon={icon} kicker={kicker} title={title} subTitle={description} />
                     <div className='mt-12 hidden lg:flex'>
                         <div className='mr-8 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
                         <div className='mr-8 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>

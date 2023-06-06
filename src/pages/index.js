@@ -8,6 +8,7 @@ import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 import InfoSection from '@/components/widgets/InfoSection';
+import InfoSection2 from '@/components/widgets/InfoSection2';
 import Card from '@/components/widgets/Card';
 
 export default function Home(props) {
@@ -46,10 +47,6 @@ export default function Home(props) {
                     image={'/HeroTest.jpg'}
                     url={'#body-diagram'}
                 />
-                {/* <Team 
-                    team={doctors} 
-                    openModal={openModal}
-                /> */}
                 <Team2 
                     team={doctors} 
                     openModal={openModal}
@@ -58,16 +55,27 @@ export default function Home(props) {
                     accordion={body}
                     kicker={['Patient Resources']}
                     title={'Learn About Your Condition'}
-                    subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'}
+                    subTitle={'Use the diagram below to find your condition page where we list everything from symptoms and causes, to pre- and post-operative care information, and more.'}
                 />
-                <InfoSection 
+                {/* <InfoSection 
                     card={true}
                     titleSize={'large'}
                     content={
                         [
-                            { id: 0, title: 'Prepare for Surgery', description: 'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day. In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
+                            { id: 0, title: 'Prepare for Surgery', description: 'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day. In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Link', title: 'See All Downloads', link: {url: '/all-resources', target: ''}}}
                         ]
                     }
+                    downloads={[
+                        {id: 0, title: 'Pre-Operative Preparation', url: '/'},
+                        {id: 1, title: 'Pain Management Instructions', url: '/'},
+                        {id: 2, title: 'Discharge Preparation Checklist', url: '/'},
+                        {id: 3, title: '10 Joint Surgery Recovery Tips', url: '/'},
+                    ]}
+                    openModal={openModal}
+                /> */}
+                <InfoSection2 
+                    title={'Prepare for Surgery'}
+                    subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day.'}
                     downloads={[
                         {id: 0, title: 'Pre-Operative Preparation', url: '/'},
                         {id: 1, title: 'Pain Management Instructions', url: '/'},
@@ -91,9 +99,10 @@ export default function Home(props) {
                     openModal={openModal}
                 />
                 <Card
-                    kicker={'Sports Medicine'}
-                    title={'This is a Sports Medicine Intro Video from Arnot'}
-                    description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
+                    icon={'football'}
+                    kicker={['Get back in the game']}
+                    title={'Sports Medicine'}
+                    description={'While the seasons may change - being an athlete is a lifelong designation. We care for athletes in all phases of life - from recreational leagues and weekend warriors to collegiate and professional athletes. Let us help you get back to the activity that you love.'}
                     logos={[]}
                     videoUrl={'https://www.youtube.com/embed/6EKOCDdNjvg'}
                     videoThumbnail={'/sports_medicine_kayak.png'}

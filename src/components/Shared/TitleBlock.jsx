@@ -7,7 +7,7 @@ export default function TitleBlock(props) {
         fancy = false,
         fancyIcon = '',
         icon = '',
-        kicker = [],
+        kicker = null,
         title = '',
         subTitle = ''
     } = props
@@ -32,7 +32,7 @@ export default function TitleBlock(props) {
                 </div>
             }
             { title && 
-                <h1 className='mt-8 text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]'>{title}</h1>
+                <h1 className={`${kicker && 'mt-8'} text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]`}>{title}</h1>
             }
             { subTitle && 
                 <p className='mt-8 sm:font-normal text-lg max-w-xl text-gray-600' dangerouslySetInnerHTML={{__html: subTitle}}></p>

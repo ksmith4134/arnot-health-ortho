@@ -12,7 +12,7 @@ export default function Credentials(props) {
     const Award = ICONS['award']
     
     return (
-        <div className='w-full py-12 px-8 sm:px-12 rounded-md relative z-0
+        <div className='w-full px-8 py-12 lg:p-16 rounded-md relative z-0
             bg-gradient-to-br from-arnotBlue/10 from-10% to-arnotBlue/20 to-80%'
         >
             <h2 className='font-bold text-2xl'>Credentials</h2>

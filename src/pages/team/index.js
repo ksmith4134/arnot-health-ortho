@@ -3,6 +3,7 @@ import Team from '@/components/Team/Team'
 import VideoModal from '@/components/VideoModal'
 import { useState } from 'react'
 import { getStoryblokApi } from '@storyblok/react'
+import Team2 from '@/components/Team/Team2'
 
 
 export default function TeamHome(props) {
@@ -33,7 +34,7 @@ export default function TeamHome(props) {
                 carousel={false}
                 url={'#'}
             />
-            <Team 
+            <Team2 
                 team={doctor}  
                 showTitle={false}
                 meetTheTeam={false} 

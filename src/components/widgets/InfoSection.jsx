@@ -35,7 +35,7 @@ export default function InfoSection(props) {
                                 description={item.description}
                                 videoUrl={item.videoUrl} 
                                 image={item.image}
-                                // asset={item.asset}
+                                asset={item.asset}
                                 handleClick={openModal}
                             />
                         ))}

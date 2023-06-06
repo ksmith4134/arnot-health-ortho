@@ -27,9 +27,9 @@ export default function TestimonialsHome(props) {
     return (
         <div className='max-w-6xl px-8 mx-auto py-24'>
             <TitleBlock title={title} />
-            <div className='mt-24 flex flex-col md:flex-row md:items-start md:space-x-6'>
+            <div className='mt-24 flex flex-col md:flex-row md:items-start md:space-x-8'>
                 {/* Profile Pics */}
-                <div className='order-1 md:basis-5/12 flex-none'>
+                <div className='order-1 md:basis-4/12 flex-none'>
                     {
                         testimonials.map((item, index) => (
                             <div key={item.id} className='last:mb-0 mb-6 md:w-[320px] lg:w-[360px]'>

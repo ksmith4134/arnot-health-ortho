@@ -40,12 +40,12 @@ export default function Person(props) {
 
                 { about && 
                     <About2 {...about} reviews={reviews} openModal={openModal}> 
-                        { reviews && <TestimonialsTeam reviews={reviews} /> }
+                        { reviews.length > 0 ? <TestimonialsTeam reviews={reviews} /> : null }
                     </About2>
                 }
 
                 { timeline[0] && credentials[0] &&
-                    <div className='mt-12 flex flex-col lg:flex-row lg:justify-between'>
+                    <div className='mt-12 flex flex-col md:flex-row md:justify-between'>
                         <div className='order-1 pt-24 pb-12'>
                             <Timeline timeline={timeline} />
                         </div>

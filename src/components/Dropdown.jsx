@@ -23,7 +23,7 @@ export default function Dropdown(props) {
         <div className={`w-full py-5 last:border-b-0 border-b-[1px] border-gray-400`}>
             <div className={`flex justify-between space-x-4 items-center hover:cursor-pointer ${HOVER_FONT_COLORS[theme]}`} onClick={() => handleClick(id)}>
                 { label &&
-                    <h4 className={`${opened && FONT_COLORS[theme]+' font-bold'} text-md`}>{label}</h4>
+                    <h4 className={`${opened && FONT_COLORS[theme]} text-md`}>{label}</h4>
                 }
                 { opened
                     ? <CloseIcon className={`text-xl flex-none ${FONT_COLORS[theme]}`} />
