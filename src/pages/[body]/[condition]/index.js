@@ -76,11 +76,11 @@ export default function Condition(props) {
 
     return (
         <div className='relative z-0 mb-40'>
-            <div className='block md:hidden sticky top-0 z-10'>
+            <div className='block md:hidden sticky top-24 z-10'>
                 <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openMobileIndex} />
             </div>
-            <div className='max-w-5xl min-h-screen my-16 mx-auto flex flex-row md:space-x-10 items-start px-8'>
-                <div className='hidden md:block md:basis-1/5 sticky top-8 flex-none'>
+            <div className='max-w-6xl min-h-screen my-16 mx-auto flex flex-row md:space-x-10 items-start px-8'>
+                <div className='hidden md:block md:basis-3/12 sticky top-8 flex-none'>
                     <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
                 </div>
                 {
@@ -88,7 +88,7 @@ export default function Condition(props) {
                     ?   <div className='mt-1 w-full flex justify-center'>
                             <LoadingSpinner />
                         </div> 
-                    :   <div className='md:basis-4/5'>
+                    :   <div className='md:basis-9/12'>
                             <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
                             {
                                 index && 
@@ -172,7 +172,7 @@ export async function getStaticProps(context) {
                         }
                     case 'ImageCarousel':
                         return {
-                            component: 'CarouselWrapper',
+                            component: 'ImageCarousel',
                             id: item._uid,
                             media: item.media[0] ? item.media.map(img => img.filename) : null,
                             title: item.title ? item.title : null,

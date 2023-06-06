@@ -10,8 +10,9 @@ export default function InfoSection(props) {
     const {
         background = 'white',
         card = false,
-        title = 'Lorem ipsum title',
-        subTitle = 'Im a little subtitle boy',
+        titleSize = '',
+        title = '',
+        subTitle = '',
         content = [
             {id: 0, title: '', description: '', videoUrl: '', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' }}
         ],
@@ -21,19 +22,20 @@ export default function InfoSection(props) {
     } = props
 
     return (
-        <section className={`${BG_COLORS[background]} pt-24 pb-24`}>
-            <div className='max-w-5xl px-8 mx-auto'>
+        <section className={`${BG_COLORS[background]} py-24`}>
+            <div className='max-w-6xl px-8 mx-auto'>
                 <TitleBlock title={title} subTitle={subTitle} />
-                <div className={`${card && 'bg-white border border-slate-300 rounded-lg p-12 shadow-lg shadow-gray-50'} mt-20 flex flex-row items-center`}>
+                <div className={`${card && 'bg-white border rounded-md p-12 shadow-lg shadow-gray-50'} mt-20 flex flex-row items-center`}>
                     <Carousel length={content.length} controlsMargin={'large'}>
                         { content.map(item => (
                             <Video 
                                 key={item.id}
+                                titleSize={titleSize}
                                 title={item.title}
                                 description={item.description}
                                 videoUrl={item.videoUrl} 
                                 image={item.image}
-                                asset={item.asset}
+                                // asset={item.asset}
                                 handleClick={openModal}
                             />
                         ))}

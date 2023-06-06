@@ -13,7 +13,7 @@ export default function Contact(props) {
 
 
     return (
-        <div className='max-w-5xl mx-auto px-8 min-h-screen mt-20'>
+        <div className='max-w-6xl mx-auto px-8 min-h-screen mt-20'>
             <InfoBox textSize={'medium'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
 
             <div className='mt-24 flex flex-col md:flex-row md:space-x-12 justify-center items-center'>
@@ -34,7 +34,10 @@ export default function Contact(props) {
                 </div>
             </div>
 
-            <GoogleMapDuex locations={locations} />
+            <div className='pt-24 pb-24'>
+                <GoogleMapDuex locations={locations} />
+            </div>
+            
         </div>
     )
 }

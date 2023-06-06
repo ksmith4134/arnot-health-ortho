@@ -24,14 +24,16 @@ export default function TitleBlock(props) {
                         <div className='flex flex-row space-x-6 text-arnotBlue'>
                             {
                                 kicker.map((item, index) => (
-                                    <h4 key={index} className='text-sm uppercase font-semibold last:border-r-0 border-r-[1px] border-arnotBlue h-7 flex items-center pr-6'>{item}</h4>
+                                    <h4 key={index} className='text-sm uppercase font-semibold last:border-r-0 border-r-[1px] border-slate-300 h-7 flex items-center pr-6'>{item}</h4>
                                 ))
                             }
                         </div>
                     }
                 </div>
             }
-            <h1 className='mt-8 text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]'>{title}</h1>
+            { title && 
+                <h1 className='mt-8 text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]'>{title}</h1>
+            }
             { subTitle && 
                 <p className='mt-8 sm:font-normal text-lg max-w-xl text-gray-600' dangerouslySetInnerHTML={{__html: subTitle}}></p>
             }

@@ -57,16 +57,16 @@ export default function Body(props) {
     }, [filteredAccordion])
 
     return (
-        <div id='body-diagram' className='w-full bg-slate-50'>
-            <div className='max-w-5xl mx-auto px-8 pt-36 pb-24'>
+        <div id='body-diagram' className='w-full'>
+            <div className='max-w-6xl mx-auto px-8 py-24'>
                 <TitleBlock 
                     // kicker={kicker}
                     title={title}
                     subTitle={subTitle}
                 />
                 <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
-                <div className='mt-12 md:mt-28 max-w-5xl mx-auto flex flex-row justify-between items-start'>
-                    <div className='order-1 w-full md:basis-6/12 md:mt-4 shrink flex justify-center md:justify-start'>
+                <div className='mt-12 md:mt-28 max-w-6xl mx-auto flex flex-row justify-between items-start'>
+                    <div className='order-1 w-full md:basis-7/12 md:mt-4 shrink flex justify-center md:justify-start'>
                         { filteredAccordion &&                                
                             <Accordion 
                                 accordion={filteredAccordion} 
@@ -77,7 +77,7 @@ export default function Body(props) {
                             />
                         }
                     </div>
-                    <div className='hidden md:flex flex-none order-2 basis-6/12 justify-center'>
+                    <div className='hidden md:flex flex-none order-2 basis-5/12 justify-center'>
                         <Skeleton skeleton={skeleton} theme={conditionCategories[category].theme} handleAccordionClick={handleAccordionClick} selected={openDropdown}  />
                     </div>
                 </div>

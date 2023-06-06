@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
 import Team from '@/components/Team/Team';
+import Team2 from '@/components/Team/Team2';
 import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
@@ -45,7 +46,11 @@ export default function Home(props) {
                     image={'/HeroTest.jpg'}
                     url={'#body-diagram'}
                 />
-                <Team 
+                {/* <Team 
+                    team={doctors} 
+                    openModal={openModal}
+                /> */}
+                <Team2 
                     team={doctors} 
                     openModal={openModal}
                 />
@@ -56,13 +61,11 @@ export default function Home(props) {
                     subTitle={'Click on the dropdown menus below <span className=\'hidden md:inline\'>or the highlighted areas of the skeleton </span>to learn more about your orthopedic condition.'}
                 />
                 <InfoSection 
-                    background={'gradient'}
                     card={true}
-                    title={'Prepare for Surgery'}
-                    subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day'}
+                    titleSize={'large'}
                     content={
                         [
-                            { id: 0, title: 'Same Day Surgery Tour', description: 'In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '/Same Day Surgery Tour.jpg', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
+                            { id: 0, title: 'Prepare for Surgery', description: 'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day. In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Download', title: 'What to Expect', download: '/'}}
                         ]
                     }
                     downloads={[

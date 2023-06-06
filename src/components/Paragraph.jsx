@@ -13,12 +13,12 @@ export default function Paragraph(props) {
     } = props
 
     return (
-        <div className={`flex flex-col ${accordion ? 'flex flex-col mt-6 mb-6' : 'md:block'}`}>
+        <div className={`flex flex-col ${accordion ? 'flex flex-col my-6' : 'md:block'}`}>
             { title &&
-                <h2 className='order-1 text-2xl mb-4'>{title}</h2>
+                <h2 className='order-1 text-2xl mb-6'>{title}</h2>
             }
             { media &&  
-                <div className='order-3'>
+                <div className='order-3 mt-8 md:mt-0'>
                     <Carousel length={media.length} float={accordion ? false : true}>
                         {
                             media.map((assetUrl, index) => (

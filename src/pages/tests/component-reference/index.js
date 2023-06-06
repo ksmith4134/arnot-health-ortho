@@ -56,8 +56,8 @@ export default function ComponentReference(props) {
 
     return (
         <div className='relative z-0 mb-40'>
-            <div className='max-w-5xl min-h-screen my-16 mx-auto px-8'>
-                <div className='w-4/5 mx-auto'>
+            <div className='max-w-6xl min-h-screen my-16 mx-auto px-8'>
+                <div className='w-full lg:w-4/5 md:mr-auto'>
                     <ConditionHeader bodyPart={null} label={'Components'} title={conditionHeader.title} description={conditionHeader.description} />
                     {
                         layout[0].components.map((component, i) => (
@@ -104,7 +104,7 @@ export async function getStaticProps() {
                         }
                     case 'ImageCarousel':
                         return {
-                            component: 'CarouselWrapper',
+                            component: 'ImageCarousel',
                             id: item._uid,
                             media: item.media[0] ? item.media.map(img => img.filename) : null,
                             title: item.title ? item.title : null,

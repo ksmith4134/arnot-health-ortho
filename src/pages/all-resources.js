@@ -11,7 +11,7 @@ export default function ProfessionalResources(props) {
     console.log('API Response', response)
 
     return (
-        <div className='max-w-5xl mx-auto px-8 min-h-screen mt-12'>
+        <div className='max-w-6xl mx-auto px-8 min-h-screen mt-12'>
             <TitleBlock alignBlock={'left'} title={'Professional Resources'} subTitle={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna'} />
             <section>
                 {/* FILTER */}

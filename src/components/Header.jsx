@@ -17,7 +17,7 @@ const Header = forwardRef(function Header(props, ref) {
 
     return (
         <nav className='w-full bg-white sticky z-10 top-0 md:relative'> {/* sticky top-0 z-10 */}
-            <div className='max-w-5xl mx-auto px-8 py-4 flex flex-row justify-between items-center md:items-end'>
+            <div className='max-w-6xl mx-auto px-8 py-4 h-24 md:h-fit flex flex-row justify-between items-center md:items-end'>
 
                 {/* LOGO */}
                 <Link href="/" className='flex-none'>

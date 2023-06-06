@@ -14,17 +14,17 @@ export default function LinkRow() {
                 <div 
                     key={index}
                     onClick={() => router.push('#body-diagram')}
-                    className='border border-slate-300 hover:border-arnotBlue/30 rounded-lg px-6 py-5 bg-white hover:bg-arnotBlue/10 hover:cursor-pointer'
+                    className='border border-arnotBlue/30 rounded-lg px-4 py-4 bg-arnotBlue/5 hover:bg-arnotBlue/10 hover:cursor-pointer'
                 >
-                    <div className='text-arnotBlue flex flex-col justify-center items-center'>
+                    <div className='text-arnotBlue flex flex-row justify-start items-center'>
                         <Image 
                             src={`${item.icon.src}`} 
                             width={item.icon.width} 
                             height={item.icon.height} 
                             alt='icon' 
-                            className='w-16 opacity-80' 
+                            className='w-12 opacity-80' 
                         />
-                        <p className='hidden md:block md:mt-3 text-lg'>
+                        <p className='ml-4'>
                             { 
                                 item.label.split('-').map(item => item.charAt(0).toUpperCase()+item.slice(1)).join(' / ') 
                             }

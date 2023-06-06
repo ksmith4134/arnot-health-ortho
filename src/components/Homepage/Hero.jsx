@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import ButtonPrimary from '../Shared/ButtonPrimary'
-import CarouselWrapper from '../CarouselWrapper'
 import TitleBlock from '../Shared/TitleBlock'
 import IconList from '../Shared/IconList'
 import { useRouter } from 'next/router'
@@ -50,7 +49,7 @@ export default function Hero(props) {
             <div className='absolute left-0 top-0 w-9/12 h-full z-10 bg-gradient-to-r from-white via-white ...'></div>
 
             {/* Text and Button */}
-            <div className='max-w-5xl h-full mx-auto px-8 flex justify-start items-center'>
+            <div className='max-w-6xl h-full mx-auto px-8 flex justify-start items-center'>
                 <div className='z-20'>
                     <TitleBlock
                         alignBlock={'left'}

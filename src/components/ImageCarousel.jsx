@@ -1,12 +1,11 @@
 import Carousel from './Carousel'
 import Image from 'next/image'
 
-export default function CarouselWrapper(props) {
+export default function ImageCarousel(props) {
 
     const {
         media,
         title,
-        hero = false,
     } = props
 
     return (

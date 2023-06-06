@@ -32,7 +32,7 @@ export default function Carousel(props) {
     const margin = CAROUSEL_CONTROLS.margin[controlsMargin]
 
     return (
-        <div className={`w-full mt-8 md:mt-1 ${float && `md:w-80 order-2 float-none md:float-right md:ml-12`}`}>
+        <div className={`w-full ${float && `md:w-80 order-2 float-none md:float-right md:mt-1 md:ml-10`}`}>
             { children[index] }
             { length > 1 &&
                 <div className={`${margin}`}>

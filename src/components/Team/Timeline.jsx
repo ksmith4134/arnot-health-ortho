@@ -9,7 +9,7 @@ export default function Timeline(props) {
     return (
         <>
             <h2 className='font-bold text-2xl'>Education</h2>
-            <ol className='relative border-l-2 mt-6'>
+            <ol className='relative ml-1 border-l-2 mt-8'>
                 { timeline.map((item, index) => (
                     <li key={index} className='mb-10 ml-6'>
                         <div className='absolute flex items-center justify-center w-2 h-2 bg-gray-800 rounded-full mt-2 -left-[4px] ring-8 ring-white'></div>

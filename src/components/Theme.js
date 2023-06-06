@@ -1,6 +1,6 @@
 import { FiPlus, FiMinus } from 'react-icons/fi';
-import { BsFileEarmarkPdf, BsArrowRightCircle, BsArrowLeftCircle, BsFillStarFill } from 'react-icons/bs'
-import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward } from 'react-icons/fa'
+import { BsArrowRightCircle, BsArrowLeftCircle, BsFillStarFill } from 'react-icons/bs'
+import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward, FaFilePdf } from 'react-icons/fa'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -26,7 +26,7 @@ import Resource from './Resource';
 import LinkList from './LinkList';
 import DownloadList from './DownloadList';
 import Dropdown from './Dropdown';
-import CarouselWrapper from './CarouselWrapper';
+import ImageCarousel from './ImageCarousel';
 
 export const CAROUSEL_CONTROLS = {
     margin: {
@@ -74,7 +74,7 @@ export const SKELETON_BORDER = {
 export const ICONS = {
     Plus: FiPlus,
     Minus: FiMinus,
-    pdf: BsFileEarmarkPdf,
+    pdf: FaFilePdf,
     play: PlayIcon,
     star: BsFillStarFill,
     award: FaAward,
@@ -112,7 +112,7 @@ export const COMPONENTS = {
     LinkList: LinkList,
     DownloadList: DownloadList,
     Dropdown: Dropdown,
-    CarouselWrapper: CarouselWrapper,
+    ImageCarousel: ImageCarousel,
 }
 
 export const FONT_COLORS = {
@@ -140,6 +140,6 @@ export const HOVER_FONT_COLORS = {
 
 export const PRIMARY_BUTTON = {
     primary: 'bg-arnotBlue text-white hover:shadow-lg hover:shadow-arnotBlue/20 rounded-sm px-6 py-4',
-    secondary: 'bg-slate-100 text-arnotBlue hover:rounded hover:bg-arnotBlue/10 rounded-sm px-6 py-3',
+    secondary: 'bg-slate-100 text-arnotBlue hover:rounded hover:bg-arnotBlue/10 rounded-sm px-6 py-4',
     tertiary: 'text-arnotBlue',
 }

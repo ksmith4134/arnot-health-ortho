@@ -1,13 +1,13 @@
 import { getStoryblokApi, renderRichText } from '@storyblok/react'
 import { useState } from 'react'
 import VideoModal from '@/components/VideoModal'
-import LoadingSpinner from '@/components/LoadingSpinner'
 import Hero from '@/components/Homepage/Hero'
-import About from '@/components/Team/About'
+import About2 from '@/components/Team/About2'
 import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
 import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
 import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
+import VideoFullWidth from '@/components/VideoFullWidth'
 
 export default function Person(props) {
     
@@ -20,7 +20,6 @@ export default function Person(props) {
         reviews,
     } = props
 
-    const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
 
     // open full screen video modal
@@ -34,21 +33,37 @@ export default function Person(props) {
 
     return (
         <div className='relative z-0 mb-40'>
+
             { hero && <Hero openModal={openModal} {...hero} /> }
-            <div className='max-w-5xl px-8 mx-auto'>
-                { about && <About openModal={openModal} {...about} /> }
-                { timeline[0]&& credentials[0] &&
-                    <div className='flex flex-col lg:flex-row lg:justify-between'>
-                        <div className='order-1 pt-36 pb-12'>
+            
+            <div className='max-w-6xl px-8 mx-auto'>
+
+                { about && 
+                    <About2 {...about} reviews={reviews} openModal={openModal}> 
+                        { reviews && <TestimonialsTeam reviews={reviews} /> }
+                    </About2>
+                }
+
+                { timeline[0] && credentials[0] &&
+                    <div className='mt-12 flex flex-col lg:flex-row lg:justify-between'>
+                        <div className='order-1 pt-24 pb-12'>
                             <Timeline timeline={timeline} />
                         </div>
-                        <div className='order-2 max-w-xl pt-24 pb-12'>
+                        <div className='order-2 basis-7/12 pt-12 pb-12'>
                             <Credentials credentials={credentials} />
                         </div>
                     </div>
                 }
-                { reviews[0] && <TestimonialsTeam reviews={reviews} /> }
-                { locations[0] && <GoogleMapDuex locations={locations} /> }
+
+                <div className='pt-24 pb-12'>
+                    <VideoFullWidth {...about} openModal={openModal} />
+                </div>
+
+                { locations[0] && 
+                    <div className='pt-24 pb-12'>
+                        <GoogleMapDuex locations={locations} /> 
+                    </div>
+                }
             </div>
             { videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>

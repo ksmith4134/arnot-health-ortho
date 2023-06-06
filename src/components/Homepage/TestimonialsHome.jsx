@@ -25,7 +25,7 @@ export default function TestimonialsHome(props) {
     }
 
     return (
-        <div className='max-w-5xl px-8 mx-auto py-24'>
+        <div className='max-w-6xl px-8 mx-auto py-24'>
             <TitleBlock title={title} />
             <div className='mt-24 flex flex-col md:flex-row md:items-start md:space-x-6'>
                 {/* Profile Pics */}
