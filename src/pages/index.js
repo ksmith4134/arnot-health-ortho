@@ -8,7 +8,7 @@ import VideoModal from '@/components/VideoModal';
 import { getStoryblokApi } from '@storyblok/react'
 import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 import InfoSection from '@/components/widgets/InfoSection';
-import InfoSection2 from '@/components/widgets/InfoSection2';
+import GridLayoutVideo from '@/components/widgets/GridLayoutVideo';
 import Card from '@/components/widgets/Card';
 
 export default function Home(props) {
@@ -57,23 +57,7 @@ export default function Home(props) {
                     title={'Learn About Your Condition'}
                     subTitle={'Use the diagram below to find your condition page where we list everything from symptoms and causes, to pre- and post-operative care information, and more.'}
                 />
-                {/* <InfoSection 
-                    card={true}
-                    titleSize={'large'}
-                    content={
-                        [
-                            { id: 0, title: 'Prepare for Surgery', description: 'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day. In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.', videoUrl: 'https://www.youtube.com/embed/x_1UusZhMFM', image: '', asset: { component: 'Link', title: 'See All Downloads', link: {url: '/all-resources', target: ''}}}
-                        ]
-                    }
-                    downloads={[
-                        {id: 0, title: 'Pre-Operative Preparation', url: '/'},
-                        {id: 1, title: 'Pain Management Instructions', url: '/'},
-                        {id: 2, title: 'Discharge Preparation Checklist', url: '/'},
-                        {id: 3, title: '10 Joint Surgery Recovery Tips', url: '/'},
-                    ]}
-                    openModal={openModal}
-                /> */}
-                <InfoSection2 
+                <GridLayoutVideo 
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day.'}
                     downloads={[

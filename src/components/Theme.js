@@ -119,12 +119,13 @@ export const COMPONENTS = {
 
 export const FONT_COLORS = {
     primary: 'text-arnotBlue',
-    secondary: 'text-teal-500',
+    secondary: 'text-arnotTeal',
+    tertiary: 'text-arnotPeach',
 }
 
 export const BG_COLORS = {
     primary: 'bg-arnotBlue',
-    secondary: 'bg-teal-500',
+    secondary: 'bg-arnotTeal',
     gradient: 'bg-gradient-to-b from-slate-50 to-white',
     gray: 'bg-slate-50',
     white: 'bg-white',
@@ -132,12 +133,12 @@ export const BG_COLORS = {
 
 export const MENU_BG_COLORS = {
     primary: 'bg-arnotBlue/10',
-    secondary: 'bg-teal-500/10',
+    secondary: 'bg-arnotTeal/10',
 }
 
 export const HOVER_FONT_COLORS = {
     primary: 'hover:text-arnotBlue',
-    secondary: 'hover:text-teal-500',
+    secondary: 'hover:text-arnotTeal',
 }
 
 export const PRIMARY_BUTTON = {

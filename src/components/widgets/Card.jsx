@@ -19,30 +19,24 @@ export default function Card(props) {
     const playButton = ICONS['play']
 
     return (
-        <div className='py-24 max-w-6xl px-8 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8'>
-            <div onClick={() => handleClick(videoUrl)} className='relative overflow-hidden group hover:cursor-pointer rounded-md min-h-[200px]'>
-                <Image 
-                    src={videoThumbnail} alt='sports medicine video thumbnail'
-                    fill={true}
-                    className='object-cover group-hover:scale-105 transition ease-in-out duration-500' 
-                />
-                <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
+        <div className='py-24 max-w-6xl px-8 mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div onClick={() => handleClick(videoUrl)} className='relative overflow-hidden group hover:cursor-pointer rounded-md min-h-[200px]'>
                     <Image 
-                        src={playButton} alt='play button'
-                        className='w-24 h-24 lg:w-36 lg:h-36 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-white/30 rounded-full' 
+                        src={videoThumbnail} alt='sports medicine video thumbnail'
+                        fill={true}
+                        className='object-cover group-hover:scale-105 transition ease-in-out duration-500' 
                     />
-                </div>
-            </div>
-            <div className='flex flex-col justify-center items-start w-full'>
-                <div className='border rounded-md p-8'>
-
-                    <TitleBlock alignBlock={'left'} icon={icon} kicker={kicker} title={title} subTitle={description} />
-                    <div className='mt-12 hidden lg:flex'>
-                        <div className='mr-8 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-                        <div className='mr-8 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-                        <div className='mr-8 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
+                    <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
+                        <Image 
+                            src={playButton} alt='play button'
+                            className='w-24 h-24 lg:w-36 lg:h-36 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-white/30 rounded-full' 
+                        />
                     </div>
-                    <div className='mt-12 block md:hidden'>
+                </div>
+                <div className='border rounded-md px-8 py-16 shadow-lg shadow-slate-50'>
+                    <TitleBlock alignBlock={'left'} icon={icon} kicker={kicker} title={title} subTitle={description} />
+                    <div className='mt-12'>
                         <button 
                             onClick={() => handleClick(videoUrl)} 
                             className={`
@@ -62,7 +56,13 @@ export default function Card(props) {
                         </button>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div className='mt-8 p-8 border rounded-md flex justify-center items-center mx-auto'>
+                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
+                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
+                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
+                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
             </div>
         </div>
     )

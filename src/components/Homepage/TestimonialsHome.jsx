@@ -27,7 +27,7 @@ export default function TestimonialsHome(props) {
     return (
         <div className='max-w-6xl px-8 mx-auto py-24'>
             <TitleBlock title={title} />
-            <div className='mt-24 flex flex-col md:flex-row md:items-start md:space-x-8'>
+            <div className='mt-24 flex flex-col md:flex-row md:items-start md:gap-12'>
                 {/* Profile Pics */}
                 <div className='order-1 md:basis-4/12 flex-none'>
                     {
@@ -35,7 +35,7 @@ export default function TestimonialsHome(props) {
                             <div key={item.id} className='last:mb-0 mb-6 md:w-[320px] lg:w-[360px]'>
                                 <div 
                                     className={`
-                                        flex flex-row items-center space-x-4 px-6 py-4
+                                        flex flex-row items-center gap-4 px-6 py-4
                                         ${selected === index || hovered === index ? 
                                             'cursor-pointer text-arnotBlue grayscale-0 border rounded-lg' : 
                                             'text-gray-500 grayscale opacity-50 border border-white'
@@ -75,7 +75,7 @@ export default function TestimonialsHome(props) {
                     }
                 </div>
                 {/* Testimonial */}
-                <div className='order-2 basis-8/12 hidden md:block border rounded-lg p-8'>
+                <div className='order-2 basis-8/12 hidden md:block border rounded-lg p-8 lg:p-12'>
                     {
                         testimonials.map((item, index) => (
                             <div key={item.id} className={`${selected === index ? 'block' : 'hidden'}`}>

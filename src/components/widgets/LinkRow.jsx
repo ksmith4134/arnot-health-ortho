@@ -9,14 +9,14 @@ export default function LinkRow() {
     const bodyIcons = Object.entries(BODY_ICONS).map(([label, icon]) => ({label, icon}));
 
     return (
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8'>
             { bodyIcons.map((item, index) => (
                 <div 
                     key={index}
                     onClick={() => router.push('#body-diagram')}
-                    className='border border-arnotBlue/30 rounded-lg px-4 py-4 hover:bg-arnotBlue/10 hover:cursor-pointer'
+                    className='w-full h-full flex justify-center items-start md:items-center text-center mx-auto rounded-md p-6 bg-arnotBlue/10 hover:bg-arnotBlue/20 hover:cursor-pointer'
                 >
-                    <div className='text-arnotBlue flex flex-row justify-center md:justify-start items-center'>
+                    <div className='text-arnotBlue flex flex-col justify-center items-center'>
                         <Image 
                             src={`${item.icon.src}`} 
                             width={item.icon.width} 
@@ -24,7 +24,7 @@ export default function LinkRow() {
                             alt='icon' 
                             className='w-14 opacity-80' 
                         />
-                        <p className='ml-3 text-lg hidden md:block'>
+                        <p className='mt-2 text-sm font-semibold'>
                             { 
                                 item.label.split('-').map(item => item.charAt(0).toUpperCase()+item.slice(1)).join(' / ') 
                             }

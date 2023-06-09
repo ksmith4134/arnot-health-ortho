@@ -1,27 +1,25 @@
-import { ICONS } from "../Theme"
+import { ICONS, FONT_COLORS } from "../Theme"
 
 export default function TitleBlock(props) {
 
     const {
         alignBlock = 'center',
-        fancy = false,
-        fancyIcon = '',
         icon = '',
+        iconColor = 'primary',
         kicker = null,
         title = '',
         subTitle = ''
     } = props
 
     const Icon = ICONS[icon]
-    const FancyIcon = ICONS[fancyIcon]
 
     return (
         <header className={`flex flex-col ${alignBlock === 'center' ? 'items-center mx-auto text-center' : ''}`}>
             { kicker && 
-                <div className='flex items-center space-x-4'>
-                    { icon && <Icon className='text-2xl text-arnotBlue' /> }
+                <div className={`flex items-center space-x-4 ${FONT_COLORS[iconColor]}`}>
+                    { icon && <Icon className={`text-2xl`} /> }
                     { kicker &&  
-                        <div className='flex flex-row space-x-6 text-arnotBlue'>
+                        <div className='flex flex-row space-x-6'>
                             {
                                 kicker.map((item, index) => (
                                     <h4 key={index} className='text-sm uppercase font-semibold last:border-r-0 border-r-[1px] border-slate-300 h-7 flex items-center pr-6'>{item}</h4>
@@ -32,17 +30,10 @@ export default function TitleBlock(props) {
                 </div>
             }
             { title && 
-                <h1 className={`${kicker && 'mt-8'} text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]`}>{title}</h1>
+                <h1 className={`${kicker && 'mt-6'} text-4xl sm:text-5xl font-bold max-w-4xl leading-[48px] sm:leading-[56px]`}>{title}</h1>
             }
             { subTitle && 
-                <p className='mt-8 sm:font-normal text-lg max-w-xl text-gray-600' dangerouslySetInnerHTML={{__html: subTitle}}></p>
-            }
-            { subTitle && fancy && 
-                <div className={`flex justify-center items-center ${fancyIcon ? 'mt-8 space-x-2' : 'mt-8'}`}>
-                    <hr className='bg-arnotBlue w-8 h-[2px] border-none flex-initial'></hr>
-                    { fancyIcon && <FancyIcon className='text-arnotBlue w-6 h-6' /> }
-                    <hr className='bg-arnotBlue w-8 h-[2px] border-none flex-initial'></hr>
-                </div>
+                <p className='mt-6 sm:font-normal text-lg max-w-xl text-gray-600' dangerouslySetInnerHTML={{__html: subTitle}}></p>
             }
         </header>
     )

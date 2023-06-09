@@ -72,7 +72,7 @@ export default function Team2(props) {
             <div className={`my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`}>
                 { 
                     team.map((profile) => (
-                        <div key={profile.id} className={`mx-auto space-y-7 flex flex-col items-start border rounded-md p-10 shadow-lg shadow-slate-50`}>
+                        <div key={profile.id} className={`mx-auto space-y-7 flex flex-col items-start border rounded-md p-10 shadow-lg shadow-slate-50 justify-self-stretch`}>
                             <ProfilePic url={profile.profilePic} />
                             <div className='text-left'>
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
