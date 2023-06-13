@@ -55,7 +55,7 @@ export default function Home(props) {
                     accordion={body}
                     kicker={['Patient Resources']}
                     title={'Learn About Your Condition'}
-                    subTitle={'Use the diagram below to find your condition page where we list everything from symptoms and causes, to pre- and post-operative care information, and more.'}
+                    subTitle={'Find you condition below to learn about treatment options, pre- and post-operative care instructions, and much more.'}
                 />
                 <GridLayoutVideo 
                     title={'Prepare for Surgery'}

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import ButtonPrimary from '../Shared/ButtonPrimary'
 import TitleBlock from '../Shared/TitleBlock'
 import Image from 'next/image'
+import Link from 'next/link'
 import IconImage from '../Shared/IconImage'
 import { ICONS } from '../Theme'
 
@@ -46,27 +47,33 @@ export default function Team2(props) {
                             </div>
                         }
                     </div>
-                    <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50'>
-                        <div className='flex items-center space-x-2'>
-                            <IconImage icon={'telephone'} alt='icon' className='w-8'/>
-                            <h4 className='font-semibold text-arnotTeal'>Contact</h4>
+                    <Link href={'/contact'}>
+                        <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50 hover:shadow-none hover:bg-slate-50 hover:cursor-pointer'>
+                            <div className='flex items-center space-x-2'>
+                                <IconImage icon={'telephone'} alt='icon' className='w-8'/>
+                                <h4 className='font-semibold text-arnotTeal'>Contact</h4>
+                            </div>
+                            <p className='mt-4 text-sm'>For questions regarding your care, appointment, or test results.</p>
                         </div>
-                        <p className='mt-4 text-sm'>For questions regarding your care, appointment, or test results.</p>
-                    </div>
-                    <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50'>
-                        <div className='flex items-center space-x-2'>
-                            <IconImage icon={'mapCircle'} alt='icon' className='w-8'/>
-                            <h4 className='font-semibold text-arnotRed'>Locations</h4>
+                    </Link>
+                    <Link href={'/contact#all-locations'}>
+                        <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50 hover:shadow-none hover:bg-slate-50 hover:cursor-pointer'>
+                            <div className='flex items-center space-x-2'>
+                                <IconImage icon={'mapCircle'} alt='icon' className='w-8'/>
+                                <h4 className='font-semibold text-arnotRed'>Locations</h4>
+                            </div>
+                            <p className='mt-4 text-sm'>Each physician sees patients around several facilities in central NY.</p>
                         </div>
-                        <p className='mt-4 text-sm'>Each physician sees patients around several facilities in central NY.</p>
-                    </div>
-                    <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50'>
-                        <div className='flex items-center space-x-2'>
-                            <IconImage icon={'starCircle'} alt='icon' className='w-8'/>
-                            <h4 className='font-semibold text-arnotYellow'>Reviews</h4>
+                    </Link>
+                    <Link href={'#highlight-reviews'}>
+                        <div className='border rounded-md p-6 flex flex-col justify-center shadow-lg shadow-slate-50 hover:shadow-none hover:bg-slate-50 hover:cursor-pointer'>
+                            <div className='flex items-center space-x-2'>
+                                <IconImage icon={'starCircle'} alt='icon' className='w-8'/>
+                                <h4 className='font-semibold text-arnotYellow'>Reviews</h4>
+                            </div>
+                            <p className='mt-4 text-sm'>Check out actual patient reviews for each of our physicians</p>
                         </div>
-                        <p className='mt-4 text-sm'>Check out actual patient reviews for each of our physicians</p>
-                    </div>
+                    </Link>
                 </div>
             }
             <div className={`my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`}>

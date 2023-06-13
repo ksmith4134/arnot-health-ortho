@@ -14,7 +14,7 @@ export default function GoogleMapDuex(props) {
 
     return (
         <div id='locations'>
-            <div className='mt-6 flex flex-col md:flex-row md:items-start'>
+            <div className='flex flex-col md:flex-row md:items-start'>
                 <div className='md:basis-1/3 md:mr-8 lg:mr-16'>
                     <h2 className='mt-2 font-bold text-2xl'>Locations</h2>
                     <p className='mt-4 text-sm'>Click the buttons below to update the map to your location. Feel free to call with any questions.</p>

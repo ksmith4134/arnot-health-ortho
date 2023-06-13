@@ -30,7 +30,7 @@ export default function Card(props) {
                     <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
                         <Image 
                             src={playButton} alt='play button'
-                            className='w-24 h-24 lg:w-36 lg:h-36 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-white/30 rounded-full' 
+                            className='w-24 h-24 lg:w-36 lg:h-36 lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-gray-800/20 rounded-full border-2 border-white' 
                         />
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default function Card(props) {
                     </div>
                 </div>
             </div>
-            
+            {/* TEAM LOGOS */}
             <div className='mt-8 p-8 border rounded-md flex justify-center items-center mx-auto'>
                 <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
                 <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>

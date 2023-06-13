@@ -10,7 +10,6 @@ export default function About2(props) {
         children
     } = props
 
-    console.log(children)
 
     return (
         <div className='pt-36 pb-12'>

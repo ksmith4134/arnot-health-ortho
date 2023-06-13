@@ -25,7 +25,7 @@ export default function InfoSection(props) {
         <section className={`${BG_COLORS[background]} py-24`}>
             <div className='max-w-6xl px-8 mx-auto'>
                 <TitleBlock title={title} subTitle={subTitle} />
-                <div className={`${card && 'bg-white border rounded-md p-8 shadow-lg shadow-gray-50'} mt-20 flex flex-row items-center`}>
+                <div className={`${card && 'bg-white border rounded-md p-10 shadow-md shadow-slate-50'} mt-20 flex flex-row items-center`}>
                     <Carousel length={content.length} controlsMargin={'large'}>
                         { content.map(item => (
                             <Video 

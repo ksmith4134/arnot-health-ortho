@@ -8,7 +8,6 @@ export default function ProfessionalResources(props) {
         response,
     } = props
 
-    console.log('API Response', response)
 
     return (
         <div className='max-w-6xl mx-auto px-8 min-h-screen mt-12'>

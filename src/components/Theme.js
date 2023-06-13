@@ -32,7 +32,7 @@ import ImageCarousel from './ImageCarousel';
 export const CAROUSEL_CONTROLS = {
     margin: {
         normal: 'mt-0',
-        large: 'mt-16',
+        large: 'mt-8',
     }
 }
 
@@ -44,12 +44,12 @@ export const PROFILE_PIC = {
 }
 
 export const SKELETON_LOCATIONS = {
-    'Elbow': 'top-[30%] right-[17%]',
-    'Foot / Ankle': 'bottom-[1%] left-[35%]',
-    'Hand / Wrist': 'top-[45%] left-[3%]',
-    'Hip': 'top-[45%] left-[30%]',
-    'Knee': 'bottom-[24%] right-[35%]',
-    'Shoulder': 'top-[14.5%] left-[24%]',
+    'Elbow': 'top-[31%] -right-[5%]',
+    'Foot / Ankle': 'bottom-[4%] left-[22%]',
+    'Hand / Wrist': 'top-[46%] -left-[6%]',
+    'Hip': 'top-[46%] left-[56%]',
+    'Knee': 'bottom-[25%] right-[23%]',
+    'Shoulder': 'top-[15%] left-[11%]',
 }
 
 export const SECTION_BG_COLORS = {
@@ -121,6 +121,7 @@ export const FONT_COLORS = {
     primary: 'text-arnotBlue',
     secondary: 'text-arnotTeal',
     tertiary: 'text-arnotPeach',
+    black: 'text-black'
 }
 
 export const BG_COLORS = {

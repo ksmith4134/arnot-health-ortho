@@ -33,7 +33,7 @@ export function NavProvider({children}){
 
     useEffect(() => {
         getNavData()
-        .catch(e => console.log('getNavData error', e))
+        .catch(e => console.log('Error: Could not retrieve navigation data'))
     }, [])
 
     return (

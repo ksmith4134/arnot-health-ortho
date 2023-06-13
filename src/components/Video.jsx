@@ -17,7 +17,7 @@ export default function Video(props) {
         videoUrl = 'https://www.youtube.com/embed/uUmAUxWFYCw', 
         image = '',
         asset = null, // renders Download, LinkWrapper, or Button components
-        handleClick = () => console.log('Video modal open')
+        handleClick = () => console.log('Video modal')
     } = props
 
     const renderAsset = (asset) => {
@@ -61,7 +61,7 @@ export default function Video(props) {
                     <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
                         <Image 
                             src={playButton} alt='play button'
-                            className='w-16 sm:w-20 md:w-24 aspect-square lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-white/30 rounded-full' 
+                            className='w-16 sm:w-20 md:w-24 aspect-square lg:opacity-80 group-hover:opacity-100 transition ease-in-out duration-500 bg-gray-800/20 rounded-full border-2 border-white' 
                         />
                     </div>
                 </div>
