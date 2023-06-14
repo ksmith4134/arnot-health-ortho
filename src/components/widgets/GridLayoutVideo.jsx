@@ -17,9 +17,9 @@ export default function GridLayoutVideo(props) {
         title = '', 
         subTitle = '', 
         blockTitle = '', 
-        blockSubTitle = '<p>Know exactly what you\'re looking for? Click the link below to see a list of all downloadable resources, including: physical therapy protocols, discharge instructions, pre- and post-op care instructions, and more...</p>', 
+        blockSubTitle = 'Know exactly what you\'re looking for? Click the link below to see a list of all downloadable resources, including: physical therapy protocols, discharge instructions, pre- and post-op care instructions, and more...', 
         url = 'https://www.youtube.com/embed/x_1UusZhMFM',
-        image = '/hospital-tour-2.jpg',
+        image = '/hospital-tour-4.jpg',
         downloads = null,
         body = null,
         openModal,
@@ -36,8 +36,8 @@ export default function GridLayoutVideo(props) {
                         <div className='border rounded-md p-10 flex flex-col justify-center shadow-lg shadow-slate-50 w-full h-full'>
                             <TitleBlock
                                 alignBlock={'left'}
-                                icon={'book'}
-                                iconColor={'primary'}
+                                // icon={'book'}
+                                // iconColor={'primary'}
                                 kicker={['Professional Resources']} 
                                 title={blockTitle}
                                 subTitle={blockSubTitle}
@@ -49,15 +49,15 @@ export default function GridLayoutVideo(props) {
                     </div>
                     <div className='flex-shrink-0 md:basis-5/12'>
                         <div className='flex flex-col gap-8 h-full'>
-                            <div onClick={() => openModal(url)} className='flex-grow border rounded-md p-8 flex flex-col justify-center bg-slate-50 hover:bg-slate-100 hover:cursor-pointer'>
+                            <div className='flex-shrink border border-transparent shadow-lg shadow-slate-50'>
+                                <VideoFullWidth url={url} videoThumbnail={image} openModal={openModal} />
+                            </div>
+                            <div onClick={() => openModal(url)} className='flex-grow border border-slate-100 rounded-md p-8 flex flex-col justify-center bg-slate-100 hover:bg-slate-100 hover:cursor-pointer'>
                                 <div className='flex items-center space-x-2 text-arnotBlue'>
                                     <FaHospitalSymbol className='text-2xl'/>
                                     <h4 className='text-sm font-semibold'>Hospital Tour Video</h4>
                                 </div>
                                 <p className='mt-4 text-sm'>In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.</p>
-                            </div>
-                            <div className='flex-shrink border border-transparent shadow-lg shadow-slate-50'>
-                                <VideoFullWidth url={url} videoThumbnail={image} openModal={openModal} />
                             </div>
                         </div>
 
@@ -66,7 +66,10 @@ export default function GridLayoutVideo(props) {
                 </div>
 
                 { downloads && 
-                    <div className='mt-8'>
+                    <div className='mt-8 p-8 border rounded-md'>
+                        <div className='mb-8 uppercase text-arnotRed text-sm font-bold'>
+                            Common Downloads
+                        </div>
                         <DownloadRow2 downloads={downloads} />
                     </div>
                 }

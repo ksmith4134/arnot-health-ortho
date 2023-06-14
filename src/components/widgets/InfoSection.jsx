@@ -47,7 +47,10 @@ export default function InfoSection(props) {
                     </div>
                 }
                 { body && 
-                    <div className='mt-8'>
+                    <div className='mt-8 p-8 border rounded-md'>
+                        <div className='mb-8 uppercase text-arnotBlue text-sm font-bold'>
+                            See Arthritis Conditions
+                        </div>
                         <LinkRow />
                     </div>
                 }

@@ -44,7 +44,7 @@ export default function Home(props) {
                     title={'Arnot Health Orthopedics'}
                     subTitle={'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative educational content.'}
                     buttonLabel={'Find My Condition'}
-                    image={'/HeroTest.jpg'}
+                    image={'/hero-home-1d.jpg'}
                     url={'#body-diagram'}
                 />
                 <Team2 
@@ -71,7 +71,7 @@ export default function Home(props) {
                 <InfoSection
                     card={true}
                     title={'Joint Health Services'}
-                    subTitle={'Learn more about our joint health services - from conservative care to same-day, full joint replacements'}
+                    subTitle={'Learn more about our joint health services - from conservative arthritis care to same-day, full joint replacements.'}
                     content={
                         [
                             { id: 0, title: 'Joint Services Overview', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/x69ivpdbqkI', image: '', },

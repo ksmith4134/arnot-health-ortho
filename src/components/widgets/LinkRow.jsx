@@ -14,7 +14,7 @@ export default function LinkRow() {
                 <div 
                     key={index}
                     onClick={() => router.push('#body-diagram')}
-                    className='w-full h-full flex justify-center items-start md:items-center text-center mx-auto rounded-md border border-arnotBlue/20 p-6 bg-arnotBlue/5 hover:bg-arnotBlue/10 hover:cursor-pointer'
+                    className='w-full h-full flex justify-center items-start md:items-center text-center mx-auto rounded-md p-6 bg-arnotBlue/10 hover:bg-arnotBlue/20 hover:cursor-pointer'
                 >
                     <div className='text-arnotBlue flex flex-col justify-center items-center'>
                         <Image 
