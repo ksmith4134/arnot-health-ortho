@@ -9,6 +9,7 @@ export default function Accordion2(props) {
         title = null,
         contents = [], // Paragraph, DownloadList, or LinkList
         theme = 'primary',
+        fontSize,
     } = props;
 
     const getComponent = (item) => {
@@ -50,6 +51,7 @@ export default function Accordion2(props) {
                         IconClose={'Minus'}
                         selected={selected}
                         handleClick={handleClick}
+                        fontSize={fontSize}
                     >
                         { 
                             entry.id === selected && 

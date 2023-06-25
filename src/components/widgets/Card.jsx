@@ -58,12 +58,15 @@ export default function Card(props) {
                 </div>
             </div>
             {/* TEAM LOGOS */}
-            <div className='mt-8 p-8 border rounded-md flex justify-center items-center mx-auto'>
-                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-                <div className='mr-16 last:mr-0 w-28 h-28 bg-slate-200 rounded-md'></div>
-            </div>
+            { logos.length > 1 && 
+                <div className='mt-8 p-8 border rounded-md flex gap-16 justify-center flex-wrap mx-auto opacity-50 grayscale'>
+                    { logos.map((img, index) => (
+                        <div key={index} className='relative w-28 h-28'>
+                            <Image alt={'team logo'} src={img} fill className='object-contain' />
+                        </div>
+                    ))}
+                </div>
+            }
         </div>
     )
 }

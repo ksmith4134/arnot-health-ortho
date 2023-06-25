@@ -105,9 +105,7 @@ export async function getStaticProps(context) {
     const doctor = doctorResponse.data.story.content;
 
     const hero = {
-        media: doctor.heroImages.map((img) => ({
-            id: img.id, url: img.filename
-        })),
+        image: doctor.heroImages.filename,
         title: 'Dr. '+doctor.fullName,
         subTitle: doctor.shortSummary,
         icons: doctor.infoLinks.map((item, index) => ({
@@ -138,12 +136,10 @@ export async function getStaticProps(context) {
 
     const locations = doctor.locations.map(item => ({
         id: item.id,
-        city: item.content.city,
-        state: item.content.state,
-        url: item.content.googleMapsURL.url,
-        image: item.content.mapImage.filename,
         name: item.content.name,
         street: item.content.street,
+        city: item.content.city,
+        state: item.content.state,
         zip: item.content.zip,
     }))
 

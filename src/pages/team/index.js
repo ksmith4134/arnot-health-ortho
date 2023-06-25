@@ -30,16 +30,20 @@ export default function TeamHome(props) {
                 title={'It\'s what we do'}
                 subTitle={'Our team of experienced orthopedic physicians and advanced practice providers are here to help you every step of the way. Learn more about our team members below.'}
                 buttonLabel={'Meet the Team'}
-                image={''}
+                image={'/our-team-2.jpg'}
                 carousel={false}
-                url={'#'}
+                url={'/team#doctors'}
             />
-            <Team2 
-                team={doctor}  
-                showTitle={false}
-                meetTheTeam={false} 
-                openModal={openModal} 
-            />
+            <div id='doctors' className='mt-12 -mb-12'>
+                <Team 
+                    team={doctor}  
+                    // showTitle={false}
+                    title={'Orthopedic Physicians'}
+                    subTitle={''}
+                    meetTheTeam={false} 
+                    openModal={openModal} 
+                />
+            </div>
             <Team 
                 team={advancedPP} 
                 meetTheTeam={false} 

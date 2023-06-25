@@ -51,7 +51,7 @@ export default function TestimonialsTeam(props) {
                         />
                     </div>
                 ))}
-            </div>
+            </div>  
             <CarouselControls 
                 selected={index}
                 length={reviews.length}

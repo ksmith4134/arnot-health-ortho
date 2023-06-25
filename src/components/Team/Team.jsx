@@ -26,7 +26,7 @@ export default function Team(props) {
     }
 
     return (
-        <div className='max-w-6xl mx-auto px-8 py-24'>
+        <div className='max-w-6xl mx-auto px-8 pt-24 pb-12'>
             { showTitle &&  
                 <>
                     <TitleBlock
@@ -42,23 +42,23 @@ export default function Team(props) {
                     <span className='mb-16'></span>
                 </>
             }
-            <div className={`my-16 grid grid-cols-1 gap-8 max-w-sm sm:max-w-full sm:gap-28
-                ${team.length % 2 === 0 
-                    ? 'sm:grid-cols-2' 
-                    : 'sm:grid-cols-2 lg:grid-cols-3'}
-            `}>
+            <div className={`my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`}>
                 { 
                     team.map((profile) => (
-                        <div key={profile.id} className={`${showTitle && 'mt-16'} mx-auto space-y-7 flex flex-col items-start`}>
+                        <div key={profile.id} className={`w-full mx-auto space-y-7 flex flex-col items-start border rounded-md p-10 shadow-lg shadow-slate-50 justify-self-stretch`}>
                             <ProfilePic url={profile.profilePic} />
                             <div className='text-left'>
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
-                                <p className='mt-1 text-sm font-light'>{profile.school}</p>
+                                <p className='h-8 mt-1 text-sm font-light'>{profile.school}</p>
                             </div>
-                            <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p>
-                            <div className='flex flex-col space-y-1'>
-                                <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
-                            </div>
+                            { profile.shortSummary && 
+                                <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p> 
+                            }
+                            { profile.infoLinks.length > 0 && 
+                                <div className='flex flex-col space-y-1'>
+                                    <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
+                                </div>
+                            }
                         </div>
                     ))
                 }

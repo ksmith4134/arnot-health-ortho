@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function Timeline(props) {
 
@@ -17,10 +18,13 @@ export default function Timeline(props) {
                             <div>{item.achievement}</div>
                             { item.focus && <div>, {item.focus}</div> }
                         </div>
-                        <div className='text-arnotBlue hover:underline hover:underline-offset-4'>
-                            <Link className='mt-0' target='_blank' href={item.url}>
-                                {item.institution}
-                            </Link>
+                        <div className='text-arnotBlue'>
+                            { item.url ?
+                                <Link className='mt-0 hover:cursor-pointer hover:underline hover:underline-offset-4' target='_blank' href={item.url}>
+                                    { item.institution }
+                                </Link> : 
+                                item.institution
+                            }
                         </div>
                     </li>
                 ))}

@@ -83,7 +83,7 @@ export default function Team2(props) {
                             <ProfilePic url={profile.profilePic} />
                             <div className='text-left'>
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
-                                <p className='mt-1 text-sm font-light'>{profile.school}</p>
+                                <p className='h-8 mt-1 text-sm font-light'>{profile.school}</p>
                             </div>
                             <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p>
                             <div className='flex flex-col space-y-1'>

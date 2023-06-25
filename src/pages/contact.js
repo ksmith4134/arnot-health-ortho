@@ -49,16 +49,15 @@ export async function getStaticProps() {
     const locationResponse = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'locations',
+        sort_by: 'content.city',
     });
 
     const locations = locationResponse.data.stories.map(item => ({
         id: item.id,
-        city: item.content.city,
-        state: item.content.state,
-        url: item.content.googleMapsURL.url,
-        image: item.content.mapImage.filename,
         name: item.content.name,
         street: item.content.street,
+        city: item.content.city,
+        state: item.content.state,
         zip: item.content.zip,
     }))
 

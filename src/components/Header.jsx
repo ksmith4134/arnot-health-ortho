@@ -17,43 +17,37 @@ const Header = forwardRef(function Header(props, ref) {
 
     return (
         <nav className='w-full bg-white sticky z-10 top-0 md:relative'> {/* sticky top-0 z-10 */}
-            <div className='max-w-6xl mx-auto px-8 py-4 h-24 md:h-fit flex flex-row justify-between items-center md:items-end'>
+            <div className='max-w-6xl mx-auto px-8 py-4 h-20 md:h-fit flex flex-row justify-between items-center md:items-end'>
 
                 {/* LOGO */}
                 <Link href="/" className='flex-none'>
                     <Image src={Logo} alt="logo" className='w-40 lg:w-48' />
                 </Link>
 
-                <div className='hidden md:flex flex-col items-end justify-between mb-2 -mr-6'>
+                {/* DESKTOP: MAIN NAV LINKS */}
+                <div className='hidden md:flex justify-start items-center'>
+                    
+                    <Link href={'/'} className='hidden lg:block px-4 last:mr-0 mr-3 py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Home</Link>
 
-                    {/* TEMPORARY LINK: USED DURING DEV */}
-                    <Link className='mb-1 px-4 text-sm text-arnotPeach font-semibold' href={'/tests/component-reference'}>Components Reference</Link>
-
-                    {/* DESKTOP: MAIN NAV LINKS */}
-                    <div className='hidden md:flex justify-start items-center'>
-                        
-                        <Link href={'/'} className='hidden lg:block px-4 last:mr-0 mr-3 py-2 text-md text-arnotBlue font-semibold hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Home</Link>
-
-                        { nav.map(item => (
-                            <div key={item.id} className='px-4 last:mr-0 mr-3 py-2 relative hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>
-                                <div className='flex items-center space-x-2 text-arnotBlue hover:cursor-pointer' onClick={() => toggleSubMenu(item.id)}>
-                                    <div className='text-md font-semibold'>{item.label}</div>
-                                    <RxCaretDown className={`${subMenu === item.id ? 'rotate-180' : ''} transition ease-in-out duration-200`} />
-                                </div>
-                                { subMenu === item.id && 
-                                    <DesktopSubMenu ref={ref} subMenu={item.subMenu} closeMenu={toggleSubMenu} />
-                                }
+                    { nav.map(item => (
+                        <div key={item.id} className='px-4 last:mr-0 mr-3 py-2 relative hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>
+                            <div className='flex items-center space-x-2 text-arnotBlue hover:cursor-pointer' onClick={() => toggleSubMenu(item.id)}>
+                                <div className='text-md font-semibold'>{item.label}</div>
+                                <RxCaretDown className={`${subMenu === item.id ? 'rotate-180' : ''} transition ease-in-out duration-200`} />
                             </div>
-                        ))}
+                            { subMenu === item.id && 
+                                <DesktopSubMenu ref={ref} subMenu={item.subMenu} closeMenu={toggleSubMenu} />
+                            }
+                        </div>
+                    ))}
 
-                        <Link href={'/team'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Our Team</Link>
+                    <Link href={'/team'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Our Team</Link>
 
-                        <Link href={'/contact'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Contact</Link>
+                    <Link href={'/contact'} className='px-4 last:mr-0 mr-3 py-2 text-md font-semibold text-arnotBlue hover:underline hover:underline-offset-8 hover:decoration-arnotBlue/50'>Contact</Link>
 
-                    </div>
                 </div>
                 
-                {/* MOBILE: MAIN NAV LINKS */}
+                {/* MOBILE: HAMBURGER MENU */}
                 <div className='block md:hidden'>
                     { mobileMainMenu ? 
                         <RxCross1 className='text-3xl hover:cursor-pointer' onClick={toggleMobileMainMenu} />
@@ -63,6 +57,7 @@ const Header = forwardRef(function Header(props, ref) {
                 </div>
             </div>
 
+            {/* MOBILE: MAIN NAV LINKS */}
             { mobileMainMenu && 
                 <div className='absolute z-50 block md:hidden w-full h-full min-h-screen overflow-y-scroll px-8 py-6 bg-slate-50'>
 

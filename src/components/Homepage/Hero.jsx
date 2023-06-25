@@ -16,8 +16,6 @@ export default function Hero(props) {
         subTitle = '',
         buttonLabel = '',
         image = '',
-        media = [],
-        carousel= false,
         url = '',
     } = props
 
@@ -36,17 +34,14 @@ export default function Hero(props) {
         <div className='relative overflow-hidden w-full h-[660px] bg-gray-200'>
             
             {/* Image */}
-            <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
-                { media.length > 0
-                    ? <Image src={media[0].url} alt="hero image" fill quality={100} priority className='object-cover' />
-                    : image 
-                        ? <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
-                        : <></>
-                }
-            </div>
+            { image && 
+                <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
+                    <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
+                </div>
+            }
 
             {/* White Gradient */}
-            <div className='absolute left-0 top-0 w-9/12 h-full z-10 bg-gradient-to-r from-white via-white ...'></div>
+            <div className='absolute left-0 top-0 w-9/12 h-full z-10 bg-gradient-to-r from-white via-white'></div>
 
             {/* Text and Button */}
             <div className='max-w-6xl h-full mx-auto px-8 flex justify-start items-center'>

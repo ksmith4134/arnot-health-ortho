@@ -19,7 +19,7 @@ export default function GridLayoutVideo(props) {
         blockTitle = '', 
         blockSubTitle = 'Know exactly what you\'re looking for? Click the link below to see a list of all downloadable resources, including: physical therapy protocols, discharge instructions, pre- and post-op care instructions, and more...', 
         url = 'https://www.youtube.com/embed/x_1UusZhMFM',
-        image = '/hospital-tour-4.jpg',
+        image = '/AOMC-2.jpg',
         downloads = null,
         body = null,
         openModal,
@@ -36,7 +36,7 @@ export default function GridLayoutVideo(props) {
                         <div className='border rounded-md p-10 flex flex-col justify-center shadow-lg shadow-slate-50 w-full h-full'>
                             <TitleBlock
                                 alignBlock={'left'}
-                                // icon={'book'}
+                                icon={'book'}
                                 // iconColor={'primary'}
                                 kicker={['Professional Resources']} 
                                 title={blockTitle}

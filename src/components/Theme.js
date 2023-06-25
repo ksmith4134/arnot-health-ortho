@@ -147,3 +147,10 @@ export const PRIMARY_BUTTON = {
     secondary: 'bg-slate-100 text-arnotBlue hover:rounded hover:bg-arnotBlue/10 rounded-sm px-6 py-4',
     tertiary: 'text-arnotBlue',
 }
+
+export const FONT_SIZE = {
+    small: 'text-sm',
+    medium: 'text-md',
+    large: 'text-lg',
+    xLarge: 'text-2xl font-thin',
+}

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
-import Team from '@/components/Team/Team';
 import Team2 from '@/components/Team/Team2';
 import Body from '@/components/Homepage/Body';
 import VideoModal from '@/components/VideoModal';
@@ -74,9 +73,9 @@ export default function Home(props) {
                     subTitle={'Learn more about our joint health services - from conservative arthritis care to same-day, full joint replacements.'}
                     content={
                         [
-                            { id: 0, title: 'Joint Services Overview', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/x69ivpdbqkI', image: '', },
-                            { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
-                            { id: 2, title: 'Same Day Total Joint Program', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', },
+                            { id: 0, title: 'Joint Services Overview', description: 'Members of the Arnot Health joint health team talk about their shared goal of treating joint pain and getting you back to doing the things you love.', videoUrl: 'https://www.youtube.com/embed/x69ivpdbqkI', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
+                            { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Dr. Bryan Jarvis discusses who might be a candidate for joint replacement surgery, including risk factors that might affect outcomes.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
+                            { id: 2, title: 'Same Day Total Joint Program', description: 'Arnot Health\'s own orthopedic surgeon, Dr. Bryan Jarvis, discusses same-day surgery options for total knee, hip, and shoulder replacement surgeries.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
                         ]
                     }
                     body={true}
@@ -87,7 +86,7 @@ export default function Home(props) {
                     kicker={['Get back in the game']}
                     title={'Sports Medicine'}
                     description={'While the seasons may change - being an athlete is a lifelong designation. We care for athletes in all phases of life - from recreational leagues and weekend warriors to collegiate and professional athletes. Let us help you get back to the activity that you love.'}
-                    logos={[]}
+                    logos={['/logos/elmira_heights.png', '/logos/elmira_pioneers.png', '/logos/elmira_college.png', '/logos/campbell.png', '/logos/horseheads.png']}
                     videoUrl={'https://www.youtube.com/embed/6EKOCDdNjvg'}
                     videoThumbnail={'/sports_medicine_kayak.png'}
                     handleClick={openModal}
@@ -106,6 +105,7 @@ export async function getStaticProps() {
    
     const storyblokApi = getStoryblokApi();
 
+    /* BODY PARTS & CONDITIONS */
     const bodyResponse = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'body',
@@ -128,15 +128,15 @@ export async function getStaticProps() {
         }
     })
 
-
-    const { data } = await storyblokApi.get(`cdn/stories`, {
+    /* TESTIMONIALS */
+    const testimonialsResponse = await storyblokApi.get(`cdn/stories`, {
         version: 'draft',
         starts_with: 'testimonials',
         filter_query: { showOnHomepage: { is: true }},
         resolve_relations: ['testimonials.doctor',]
     });
 
-    const testimonials = data.stories.map((review) => {
+    const testimonials = testimonialsResponse.data.stories.map((review) => {
         return {
             id: review.id,
             doctor: review.content.doctor.name,
@@ -152,7 +152,13 @@ export async function getStaticProps() {
         }
     })
 
-    const doctors = data.rels.map(item => ({
+    /* DOCTORS */
+    const doctorsResponse = await storyblokApi.get(`cdn/stories`, {
+        version: 'draft',
+        starts_with: 'team',
+    });
+
+    const doctors = doctorsResponse.data.stories.filter(item => item.content.doctor && item.content.homePage).map(item => ({
         id: item.id,
         doctor: item.content.doctor,
         profilePic: item.content.profilePic.filename,
