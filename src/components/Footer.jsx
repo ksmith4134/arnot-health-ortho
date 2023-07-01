@@ -4,11 +4,18 @@ import Logo from '../../public/svg/Logo.svg'
 import { FaRegCopyright } from 'react-icons/fa'
 import { AiFillPhone } from 'react-icons/ai'
 import { useNavContext } from './NavProvider';
+import { useEffect, useState } from 'react'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     const { navDropdown } = useNavContext()
+
+    const [nav, setNav] = useState(null)
+
+    useEffect(() => {
+        setNav(navDropdown)
+    }, [navDropdown])
 
     return (
         <div className='w-full mt-12 border-t-[1px] bg-slate-50/50'>
@@ -52,9 +59,11 @@ export default function Footer() {
                     <div className='mt-3.5'>
                         <p className='border-b border-black font-semibold pb-1'>Find My Condition</p>
                         <div className='mt-4 text-sm flex flex-col gap-2'>
-                            { navDropdown.map(item => (
-                                <Link key={item.bodyPart} href='/#body-diagram' className='hover:underline'><p>{item.bodyPart}</p></Link>
-                            ))}
+                            { nav && 
+                                nav.map(item => (
+                                    <Link key={item.bodyPart} href='/#body-diagram' className='hover:underline'><p>{item.bodyPart}</p></Link>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
