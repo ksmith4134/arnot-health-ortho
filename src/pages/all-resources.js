@@ -98,20 +98,33 @@ export default function ProfessionalResources(props) {
     return (
         <div className='max-w-6xl mx-auto px-8 min-h-screen mt-12'>
             <div className='mt-24'>
-                <TitleBlock alignBlock={'left'} title={'All Resources'} subTitle={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna'} />
+                <TitleBlock alignBlock={'left'} title={'All Resources'} subTitle={'Use the buttons below to filter down the results, then expand the appropriate dropdown category, and finally, click on the red link to download the corresponding PDF.'} />
             </div>
 
             {/* FILTERS */}
-            <section className='mt-16 flex flex-row flex-wrap gap-2 sm:gap-6'>
-                { bodyParts.map(item => (
-                    <div key={item} onClick={() => setFilter(item)} className={`px-6 py-4 flex-grow text-center border rounded-md hover:cursor-pointer ${item === filter ? 'bg-arnotBlue/20 border-arnotBlue/40' : 'bg-slate-50 hover:bg-arnotBlue/20 hover:border-arnotBlue/40'}`}>
-                        {item}
-                    </div>
-                ))}
+            <section className='mt-12'>
+                <p className='text-arnotBlue font-bold uppercase text-sm'>Filters</p>
+                <div className='mt-4 flex flex-row flex-wrap gap-2 sm:gap-6'>
+                    { bodyParts.map(item => (
+                        <div 
+                            key={item} 
+                            onClick={() => setFilter(item)} 
+                            className={`
+                                px-6 py-4 flex-grow text-center border rounded-md hover:cursor-pointer 
+                                ${item === filter ? 
+                                    'bg-arnotBlue/20 border-arnotBlue/40' : 
+                                    'bg-slate-50 hover:bg-arnotBlue/10 hover:border-arnotBlue/40'
+                                }
+                            `}
+                        >
+                            {item}
+                        </div>
+                    ))}
+                </div>
             </section>
 
             {/* ACCORDION */}
-            <section className='mt-16'>
+            <section className='mt-12'>
                 { contents ? 
                     <Accordion2 id={0} contents={contents} fontSize={'xLarge'} /> :
                     <LoadingSpinner />

@@ -17,7 +17,7 @@ export default function ImageCarousel(props) {
                 <Carousel length={media.length} float={false}>
                     {
                         media.map((assetUrl, index) => (
-                            <Image key={index} src={assetUrl} width={900} height={600}  alt='carousel images' className={`object-cover mx-auto rounded-sm aspect-[3/2]`} />
+                            <Image key={index} src={assetUrl} width={900} height={600} alt='carousel images' className={`object-cover mx-auto rounded-sm aspect-[3/2]`} />
                         ))
                     }
                 </Carousel>

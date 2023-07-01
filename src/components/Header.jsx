@@ -21,7 +21,7 @@ const Header = forwardRef(function Header(props, ref) {
 
                 {/* LOGO */}
                 <Link href="/" className='flex-none'>
-                    <Image src={Logo} alt="logo" className='w-40 lg:w-48' />
+                    <Image src={Logo} priority={true} alt="logo" className='w-40 lg:w-48' />
                 </Link>
 
                 {/* DESKTOP: MAIN NAV LINKS */}

@@ -62,7 +62,7 @@ export default function Card(props) {
                 <div className='mt-8 p-8 border rounded-md flex gap-16 justify-center flex-wrap mx-auto opacity-50 grayscale'>
                     { logos.map((img, index) => (
                         <div key={index} className='relative w-28 h-28'>
-                            <Image alt={'team logo'} src={img} fill className='object-contain' />
+                            <Image alt={'team logo'} src={img} fill={true} className='object-contain' />
                         </div>
                     ))}
                 </div>

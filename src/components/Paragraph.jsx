@@ -22,7 +22,7 @@ export default function Paragraph(props) {
                     <Carousel length={media.length} float={accordion ? false : true}>
                         {
                             media.map((assetUrl, index) => (
-                                <Image key={index} src={assetUrl} width={900} height={600}  alt='carousel images' className={`mx-auto object-cover rounded-sm aspect-[3/2]`} priority />
+                                <Image key={index} src={assetUrl} width={900} height={600} alt='carousel images' className={`mx-auto object-cover rounded-sm aspect-[3/2]`} priority={true} />
                             ))
                         }
                     </Carousel>
