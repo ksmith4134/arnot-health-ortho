@@ -5,6 +5,8 @@ import VideoModal from '@/components/VideoModal'
 import { COMPONENTS } from '@/components/Theme'
 import LoadingSpinner from '@/components/LoadingSpinner'
 
+// THIS IS A TEST PAGE THAT IS
+// USED TO VIEW ALL POSSIBLE COMPONENTS ON A CONDITION PAGE
 
 export default function ComponentReference(props) {
 
@@ -78,7 +80,8 @@ export async function getStaticProps() {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories/index-components/components`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         resolve_relations: 'body.conditions',
     });
 

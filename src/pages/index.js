@@ -105,9 +105,10 @@ export async function getStaticProps() {
    
     const storyblokApi = getStoryblokApi();
 
-    /* BODY PARTS & CONDITIONS */
+    // #region FETCH Body Parts and Conditions
     const bodyResponse = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'body',
         excluding_fields: 'indexes',
         resolve_relations: 'body.conditions',
@@ -127,10 +128,12 @@ export async function getStaticProps() {
             })
         }
     })
+    // #endregion
 
-    /* TESTIMONIALS */
+    // #region FETCH Testimonials
     const testimonialsResponse = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'testimonials',
         filter_query: { showOnHomepage: { is: true }},
         resolve_relations: ['testimonials.doctor',]
@@ -151,13 +154,16 @@ export async function getStaticProps() {
             reviewTitle: review.content.reviewTitle,
         }
     })
+    // #endregion
 
-    /* DOCTORS */
+    // #region FETCH Doctors
     const doctorsResponse = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'team',
     });
 
+    // filter by doctor = true and showOnHomepage = true
     const doctors = doctorsResponse.data.stories.filter(item => item.content.doctor && item.content.homePage).map(item => ({
         id: item.id,
         doctor: item.content.doctor,
@@ -172,13 +178,13 @@ export async function getStaticProps() {
         slug: item.slug,
         videoUrl: item.content.videoUrl.url,
     }))
-
+    // #endregion
 
     return {
         props: {
-            body: body ? body : [],
-            testimonials: testimonials ? testimonials : [],
-            doctors: doctors ? doctors : [],
+            body,
+            testimonials,
+            doctors,
         },
         revalidate: 3600,
     };

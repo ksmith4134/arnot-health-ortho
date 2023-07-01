@@ -8,14 +8,15 @@ export default function ProfessionalResources(props) {
 
     const {
         downloads,
-    } = props
+    } = props;
 
     const [ contents, setContents ] = useState(null)
     const [ filter, setFilter ] = useState('All')
 
-    /* Create the filter buttons */
+    // Create the filter buttons
     const bodyParts = [ 'All', 'Elbow', 'Foot / Ankle', 'Hand / Wrist', 'Hip', 'Knee', 'Shoulder', ]
 
+    // Sort the downloads into the corresponding accordion dropdown
     const sortDownloads = (downloads) => {
         const generalDownloads = downloads.filter(item => item.category === 'General Downloads');
         const dischargeInstructions = downloads.filter(item => item.category === 'Discharge Instructions');
@@ -42,6 +43,7 @@ export default function ProfessionalResources(props) {
         return sortedDownloads;
     }
 
+    // create the accordion
     const createAccordion = (content) => {
         const accordion = {
             id: 0,
@@ -73,9 +75,8 @@ export default function ProfessionalResources(props) {
         return accordion;
     }
 
-    /* When a filter button is clicked
-    ** Filter all downloads and re-sort into accordion dropdowns
-    */
+    // When a filter button is clicked
+    // Filter all downloads and re-sort into accordion dropdowns
     useEffect(() => {
         let filteredDownloads = null;
 
@@ -124,20 +125,48 @@ export async function getStaticProps() {
    
     const storyblokApi = getStoryblokApi();
 
-    const response = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+    // Storyblok limits a response to 100 stories. Additional results are paginated.
+    // This initial API call is used to get the total number of All Downloads stories
+    let initial = await storyblokApi.get('cdn/stories/', { 
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'all-downloads',
-    });
-
-    const downloads = response.data.stories.map((item) => {
-        return {
-            id: item.id,
-            label: item.content.label,
-            bodyParts: item.content.bodyPart,
-            category: item.content.category,
-            file: item.content.download.filename,
-        }
+        page: 1, 
+        per_page: 1, 
     })
+    
+    let per_page = 100;
+    let requests = [];
+
+    // Determine total pages by calculating (total stories / stories/page)
+    let totalPages = Math.ceil(initial.headers.total / per_page);
+
+    // Create the API calls for each page and push into an array
+    for(let i = 1; i <= totalPages; i++) {
+        // Push each call into an array
+        requests.push(storyblokApi.get('cdn/stories/', { 
+            version: 'published',
+            cv: 'CURRENT_TIMESTAMP',
+            starts_with: 'all-downloads',
+            page: i, 
+            per_page, 
+        }))
+    }
+
+    // Resolve all API calls
+    let responses = await Promise.all(requests)
+
+    // Normalize the data and flatten into a single array
+    const downloads = responses.map((item) => 
+        item.data.stories.map((item) => {
+            return {
+                id: item.id,
+                label: item.content.label,
+                bodyParts: item.content.bodyPart,
+                category: item.content.category,
+                file: item.content.download.filename,
+            }
+        })).flat();
 
     return {
         props: {

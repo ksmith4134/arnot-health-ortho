@@ -9,8 +9,8 @@ import Team2 from '@/components/Team/Team2'
 export default function TeamHome(props) {
 
     const {
-        doctor,
-        advancedPP,
+        doctors,
+        notDoctors,
     } = props
 
     const [ videoModal, setVideoModal ] = useState(null)
@@ -36,7 +36,7 @@ export default function TeamHome(props) {
             />
             <div id='doctors' className='mt-12 -mb-12'>
                 <Team 
-                    team={doctor}  
+                    team={doctors}  
                     // showTitle={false}
                     title={'Orthopedic Physicians'}
                     subTitle={''}
@@ -45,7 +45,7 @@ export default function TeamHome(props) {
                 />
             </div>
             <Team 
-                team={advancedPP} 
+                team={notDoctors} 
                 meetTheTeam={false} 
                 title={'Advanced Practice Providers'} 
                 subTitle={''}
@@ -60,8 +60,11 @@ export async function getStaticProps() {
     const storyblokApi = getStoryblokApi();
 
     const { data } = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'team',
+        page: 1, 
+        per_page: 100, 
     });
 
     const team = data.stories.map(item => ({
@@ -81,8 +84,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            doctor: team.filter(item => item.doctor),
-            advancedPP: team.filter(item => !item.doctor)
+            doctors: team.filter(item => item.doctor),
+            notDoctors: team.filter(item => !item.doctor)
         },
         revalidate: 3600,
     }

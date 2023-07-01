@@ -14,9 +14,8 @@ export default function Condition(props) {
     const { 
         params, 
         indexes, 
-        arthritis, 
         conditionHeader, 
-        page = null 
+        page = null,
     } = props
 
     const router = useRouter()
@@ -26,10 +25,12 @@ export default function Condition(props) {
     const [ loading, setLoading ] = useState(true)
     const [ videoModal, setVideoModal ] = useState(null)
 
+    // When page is done loading, set the index using the URL query param
     useEffect(() => {
         router.isReady && setIndex(router.query.index)
     }, [router])
 
+    // Set loading to false after a new index has been selected
     useEffect(() => {
         setLoading(false)
     }, [index])
@@ -85,7 +86,7 @@ export default function Condition(props) {
                 </div>
                 {
                     loading 
-                    ?   <div className='mt-1 w-full flex justify-center'>
+                    ?   <div className='mt-12 w-full flex justify-center'>
                             <LoadingSpinner />
                         </div> 
                     :   <div className='md:basis-9/12'>
@@ -112,7 +113,8 @@ export async function getStaticPaths() {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'body',
         resolve_relations: 'body.conditions',
     });
@@ -138,7 +140,8 @@ export async function getStaticProps(context) {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories/conditions/${params.condition}`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
     });
 
     let condition = data.story.content
@@ -154,8 +157,6 @@ export async function getStaticProps(context) {
         title: condition.title,
         description: condition.shortDescription,
     }
-
-    let arthritis = condition.arthritis ? condition.arthritis : false
 
     let page = condition.indexes.map((component) => {
         return {
@@ -312,10 +313,8 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            // condition,
             params,
             indexes,
-            arthritis,
             conditionHeader,
             page
         },

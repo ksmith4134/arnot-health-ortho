@@ -39,9 +39,11 @@ export default function Person(props) {
             <div className='max-w-6xl px-8 mx-auto'>
 
                 { about && 
-                    <About2 {...about} reviews={reviews} openModal={openModal}> 
-                        { reviews.length > 0 ? <TestimonialsTeam reviews={reviews} /> : null }
-                    </About2>
+                    <div id='reviews'>
+                        <About2 {...about} reviews={reviews} openModal={openModal}> 
+                            { reviews.length > 0 ? <TestimonialsTeam reviews={reviews} /> : null }
+                        </About2>
+                    </div>
                 }
 
                 { timeline[0] && credentials[0] &&
@@ -75,7 +77,8 @@ export async function getStaticPaths() {
     const storyblokApi = getStoryblokApi();
     
     let { data } = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'team',
         filter_query: { doctor: { is: true }},
     });
@@ -97,12 +100,13 @@ export async function getStaticProps(context) {
 
     const storyblokApi = getStoryblokApi();
     
-    const doctorResponse = await storyblokApi.get(`cdn/stories/team/${params.id}`, {
-        version: 'draft',
+    const { data } = await storyblokApi.get(`cdn/stories/team/${params.id}`, {
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         resolve_relations: ['team.locations','team.testimonials',]
     });
 
-    const doctor = doctorResponse.data.story.content;
+    const doctor = data.story.content;
 
     const hero = {
         image: doctor.heroImages.filename,
@@ -111,7 +115,7 @@ export async function getStaticProps(context) {
         icons: doctor.infoLinks.map((item, index) => ({
             id: index, label: item
         })).filter(item => item.label !== 'Learn More'),
-        profile: doctorResponse.data.story.slug,
+        profile: data.story.slug,
         videoUrl: doctor.videoUrl.url,
     }
 

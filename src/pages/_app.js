@@ -8,6 +8,10 @@ storyblokInit({
     apiOptions: { 
         region: 'us',
         cache: { type: "none" },
+        // cache: {
+        //     clear: 'auto',
+        //     type: 'memory'
+        // }
     }
 });
 

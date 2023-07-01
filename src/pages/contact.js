@@ -46,8 +46,10 @@ export async function getStaticProps() {
 
     const storyblokApi = getStoryblokApi();
     
+    // #region FETCH Locations
     const locationResponse = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft',
+        version: 'published',
+        cv: 'CURRENT_TIMESTAMP',
         starts_with: 'locations',
         sort_by: 'content.city',
     });
@@ -60,6 +62,7 @@ export async function getStaticProps() {
         state: item.content.state,
         zip: item.content.zip,
     }))
+    // #endregion
 
     return {
         props: {

@@ -13,6 +13,10 @@ export default function Layout({ children }) {
 
     const [ subMenu, setSubMenu ] = useState(null)
     const [ mobileMainMenu, setMobileMainMenu ] = useState(false)
+
+    // Used to close a nav menu when a user clicks away
+    // See closeMenus() function below
+    // ref is passed into <Header /> component
     const ref = useRef(null)
 
     const toggleSubMenu = (id) => {

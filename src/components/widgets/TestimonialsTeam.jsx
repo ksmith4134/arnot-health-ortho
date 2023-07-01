@@ -35,7 +35,7 @@ export default function TestimonialsTeam(props) {
 
 
     return (
-        <div id='reviews'>
+        <div>
             <div className='rounded-md p-8 bg-slate-50 border border-arnotBlue/20 flex flex-row items-center'>
                 { reviews.map((review, i) => (
                     <div key={review.id} className={`max-w-md mx-auto ${i === index ? 'block' : 'hidden'} trasition ease-in-out duration-1000`}>

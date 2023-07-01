@@ -13,9 +13,17 @@ export default function ProfilePic(props) {
 
     return (
         <div className={`${picSize} rounded-full relative overflow-hidden`}>
-            { url 
-                ? <Image src={url} alt="profile picture" fill quality={100} priority className='object-cover' />
-                : <PlaceholderPic className='w-full h-full text-arnotBlue/80' />
+            { url ? 
+                <Image 
+                    src={url} 
+                    alt="profile picture" 
+                    fill={true}
+                    priority={true}
+                    sizes='10vw'
+                    quality={100} 
+                    className='object-cover' 
+                /> : 
+                <PlaceholderPic className='w-full h-full text-arnotBlue/80' />
             }
         </div>
     )

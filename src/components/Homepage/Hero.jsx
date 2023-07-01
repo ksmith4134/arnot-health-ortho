@@ -36,7 +36,15 @@ export default function Hero(props) {
             {/* Image */}
             { image && 
                 <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
-                    <Image src={image} alt="hero image" fill quality={100} priority className='object-cover' />
+                    <Image 
+                        src={image} 
+                        alt="hero image" 
+                        fill={true} 
+                        sizes='100vw'
+                        quality={100} 
+                        priority={true} 
+                        className='object-cover'
+                    />
                 </div>
             }
 
