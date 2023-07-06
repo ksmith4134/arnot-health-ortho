@@ -3,7 +3,6 @@ import Team from '@/components/Team/Team'
 import VideoModal from '@/components/VideoModal'
 import { useState } from 'react'
 import { getStoryblokApi } from '@storyblok/react'
-import Team2 from '@/components/Team/Team2'
 
 
 export default function TeamHome(props) {
@@ -35,21 +34,24 @@ export default function TeamHome(props) {
                 url={'/team#doctors'}
             />
             <div id='doctors' className='mt-12 -mb-12'>
-                <Team 
-                    team={doctors}  
-                    // showTitle={false}
-                    title={'Orthopedic Physicians'}
-                    subTitle={''}
-                    meetTheTeam={false} 
-                    openModal={openModal} 
-                />
+                { doctors && 
+                    <Team 
+                        team={doctors} 
+                        title={'Orthopedic Physicians'}
+                        subTitle={''}
+                        meetTheTeam={false} 
+                        openModal={openModal} 
+                    />
+                }
             </div>
-            <Team 
-                team={notDoctors} 
-                meetTheTeam={false} 
-                title={'Advanced Practice Providers'} 
-                subTitle={''}
-            />
+            { notDoctors && 
+                <Team 
+                    team={notDoctors} 
+                    meetTheTeam={false} 
+                    title={'Advanced Practice Providers'} 
+                    subTitle={''}
+                />
+            }
             { videoModal && <VideoModal url={videoModal} handleClick={closeModal} /> }
         </div>
     )
@@ -82,10 +84,13 @@ export async function getStaticProps() {
         videoUrl: item.content.videoUrl.url,
     }))
 
+    const doctors = team.filter(item => item.doctor === true);
+    const notDoctors = team.filter(item => item.doctor === false);
+
     return {
         props: {
-            doctors: team.filter(item => item.doctor),
-            notDoctors: team.filter(item => !item.doctor)
+            doctors,
+            notDoctors,
         },
         revalidate: 3600,
     }
