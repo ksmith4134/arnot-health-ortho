@@ -9,8 +9,8 @@ import Team2 from '@/components/Team/Team2'
 export default function TeamHome(props) {
 
     const {
-        doctors,
-        notDoctors,
+        doctors = null,
+        notDoctors = null,
     } = props
 
     const [ videoModal, setVideoModal ] = useState(null)
