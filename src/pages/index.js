@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Link from 'next/link';
+import IconImage from '@/components/Shared/IconImage';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
 import Team2 from '@/components/Team/Team2';
@@ -9,6 +11,9 @@ import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
 import InfoSection from '@/components/widgets/InfoSection';
 import GridLayoutVideo from '@/components/widgets/GridLayoutVideo';
 import Card from '@/components/widgets/Card';
+import ButtonPrimary from '@/components/Shared/ButtonPrimary';
+import { RxArrowRight } from 'react-icons/rx'
+import InfoCardLinks from '@/components/sections/InfoCardLinks';
 
 export default function Home(props) {
 
@@ -46,6 +51,7 @@ export default function Home(props) {
                     image={'/hero-home-1d.jpg'}
                     url={'#body-diagram'}
                 />
+                <InfoCardLinks />
                 <Team2 
                     team={doctors} 
                     openModal={openModal}
@@ -60,10 +66,10 @@ export default function Home(props) {
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day.'}
                     downloads={[
-                        {id: 0, title: 'Pre-Operative Preparation', url: '/'},
-                        {id: 1, title: 'Pain Management Instructions', url: '/'},
-                        {id: 2, title: 'Discharge Preparation Checklist', url: '/'},
-                        {id: 3, title: '10 Joint Surgery Recovery Tips', url: '/'},
+                        {id: 0, title: 'Pre-Operative Preparation', url: '/pdf/Before Joint Surgery.pdf'},
+                        {id: 1, title: 'What to Expect the Day of Surgery', url: '/pdf/What to Expect.pdf'},
+                        {id: 2, title: 'Discharge Preparation Checklist', url: '/pdf/Prepare for Discharge.pdf'},
+                        {id: 3, title: '10 Joint Surgery Recovery Tips', url: '/pdf/Joint Surgery Recovery.pdf'},
                     ]}
                     openModal={openModal}
                 />

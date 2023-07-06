@@ -8,6 +8,8 @@ import IconImage from '../Shared/IconImage'
 import VideoFullWidth from '../VideoFullWidth'
 import ButtonPrimary from '../Shared/ButtonPrimary'
 import { FaHospitalSymbol } from 'react-icons/fa'
+import { RxArrowRight } from 'react-icons/rx'
+import Link from 'next/link'
 
 export default function GridLayoutVideo(props) {
 
@@ -15,9 +17,7 @@ export default function GridLayoutVideo(props) {
         icon = '',
         kicker = null,
         title = '', 
-        subTitle = '', 
-        blockTitle = '', 
-        blockSubTitle = 'Know exactly what you\'re looking for? Click the link below to see a list of all downloadable resources, including: physical therapy protocols, discharge instructions, pre- and post-op care instructions, and more...', 
+        subTitle = '',
         url = 'https://www.youtube.com/embed/x_1UusZhMFM',
         image = '/AOMC-2.jpg',
         downloads = null,
@@ -32,43 +32,38 @@ export default function GridLayoutVideo(props) {
                 <TitleBlock title={title} subTitle={subTitle} />
 
                 <div className='mt-20 flex flex-col md:flex-row gap-8 w-full'>
-                    <div className='md:basis-7/12'>
-                        <div className='border rounded-md p-10 flex flex-col justify-center shadow-lg shadow-slate-50 w-full h-full'>
-                            <TitleBlock
-                                alignBlock={'left'}
-                                icon={'book'}
-                                // iconColor={'primary'}
-                                kicker={['Professional Resources']} 
-                                title={blockTitle}
-                                subTitle={blockSubTitle}
-                            />
-                            <div className='mt-8'>
-                                <ButtonPrimary label={'See All Downloads'} url={'/all-resources'} type={'secondary'} />
-                            </div>
+                    <div className='md:basis-1/2'>
+                        <div className='flex-grow border rounded-md px-8 py-10 flex flex-col justify-center items-start w-full h-full  shadow-md shadow-slate-50'>
+                            <TitleBlock alignBlock={'left'} icon={'hospital'} kicker={['Hospital Tour Video']} subTitle={'In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.'} subTitleSize={'medium'} />
+                            <button onClick={() => openModal(url)} className='mt-8 text-md text-arnotBlue flex justify-center items-center group transition ease-in-out duration-300'>
+                                <div>Watch Video</div>
+                                <RxArrowRight className='text-xl ml-2 group-hover:translate-x-1 transition ease-in-out duration-300' />
+                            </button>
                         </div>
                     </div>
-                    <div className='flex-shrink-0 md:basis-5/12'>
-                        <div className='flex flex-col gap-8 h-full'>
+                    <div className='flex-shrink-0 md:basis-1/2'>
+                        {/* <div className='flex flex-col gap-8 h-full'> */}
                             <div className='flex-shrink border border-transparent shadow-lg shadow-slate-50'>
                                 <VideoFullWidth url={url} videoThumbnail={image} openModal={openModal} />
                             </div>
-                            <div onClick={() => openModal(url)} className='flex-grow border border-slate-100 rounded-md p-8 flex flex-col justify-center bg-slate-100 hover:bg-slate-100 hover:cursor-pointer'>
-                                <div className='flex items-center space-x-2 text-arnotBlue'>
-                                    <FaHospitalSymbol className='text-2xl'/>
-                                    <h4 className='text-sm font-semibold'>Hospital Tour Video</h4>
-                                </div>
-                                <p className='mt-4 text-sm'>In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.</p>
-                            </div>
-                        </div>
+                            
+                        {/* </div> */}
 
                     </div>
                     
                 </div>
 
                 { downloads && 
-                    <div className='mt-8 p-8 border rounded-md'>
-                        <div className='mb-8 uppercase text-arnotRed text-sm font-bold'>
-                            Common Downloads
+                    <div className='mt-8 p-8 border rounded-md shadow-md shadow-slate-50'>
+                        <div className='mb-8 flex flex-wrap justify-between items-center gap-4'>
+                            <div className='uppercase text-arnotRed text-sm font-bold'>
+                                Common Resources
+                            </div>
+                            <ButtonPrimary label={'See All Resources'} url={'/all-resources'} type={'tertiary'} />
+                            {/* <Link href={'/all-resources'} className='mr-1 text-sm md:text-md text-arnotBlue md:text-black md:hover:text-arnotBlue flex justify-center items-center group transition-all ease-in-out duration-300'>
+                                <div>See All Resources</div>
+                                <RxArrowRight className='text-lg md:text-xl ml-2 group-hover:translate-x-1 transition-all ease-in-out duration-300' />
+                            </Link> */}
                         </div>
                         <DownloadRow2 downloads={downloads} />
                     </div>

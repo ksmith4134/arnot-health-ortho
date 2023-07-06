@@ -26,7 +26,7 @@ const DesktopSubMenu = forwardRef(function DesktopSubMenu(props, ref) {
                 <div className='basis-7/12 text-arnotPeach font-semibold'>{subMenu.title}</div>
                 <div className='flex flex-row justify-center items-center text-center space-x-2 text-arnotBlue'>
                     { subMenu.linkIcon && <Icon /> }
-                    <Link href={subMenu.linkUrl} target={subMenu.target} className='text-sm underline underline-offset-4' onClick={() => closeMenu(null)}>{subMenu.linkLabel}</Link>
+                    <Link href={subMenu.linkUrl} target={subMenu.target} className='text-sm hover:underline hover:underline-offset-4' onClick={() => closeMenu(null)}>{subMenu.linkLabel}</Link>
                 </div>
             </div>
 

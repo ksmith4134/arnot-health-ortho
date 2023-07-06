@@ -18,8 +18,8 @@ export default function DownloadRow2(props) {
             {downloads.map(download => (
                 <div key={download.id} className='rounded-md p-4 hover:cursor-pointer bg-arnotRed/5 hover:bg-arnotRed/10'>
                     <Link href={download ? download.url : router.asPath} target='_blank' className='text-arnotRed flex items-center'>
-                        <PdfIcon className='text-red-500 text-4xl' />
-                        <p className='ml-4'>{download.title}</p>
+                        <PdfIcon className='text-red-500 text-3xl' />
+                        <p className='ml-4 text-sm'>{download.title}</p>
                     </Link>
                 </div>
             ))}

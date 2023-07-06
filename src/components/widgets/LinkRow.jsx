@@ -9,12 +9,16 @@ export default function LinkRow() {
     const bodyIcons = Object.entries(BODY_ICONS).map(([label, icon]) => ({label, icon}));
 
     return (
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8'>
             { bodyIcons.map((item, index) => (
                 <div 
                     key={index}
                     onClick={() => router.push('#body-diagram')}
-                    className='w-full h-full flex justify-center items-start md:items-center text-center mx-auto rounded-md p-6 bg-arnotBlue/10 hover:bg-arnotBlue/20 hover:cursor-pointer'
+                    className='
+                        mx-auto p-6 w-full h-full flex justify-center items-start md:items-center 
+                        rounded-md text-center group border border-arnotBlue/20
+                        bg-arnotBlue/10 
+                        hover:cursor-pointer transition-all duration-300'
                 >
                     <div className='text-arnotBlue flex flex-col justify-center items-center'>
                         <Image 
@@ -22,9 +26,9 @@ export default function LinkRow() {
                             width={item.icon.width} 
                             height={item.icon.height} 
                             alt='icon' 
-                            className='w-14 opacity-80' 
+                            className='w-14 group-hover:scale-125 group-hover:translate-y-4 transition-all duration-300' 
                         />
-                        <p className='mt-2 text-sm font-semibold'>
+                        <p className='mt-3 text-sm group-hover:opacity-0 transition-all duration-300'>
                             { 
                                 item.label.split('-').map(item => item.charAt(0).toUpperCase()+item.slice(1)).join(' / ') 
                             }

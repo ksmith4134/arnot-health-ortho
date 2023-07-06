@@ -30,7 +30,7 @@ export default function GoogleMapDuex(props) {
                                     my-2 border px-6 py-3 rounded-md text-sm font-semibold hover:cursor-pointer 
                                     ${encodeURIComponent(item.street+', '+item.city+', '+item.state+' '+item.zip) === address 
                                         ? 'text-arnotBlue border-arnotBlue bg-arnotBlue/10'
-                                        : 'hover:bg-arnotBlue/10 hover:border-arnotBlue/10 bg-gray-50'
+                                        : 'hover:bg-arnotBlue/10 hover:border-arnotBlue/10 bg-slate-50/50'
                                     }
                                 `} 
                                 onClick={() => setAddress(encodeURIComponent(item.street+', '+item.city+', '+item.state+' '+item.zip))}

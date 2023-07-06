@@ -67,11 +67,11 @@ export default function Body(props) {
                     subTitle={subTitle}
                 />
                 
-                <div className='mt-20 max-w-6xl mx-auto flex flex-row justify-between items-start md:border md:rounded-md md:px-16 md:pt-20 md:pb-36 md:shadow-lg md:shadow-slate-50 md:space-x-8'>
+                <div className='mt-20 max-w-6xl mx-auto flex flex-row justify-between items-start md:border md:rounded-md md:px-16 md:pt-20 md:pb-36 md:shadow-md md:shadow-slate-50 md:gap-8'>
                     <div className='mt-4 order-1 w-full md:max-w-md shrink flex flex-col justify-center md:justify-start'>
 
                         <div onClick={() => setInstructions(!instructions)} className={`flex flex-col items-start justify-center text-slate-600 rounded-md hover:cursor-pointer ${instructions ? '' : ''}`}>
-                            <div className='inline-flex items-center space-x-2'>
+                            <div className='inline-flex items-center gap-2'>
                                 <FaInfoCircle className={`w-8 h-8`} />
                                 <p className={`text-lg font-semibold`}>Instructions</p>
                             </div>

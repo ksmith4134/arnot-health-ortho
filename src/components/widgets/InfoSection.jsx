@@ -24,7 +24,9 @@ export default function InfoSection(props) {
     return (
         <section className={`${BG_COLORS[background]} py-24`}>
             <div className='max-w-6xl px-8 mx-auto'>
+
                 <TitleBlock title={title} subTitle={subTitle} />
+
                 <div className={`${card && 'bg-white border rounded-md p-10 shadow-md shadow-slate-50'} mt-20 flex flex-row items-center`}>
                     <Carousel length={content.length} controlsMargin={'large'}>
                         { content.map(item => (
@@ -41,13 +43,15 @@ export default function InfoSection(props) {
                         ))}
                     </Carousel>
                 </div>
+
                 { downloads && 
                     <div className='mt-8'>
                         <DownloadRow2 downloads={downloads} />
                     </div>
                 }
+
                 { body && 
-                    <div className='mt-8 p-8 border rounded-md'>
+                    <div className='mt-8 p-8 border rounded-md shadow-md shadow-slate-50'>
                         <div className='mb-8 uppercase text-arnotBlue text-sm font-bold'>
                             See Arthritis Conditions
                         </div>

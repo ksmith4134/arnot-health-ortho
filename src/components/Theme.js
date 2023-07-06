@@ -1,6 +1,6 @@
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { BsArrowRightCircle, BsArrowLeftCircle, BsFillStarFill } from 'react-icons/bs'
-import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward, FaFilePdf } from 'react-icons/fa'
+import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward, FaFilePdf, FaHospitalSymbol } from 'react-icons/fa'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -83,6 +83,7 @@ export const ICONS = {
     stethoscope: FaStethoscope,
     book: FaBookMedical,
     football: MdSportsFootball,
+    hospital: FaHospitalSymbol,
     checkCircle: CircleCheck,
     playCircle: CirclePlay,
     linkCircle: CircleLink,
@@ -121,7 +122,15 @@ export const FONT_COLORS = {
     primary: 'text-arnotBlue',
     secondary: 'text-arnotTeal',
     tertiary: 'text-arnotPeach',
-    black: 'text-black'
+    black: 'text-black',
+    blue: 'text-arnotBlue',
+    lightBlue: 'text-arnotLightBlue',
+    teal: 'text-arnotTeal',
+    peach: 'text-arnotPeach',
+    yellow: 'text-arnotYellow',
+    brown: 'text-arnotBrown',
+    darkBrown: 'text-arnotDarkBrown',
+    red: 'text-arnotRed',
 }
 
 export const BG_COLORS = {
@@ -145,7 +154,7 @@ export const HOVER_FONT_COLORS = {
 export const PRIMARY_BUTTON = {
     primary: 'bg-arnotBlue text-white hover:shadow-lg hover:shadow-arnotBlue/20 rounded-sm px-6 py-4',
     secondary: 'bg-slate-100 text-arnotBlue hover:rounded hover:bg-arnotBlue/10 rounded-sm px-6 py-4',
-    tertiary: 'text-arnotBlue',
+    tertiary: 'hover:text-arnotBlue',
 }
 
 export const FONT_SIZE = {
