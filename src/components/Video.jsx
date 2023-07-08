@@ -14,7 +14,7 @@ export default function Video(props) {
         titleSize = '',
         title = '', 
         description = '', 
-        videoUrl = 'https://www.youtube.com/embed/uUmAUxWFYCw', 
+        videoUrl = '', 
         image = '',
         asset = null, // renders Download, LinkWrapper, or Button components
         handleClick = () => console.log('Video modal')

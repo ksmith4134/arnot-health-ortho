@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { AiFillPhone } from 'react-icons/ai'
 
 export default function GoogleMapDuex(props) {

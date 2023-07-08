@@ -1,4 +1,3 @@
-import React from 'react'
 import LinkList from './LinkList'
 import DownloadList from './DownloadList'
 

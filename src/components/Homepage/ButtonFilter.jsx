@@ -9,17 +9,17 @@ export default function ButtonFilter(props) {
     } = props
 
     return (
-        <div className='mt-12 w-full md:w-[400px] max-w-xl mx-auto'>
-            <div className='rounded-lg mt-1 md:mt-0 md:rounded-full border border-gray-300 p-1 bg-gray-100 md:bg-none'>
-                <div className='flex flex-col md:flex-row justify-between'>
+        <div className='w-full'>
+            <div className='mt-1 md:mt-0'>
+                <div className='flex flex-col space-y-2'>
                     {
                         conditionCategories.map((item) => (
                             <div key={item.id} onClick={() => handleClick(item.id)} className={
-                                `text-sm mx-px px-6 py-4 md:py-3 rounded-md md:rounded-full hover:cursor-pointer text-center
+                                `text-sm px-8 py-4 rounded hover:cursor-pointer text-center
                                 transition ease-in duration-300
                                 ${category === item.id 
                                     ? `${BG_COLORS[item.theme]} text-white` 
-                                    : 'hover:bg-slate-200'}`}
+                                    : 'hover:bg-slate-200 bg-slate-100'}`}
                             >
                                 {item.label}
                             </div>

@@ -1,9 +1,8 @@
 import Accordion from '../Accordion'
 import { useState, useEffect } from 'react'
 import Skeleton from './Skeleton'
-import ButtonFilter from './ButtonFilter'
 import TitleBlock from '../Shared/TitleBlock'
-import ButtonFilter2 from './ButtonFilter2'
+import ButtonFilter from './ButtonFilter'
 import { FaInfoCircle } from 'react-icons/fa'
 
 export default function Body(props) {
@@ -67,7 +66,7 @@ export default function Body(props) {
                     subTitle={subTitle}
                 />
                 
-                <div className='mt-20 max-w-6xl mx-auto flex flex-row justify-between items-start md:border md:rounded-md md:px-16 md:pt-20 md:pb-36 md:shadow-md md:shadow-slate-50 md:gap-8'>
+                <div className='mt-16 max-w-6xl mx-auto flex flex-row justify-between items-start md:border md:rounded-md md:px-16 md:pt-20 md:pb-36 md:shadow-md md:shadow-slate-50 md:gap-8'>
                     <div className='mt-4 order-1 w-full md:max-w-md shrink flex flex-col justify-center md:justify-start'>
 
                         <div onClick={() => setInstructions(!instructions)} className={`flex flex-col items-start justify-center text-slate-600 rounded-md hover:cursor-pointer ${instructions ? '' : ''}`}>
@@ -79,7 +78,7 @@ export default function Body(props) {
                         </div>
 
                         <div className='mt-6 md:mt-12'>
-                            <ButtonFilter2 conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
+                            <ButtonFilter conditionCategories={conditionCategories} category={category} handleClick={handleFilterClick} />
                         </div>
 
                         { filteredAccordion &&  

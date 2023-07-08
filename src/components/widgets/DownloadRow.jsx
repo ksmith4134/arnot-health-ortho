@@ -1,9 +1,8 @@
-import Download from '../Download'
 import { ICONS } from '../Theme'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-export default function DownloadRow2(props) {
+export default function DownloadRow(props) {
 
     const {
         downloads = [],

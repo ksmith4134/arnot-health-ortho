@@ -1,4 +1,3 @@
-import React from 'react'
 import Prose from './markdown/Prose'
 import { FaInfoCircle } from 'react-icons/fa'
 

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import skeletonImg from '../../../public/skeleton-3.jpg'
-// import skeletonImg from '../../../public/skeleton_1_No Background.png'
 import { SKELETON_LOCATIONS, SKELETON_BG, SKELETON_BG_SELECTED, SKELETON_BORDER } from '../Theme'
 
 export default function Skeleton(props) {

@@ -6,32 +6,7 @@ import { FONT_COLORS } from "../Theme"
 export default function InfoCardLinks(props) {
 
     const {
-        cards = [
-            {
-                id: 0,
-                url: '/contact',
-                icon: 'telephone',
-                title: 'Contact',
-                titleColor: 'teal',
-                body: 'For questions regarding your condition, treatment, appointment, or test results.',
-            },
-            {
-                id: 1,
-                url: '/contact#all-locations',
-                icon: 'mapCircle',
-                title: 'Locations',
-                titleColor: 'red',
-                body: 'Each physician sees patients in one of several facilities throughout central NY.',
-            },
-            {
-                id: 2,
-                url: '#highlight-reviews',
-                icon: 'starCircle',
-                title: 'Reviews',
-                titleColor: 'yellow',
-                body: 'Check out patient testimonials for each of our orthopedic physicians.',
-            }
-        ]
+        cards,
     } = props
 
     return (
@@ -45,7 +20,7 @@ export default function InfoCardLinks(props) {
                         </div>
                         <p className='mt-4 text-sm'>{item.body}</p>
                         <button className={`mt-4 text-sm inline-flex items-center group-hover:text-arnotBlue`}>
-                            <div>Learn More</div>
+                            <div>{item.buttonLabel}</div>
                             <RxArrowRight className={`text-lg ml-2 group-hover:translate-x-1 transition ease-in-out duration-300`} />
                         </button>
                     </Link>

@@ -2,10 +2,10 @@ import { getStoryblokApi, renderRichText } from '@storyblok/react'
 import { useState } from 'react'
 import VideoModal from '@/components/VideoModal'
 import Hero from '@/components/Homepage/Hero'
-import About2 from '@/components/Team/About2'
+import About from '@/components/Team/About'
 import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
-import TestimonialsTeam from '@/components/widgets/TestimonialsTeam'
+import Testimonials from '@/components/widgets/Testimonials'
 import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 import VideoFullWidth from '@/components/VideoFullWidth'
 
@@ -40,9 +40,9 @@ export default function Person(props) {
 
                 { about && 
                     <div id='reviews'>
-                        <About2 {...about} reviews={reviews} openModal={openModal}> 
-                            { reviews.length > 0 ? <TestimonialsTeam reviews={reviews} /> : null }
-                        </About2>
+                        <About {...about} reviews={reviews} openModal={openModal}> 
+                            { reviews.length > 0 ? <Testimonials reviews={reviews} /> : null }
+                        </About>
                     </div>
                 }
 
@@ -109,7 +109,7 @@ export async function getStaticProps(context) {
     const doctor = data.story.content;
 
     const hero = {
-        image: doctor.heroImages.filename,
+        images: [doctor.heroImages.filename],
         title: 'Dr. '+doctor.fullName,
         subTitle: doctor.shortSummary,
         icons: doctor.infoLinks.map((item, index) => ({

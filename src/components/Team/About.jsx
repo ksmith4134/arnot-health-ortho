@@ -1,15 +1,12 @@
-
 import Prose from "../markdown/Prose"
-import TestimonialsTeam from "../widgets/TestimonialsTeam"
 
 
-export default function About2(props) {
+export default function About(props) {
     const { 
         fullName, 
         biography,
         children
     } = props
-
 
     return (
         <div className='pt-36 pb-12'>

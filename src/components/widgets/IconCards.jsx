@@ -2,22 +2,22 @@ import { BODY_ICONS } from '../Theme'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
-export default function LinkRow() {
+export default function IconCards() {
 
     const router = useRouter()
 
     const bodyIcons = Object.entries(BODY_ICONS).map(([label, icon]) => ({label, icon}));
 
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8'>
+        <div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8'>
             { bodyIcons.map((item, index) => (
                 <div 
                     key={index}
                     onClick={() => router.push('#body-diagram')}
                     className='
                         mx-auto p-6 w-full h-full flex justify-center items-start md:items-center 
-                        rounded-md text-center group border border-arnotBlue/20
-                        bg-arnotBlue/10 
+                        rounded-md text-center group border 
+                        hover:shadow-lg hover:shadow-slate-50
                         hover:cursor-pointer transition-all duration-300'
                 >
                     <div className='text-arnotBlue flex flex-col justify-center items-center'>

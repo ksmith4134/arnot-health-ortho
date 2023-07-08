@@ -1,19 +1,13 @@
+import { getStoryblokApi } from '@storyblok/react'
 import { useState } from 'react';
-import Link from 'next/link';
-import IconImage from '@/components/Shared/IconImage';
 import Head from 'next/head';
 import Hero from '@/components/Homepage/Hero';
-import Team2 from '@/components/Team/Team2';
-import Body from '@/components/Homepage/Body';
-import VideoModal from '@/components/VideoModal';
-import { getStoryblokApi } from '@storyblok/react'
-import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
-import InfoSection from '@/components/widgets/InfoSection';
-import GridLayoutVideo from '@/components/widgets/GridLayoutVideo';
-import Card from '@/components/widgets/Card';
-import ButtonPrimary from '@/components/Shared/ButtonPrimary';
-import { RxArrowRight } from 'react-icons/rx'
 import InfoCardLinks from '@/components/sections/InfoCardLinks';
+import Team from '@/components/Team/Team';
+import Body from '@/components/Homepage/Body';
+import CardGrid from '@/components/widgets/CardGrid';
+import TestimonialsHome from '@/components/Homepage/TestimonialsHome';
+import VideoModal from '@/components/VideoModal';
 
 export default function Home(props) {
 
@@ -48,11 +42,20 @@ export default function Home(props) {
                     title={'Arnot Health Orthopedics'}
                     subTitle={'Our archive of resources will help guide you through your treament. Find everything from preventative care videos to pre- and post-operative educational content.'}
                     buttonLabel={'Find My Condition'}
-                    image={'/hero-home-1d.jpg'}
+                    // Make sure we select images[0] for homepage
+                    // Cannot pass more than one in this array
+                    // otherwise carousel controls will interfere with the InfoCardLinks component
+                    images={['/hero-home-1d.jpg']} 
                     url={'#body-diagram'}
                 />
-                <InfoCardLinks />
-                <Team2 
+                <InfoCardLinks
+                    cards={[
+                        { id: 0, url: '/contact', icon: 'telephone', title: 'Contact', titleColor: 'teal', body: 'For questions regarding your condition, treatment, appointment, or test results.', buttonLabel: 'Learn more'},
+                        { id: 1, url: '/contact#all-locations', icon: 'mapCircle', title: 'Locations', titleColor: 'red', body: 'Each physician sees patients in one of several facilities throughout central NY.', buttonLabel: 'Learn more'},
+                        { id: 2, url: '#highlight-reviews', icon: 'starCircle', title: 'Reviews', titleColor: 'yellow', body: 'Check out patient testimonials for each of our orthopedic physicians.', buttonLabel: 'Learn more'}
+                    ]} 
+                />
+                <Team
                     team={doctors} 
                     openModal={openModal}
                 />
@@ -62,9 +65,15 @@ export default function Home(props) {
                     title={'Learn About Your Condition'}
                     subTitle={'Find you condition below to learn about treatment options, pre- and post-operative care instructions, and much more.'}
                 />
-                <GridLayoutVideo 
+                <CardGrid 
                     title={'Prepare for Surgery'}
                     subTitle={'You and your caregivers can review the resources below before your treatment so you feel prepared for the big day.'}
+                    cardIcon={'hospital'}
+                    cardKicker={['Hospital Tour Video']}
+                    cardSubTitle={'In this video, Dr. Jared Smith and Dr. Bryan Jarvis provide a tour of what to expect when coming to Arnot Ogden Medical Center for orthopedic same-day surgery.'}
+                    buttonLabel={'Watch Video'}
+                    videoUrl={'https://www.youtube.com/embed/Nz98Ve-KL3s'}
+                    image={'/AOMC-2.jpg'}
                     downloads={[
                         {id: 0, title: 'Pre-Operative Preparation', url: '/pdf/Before Joint Surgery.pdf'},
                         {id: 1, title: 'What to Expect the Day of Surgery', url: '/pdf/What to Expect.pdf'},
@@ -73,29 +82,27 @@ export default function Home(props) {
                     ]}
                     openModal={openModal}
                 />
-                <InfoSection
-                    card={true}
+                <CardGrid
                     title={'Joint Health Services'}
                     subTitle={'Learn more about our joint health services - from conservative arthritis care to same-day, full joint replacements.'}
-                    content={
-                        [
-                            { id: 0, title: 'Joint Services Overview', description: 'Members of the Arnot Health joint health team talk about their shared goal of treating joint pain and getting you back to doing the things you love.', videoUrl: 'https://www.youtube.com/embed/x69ivpdbqkI', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
-                            { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Dr. Bryan Jarvis discusses who might be a candidate for joint replacement surgery, including risk factors that might affect outcomes.', videoUrl: 'https://www.youtube.com/embed/U1NhujGtwvs', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
-                            { id: 2, title: 'Same Day Total Joint Program', description: 'Arnot Health\'s own orthopedic surgeon, Dr. Bryan Jarvis, discusses same-day surgery options for total knee, hip, and shoulder replacement surgeries.', videoUrl: 'https://www.youtube.com/embed/REd-ow7z3rQ', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
-                        ]
-                    }
-                    body={true}
+                    carousel={[
+                        { id: 0, title: 'Joint Services Overview', description: 'Members of the Arnot Health joint health team talk about their shared goal of treating joint pain and getting you back to doing the things you love.', videoUrl: 'https://www.youtube.com/embed/qCfei2nAeV4', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
+                        { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Dr. Bryan Jarvis discusses who might be a candidate for joint replacement surgery, including risk factors that might affect outcomes.', videoUrl: 'https://www.youtube.com/embed/F_6ZiIzQ6qE', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
+                        { id: 2, title: 'Same Day Total Joint Program', description: 'Arnot Health\'s own orthopedic surgeon, Dr. Bryan Jarvis, discusses same-day surgery options for total knee, hip, and shoulder replacement surgeries.', videoUrl: 'https://www.youtube.com/embed/VHE7hS8NSAo', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
+                    ]}
+                    bodyLinks={true}
                     openModal={openModal}
                 />
-                <Card
-                    icon={'football'}
-                    kicker={['Get back in the game']}
-                    title={'Sports Medicine'}
-                    description={'While the seasons may change - being an athlete is a lifelong designation. We care for athletes in all phases of life - from recreational leagues and weekend warriors to collegiate and professional athletes. Let us help you get back to the activity that you love.'}
+                <CardGrid 
+                    cardIcon={'football'}
+                    cardKicker={['Get back in the game']}
+                    cardTitle={'Sports Medicine'}
+                    cardSubTitle={'While the seasons may change - being an athlete is a lifelong designation. We care for athletes in all phases of life - from recreational leagues and weekend warriors to collegiate and professional athletes. Let us help you get back to the activity that you love.'}
+                    buttonLabel={'Watch Video'}
+                    videoUrl={'https://www.youtube.com/embed/6nEnyI6mHAs'}
+                    image={'/sports_medicine_kayak.png'}
                     logos={['/logos/elmira_heights.png', '/logos/elmira_pioneers.png', '/logos/elmira_college.png', '/logos/campbell.png', '/logos/horseheads.png']}
-                    videoUrl={'https://www.youtube.com/embed/6EKOCDdNjvg'}
-                    videoThumbnail={'/sports_medicine_kayak.png'}
-                    handleClick={openModal}
+                    openModal={openModal}
                 />
                 <TestimonialsHome 
                     testimonials={testimonials} 

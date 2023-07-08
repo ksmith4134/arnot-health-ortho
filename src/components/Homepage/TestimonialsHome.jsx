@@ -1,9 +1,6 @@
-import React from 'react'
 import { useState } from 'react'
 import ProfilePic from '../ProfilePic'
-import IconImage from '../Shared/IconImage'
-import FiveStars from '../Shared/FiveStars'
-import TestimonialsContent from '../widgets/TestimonialsContent'
+import { TestimonialsContent } from '../widgets/Testimonials'
 import TitleBlock from '../Shared/TitleBlock'
 
 export default function TestimonialsHome(props) {
@@ -52,6 +49,7 @@ export default function TestimonialsHome(props) {
                                         <p className='text-md'>{item.condition}</p>
                                     </div>
                                 </div>
+                                {/* MOBILE */}
                                 <div className='block md:hidden'>
                                     <div className={`${selected === index ? 'block' : 'hidden'}`}>
                                         {
@@ -74,7 +72,7 @@ export default function TestimonialsHome(props) {
                         ))
                     }
                 </div>
-                {/* Testimonial */}
+                {/* DESKTOP */}
                 <div className='order-2 basis-8/12 hidden md:block border rounded-lg p-8 lg:p-12'>
                     {
                         testimonials.map((item, index) => (

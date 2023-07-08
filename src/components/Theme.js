@@ -1,6 +1,7 @@
-import { FiPlus, FiMinus } from 'react-icons/fi';
+import { FiPlus, FiMinus } from 'react-icons/fi'
 import { BsArrowRightCircle, BsArrowLeftCircle, BsFillStarFill } from 'react-icons/bs'
 import { FaStethoscope, FaBookMedical, FaUserCircle, FaAward, FaFilePdf, FaHospitalSymbol } from 'react-icons/fa'
+import { MdSportsFootball } from 'react-icons/md'
 import KneeIcon from '../../public/svg/KneeIcon.svg'
 import HipIcon from '../../public/svg/HipIcon.svg'
 import ShoulderIcon from '../../public/svg/ShoulderIcon.svg'
@@ -15,19 +16,24 @@ import CirclePhone from '../../public/svg/CirclePhone.svg'
 import CirclePlay from '../../public/svg/CirclePlay.svg'
 import CircleStar from '../../public/svg/CircleStar.svg'
 import CirclePlus from '../../public/svg/CirclePlus.svg'
-import { MdSportsFootball } from 'react-icons/md'
-import Paragraph from './Paragraph';
-import Video from './Video';
-import DropdownCard from './DropdownCard';
-import InfoBox from './InfoBox';
-import Accordion from './Accordion';
-import Accordion2 from './Accordion2';
-import Download from './Download';
-import Resource from './Resource';
-import LinkList from './LinkList';
-import DownloadList from './DownloadList';
-import Dropdown from './Dropdown';
-import ImageCarousel from './ImageCarousel';
+import Paragraph from './Paragraph'
+import Video from './Video'
+import DropdownCard from './DropdownCard'
+import InfoBox from './InfoBox'
+import Accordion2 from './Accordion2'
+import Download from './Download'
+import Resource from './Resource'
+import LinkList from './LinkList'
+import DownloadList from './DownloadList'
+import Dropdown from './Dropdown'
+import ImageCarousel from './ImageCarousel'
+import Hero from './Homepage/Hero'
+import InfoCardLinks from './sections/InfoCardLinks'
+import Team from './Team/Team'
+import Body from './Homepage/Body'
+import CardGrid from './widgets/CardGrid'
+import TestimonialsHome from './Homepage/TestimonialsHome'
+
 
 export const CAROUSEL_CONTROLS = {
     margin: {
@@ -116,6 +122,12 @@ export const COMPONENTS = {
     DownloadList: DownloadList,
     Dropdown: Dropdown,
     ImageCarousel: ImageCarousel,
+    Hero: Hero,
+    InfoCardLinks: InfoCardLinks,
+    Team: Team,
+    Body: Body,
+    CardGrid: CardGrid,
+    TestimonialsHome: TestimonialsHome,
 }
 
 export const FONT_COLORS = {

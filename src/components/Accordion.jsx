@@ -1,7 +1,6 @@
 import Dropdown from '@/components/Dropdown';
-import { HOVER_FONT_COLORS, FONT_COLORS, MENU_BG_COLORS } from './Theme'
+import { HOVER_FONT_COLORS, FONT_COLORS, } from './Theme'
 import Link from 'next/link';
-import ButtonFilter from './Homepage/ButtonFilter';
 
 export default function Accordion(props) {
     

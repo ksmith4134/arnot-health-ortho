@@ -29,16 +29,12 @@ export default function Carousel(props) {
         }
     }
 
-    const margin = CAROUSEL_CONTROLS.margin[controlsMargin]
+    const marginTop = CAROUSEL_CONTROLS.margin[controlsMargin]
 
     return (
         <div className={`w-full ${float && `md:w-80 order-2 float-none md:float-right md:mt-1 md:ml-10`}`}>
             { children[index] }
-            { length > 1 &&
-                <div className={`${margin}`}>
-                    <CarouselControls selected={index} length={length} increment={handleIncrement} decrement={handleDecrement} />
-                </div>
-            }
+            <CarouselControls marginTop={marginTop} selected={index} length={length} increment={handleIncrement} decrement={handleDecrement} />
         </div>
     )
 }
@@ -49,7 +45,8 @@ export function CarouselControls(props) {
         selected,
         length,
         decrement,
-        increment
+        increment,
+        marginTop,
     } = props
 
     let media = [];
@@ -59,7 +56,7 @@ export function CarouselControls(props) {
 
     if(length > 1) {
         return (
-            <div className='flex flex-row justify-center items-center space-x-4 mt-4 h-8'>
+            <div className={`flex flex-row justify-center items-center space-x-4 mt-4 h-8 ${marginTop}`}>
                 <BsArrowLeftCircle onClick={decrement} className='text-2xl md:text-xl text-gray-400 hover:text-arnotBlue hover:cursor-pointer' />
                 <div className='flex flex-row justify-center items-center'>
                     {
