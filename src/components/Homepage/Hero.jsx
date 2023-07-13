@@ -10,7 +10,7 @@ import { CAROUSEL_CONTROLS } from '../Theme'
 export default function Hero(props) {
     
     const {
-        icons = [],
+        icons = null,
         openModal,
         profile,
         videoUrl,
@@ -18,12 +18,13 @@ export default function Hero(props) {
         title = '',
         subTitle = '',
         buttonLabel = '',
-        images = [],
+        images = null,
         url = '',
         controlsMargin = 'large',
     } = props
 
     const router = useRouter()
+    const [ index , setIndex ] = useState(0)
     
     const goToProfile = (id) => {
         router.push(`/team/${id}`)
@@ -32,10 +33,6 @@ export default function Hero(props) {
     const playVideo = (url) => {
         openModal(url)
     }
-
-    const marginTop = CAROUSEL_CONTROLS.margin[controlsMargin]
-
-    const [ index , setIndex ] = useState(0)
 
     const handleIncrement = () => {
         if(index === images.length-1){
@@ -53,13 +50,15 @@ export default function Hero(props) {
         }
     }
 
+    const marginTop = CAROUSEL_CONTROLS.margin[controlsMargin]
+
     return (
         <>
-            <div className='relative overflow-hidden w-full h-[660px] bg-gray-200'>
+            <div className='relative overflow-hidden w-full sm:h-[660px] bg-gray-200'>
 
                 {/* Image */}
                 { images && 
-                    <div className='absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
+                    <div className='hidden sm:block absolute right-0 w-3/4 h-full z-0 opacity-50 md:opacity-100'>
                         <Image 
                             src={images[index]} 
                             alt="hero image" 
@@ -76,7 +75,7 @@ export default function Hero(props) {
                 <div className='absolute left-0 top-0 w-9/12 h-full z-10 bg-gradient-to-r from-white via-white'></div>
 
                 {/* Text and Button */}
-                <div className='max-w-6xl h-full mx-auto px-8 flex justify-start items-center'>
+                <div className='max-w-6xl h-full mx-auto px-8 py-24 sm:py-0 flex justify-start items-center'>
                     <div className='z-20'>
                         <TitleBlock
                             alignBlock={'left'}
@@ -98,7 +97,25 @@ export default function Hero(props) {
                 </div>
             </div>
 
-            <CarouselControls marginTop={marginTop} selected={index} length={images.length} increment={handleIncrement} decrement={handleDecrement} />
+            {/* Image */}
+            { images && 
+                <>
+                    <div className='block sm:hidden w-full aspect-[3/2] relative overflow-hidden'>
+                        <Image 
+                            src={images[index]} 
+                            alt="hero image" 
+                            fill={true} 
+                            sizes='100vw'
+                            quality={100} 
+                            priority={true} 
+                            className='object-cover p-8'
+                        />
+                    </div>
+                    <div className={`${images.length > 1 && '-mt-8 sm:mt-0'}`}>
+                        <CarouselControls marginTop={marginTop} selected={index} length={images.length} increment={handleIncrement} decrement={handleDecrement} />
+                    </div>
+                </>
+            }
         </>
     )
 }

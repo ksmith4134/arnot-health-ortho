@@ -18,7 +18,7 @@ export default function Footer() {
     }, [navDropdown])
 
     return (
-        <div className='w-full mt-12 border-t-[1px] bg-slate-50/50'>
+        <div className='w-full mt-16 border-t-[1px] bg-slate-50/50'>
             <div className='max-w-6xl mx-auto px-8 pt-12 pb-16'>
                 <div className='flex flex-col md:flex-row md:flex-wrap md:justify-evenly items-start gap-8'>
                     <div>

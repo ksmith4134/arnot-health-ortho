@@ -64,14 +64,11 @@ export default function CardGrid(props) {
                     </div>
                 }
                 { downloads && 
-                    <div className='mt-8 p-8 border rounded-md shadow-md shadow-slate-50'>
-                        <div className='mb-8 flex flex-wrap justify-between items-center gap-4'>
-                            <div className='uppercase text-arnotRed text-sm font-bold'>
-                                Common Resources
-                            </div>
-                            <ButtonPrimary label={'See All Resources'} url={'/all-resources'} type={'tertiary'} />
-                        </div>
+                    <div className='mt-8 '>
                         <DownloadRow downloads={downloads} />
+                        <div className='mt-16 flex justify-center'>
+                            <ButtonPrimary label={'See All Resources'} url={'/all-resources'} type={'secondary'} />
+                        </div>
                     </div>
                 }
                 { bodyLinks && 

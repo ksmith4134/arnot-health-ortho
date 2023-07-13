@@ -29,7 +29,7 @@ export default function TeamHome(props) {
                 title={'It\'s what we do'}
                 subTitle={'Our team of experienced orthopedic physicians and advanced practice providers are here to help you every step of the way. Learn more about our team members below.'}
                 buttonLabel={'Meet the Team'}
-                images={['/our-team-2.jpg', '/AOMC-2.jpg']}
+                images={['/team-prof-2.jpg', '/team-prof-3.jpg', '/team-prof-5.jpg', '/team-prof-4.jpg', '/team-prof-1.jpg', ]}
                 carousel={false}
                 url={'/team#doctors'}
             />

@@ -83,12 +83,12 @@ export default function Home(props) {
                     openModal={openModal}
                 />
                 <CardGrid
-                    title={'Joint Health Services'}
+                    title={'Arthritis & Joint Health'}
                     subTitle={'Learn more about our joint health services - from conservative arthritis care to same-day, full joint replacements.'}
                     carousel={[
-                        { id: 0, title: 'Joint Services Overview', description: 'Members of the Arnot Health joint health team talk about their shared goal of treating joint pain and getting you back to doing the things you love.', videoUrl: 'https://www.youtube.com/embed/qCfei2nAeV4', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
-                        { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Dr. Bryan Jarvis discusses who might be a candidate for joint replacement surgery, including risk factors that might affect outcomes.', videoUrl: 'https://www.youtube.com/embed/F_6ZiIzQ6qE', image: '', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
-                        { id: 2, title: 'Same Day Total Joint Program', description: 'Arnot Health\'s own orthopedic surgeon, Dr. Bryan Jarvis, discusses same-day surgery options for total knee, hip, and shoulder replacement surgeries.', videoUrl: 'https://www.youtube.com/embed/VHE7hS8NSAo', image: '', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
+                        { id: 0, title: 'Joint Services Overview', description: 'Members of the Arnot Health joint health team talk about their shared goal of treating joint pain and getting you back to doing the things you love.', videoUrl: 'https://www.youtube.com/embed/qCfei2nAeV4', image: '/thumb-prof-1.jpg', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
+                        { id: 1, title: 'Who is a Candidate for Joint Replacement Surgery', description: 'Dr. Bryan Jarvis discusses who might be a candidate for joint replacement surgery, including risk factors that might affect outcomes.', videoUrl: 'https://www.youtube.com/embed/F_6ZiIzQ6qE', image: '/thumb-prof-2.jpg', asset: { component: 'Button', label: 'Contact Us', url: '/contact' } },
+                        { id: 2, title: 'Same Day Total Joint Program', description: 'Arnot Health\'s own orthopedic surgeon, Dr. Bryan Jarvis, discusses same-day surgery options for total knee, hip, and shoulder replacement surgeries.', videoUrl: 'https://www.youtube.com/embed/VHE7hS8NSAo', image: '/team-prof-5.jpg', asset: { component: 'Button', label: 'Find My Condition', url: '#body-diagram' } },
                     ]}
                     bodyLinks={true}
                     openModal={openModal}

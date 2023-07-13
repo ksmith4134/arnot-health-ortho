@@ -4,6 +4,7 @@ import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 import { getStoryblokApi } from '@storyblok/react'
 import { AiFillPhone } from 'react-icons/ai'
 import LinkWrapper from '@/components/LinkWrapper'
+import Section from '@/components/Shared/Section'
 
 export default function Contact(props) {
     
@@ -13,10 +14,10 @@ export default function Contact(props) {
 
 
     return (
-        <div className='max-w-6xl mx-auto px-8 min-h-screen mt-20'>
-            <InfoBox textSize={'medium'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
+        <Section page={true}>
+            <InfoBox textSize={'small'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
 
-            <div className='mt-20 flex flex-col md:flex-row gap-16 justify-center items-stretch'>
+            <div className='mt-16 md:mt-20 flex flex-col md:flex-row gap-16 justify-center items-stretch'>
                 <div className='order-1 basis-1/2 border rounded-md px-8 py-12 hover:bg-slate-50'>
                     <h2 className='font-bold text-2xl'>Contact Your Provider</h2>
                     <p className='mt-4 text-sm'>If you have any questions regarding your care, appointment schedule, or test results, please contact your provider&apos;s office directly at:</p>
@@ -38,7 +39,7 @@ export default function Contact(props) {
                 <GoogleMapDuex locations={locations} />
             </div>
             
-        </div>
+        </Section>
     )
 }
 

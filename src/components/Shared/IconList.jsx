@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 export default function IconList(props) {
 
     const {
-        items = [],
+        items = null,
         profile = '',
         url = '',
         playVideo,

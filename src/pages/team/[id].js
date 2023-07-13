@@ -8,6 +8,7 @@ import Credentials from '@/components/Team/Credentials'
 import Testimonials from '@/components/widgets/Testimonials'
 import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
 import VideoFullWidth from '@/components/VideoFullWidth'
+import Section from '@/components/Shared/Section'
 
 export default function Person(props) {
     
@@ -36,7 +37,7 @@ export default function Person(props) {
 
             { hero && <Hero openModal={openModal} {...hero} /> }
             
-            <div className='max-w-6xl px-8 mx-auto'>
+            <Section>
 
                 { about && 
                     <div id='reviews'>
@@ -66,7 +67,7 @@ export default function Person(props) {
                         <GoogleMapDuex locations={locations} /> 
                     </div>
                 }
-            </div>
+            </Section>
             { videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )
@@ -109,7 +110,7 @@ export async function getStaticProps(context) {
     const doctor = data.story.content;
 
     const hero = {
-        images: [doctor.heroImages.filename],
+        images: doctor.heroImages.map(item => item.filename),
         title: 'Dr. '+doctor.fullName,
         subTitle: doctor.shortSummary,
         icons: doctor.infoLinks.map((item, index) => ({

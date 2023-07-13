@@ -9,7 +9,7 @@ export default function About(props) {
     } = props
 
     return (
-        <div className='pt-36 pb-12'>
+        <div className=''>
             <h2 className='font-bold text-2xl'>About Dr. {fullName}</h2>
             <div className={`mt-8 flex flex-col md:flex-row items-start ${children && 'md:space-x-16'}`}>
                 <div className={`${children && 'md:basis-3/4'}`}>

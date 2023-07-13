@@ -4,6 +4,7 @@ import ConditionHeader from '@/components/ConditionHeader'
 import VideoModal from '@/components/VideoModal'
 import { COMPONENTS } from '@/components/Theme'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import Section from '@/components/Shared/Section'
 
 // THIS IS A TEST PAGE THAT IS
 // USED TO VIEW ALL POSSIBLE COMPONENTS ON A CONDITION PAGE
@@ -58,7 +59,7 @@ export default function ComponentReference(props) {
 
     return (
         <div className='relative z-0 mb-40'>
-            <div className='max-w-6xl min-h-screen my-16 mx-auto px-8'>
+            <Section page={true}>
                 <div className='w-full lg:w-4/5 md:mr-auto'>
                     <ConditionHeader bodyPart={null} label={'Components'} title={conditionHeader.title} description={conditionHeader.description} />
                     {
@@ -69,7 +70,7 @@ export default function ComponentReference(props) {
                         ))
                     }
                 </div>
-            </div>
+            </Section>
             {videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )

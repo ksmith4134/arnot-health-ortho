@@ -27,7 +27,7 @@ export default function Video(props) {
             case 'Link':
                 return <LinkWrapper title={asset.title} url={asset.link.url} target={asset.link.target} />
             case 'Button':
-                return <ButtonPrimary label={asset.label} url={asset.url} type={'tertiary'} />
+                return <ButtonPrimary label={asset.label} url={asset.url} type={'secondary'} />
             default:
                 break;
         }

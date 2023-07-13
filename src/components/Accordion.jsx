@@ -1,12 +1,11 @@
 import Dropdown from '@/components/Dropdown';
-import { HOVER_FONT_COLORS, FONT_COLORS, } from './Theme'
+import { HOVER_FONT_COLORS } from './Theme'
 import Link from 'next/link';
 
 export default function Accordion(props) {
     
     const {
         accordion = {}, 
-        title = '',
         theme = 'primary',
         selected, 
         handleClick,
@@ -14,7 +13,6 @@ export default function Accordion(props) {
 
     return (
         <div className='w-full flex-grow'>
-            {title && <h3 className={`hidden md:block mb-6 ${FONT_COLORS[theme]} font-bold text-md`}>{title.toUpperCase()}</h3> }
             {
                 accordion.map((entry, index) => (
                     <Dropdown 

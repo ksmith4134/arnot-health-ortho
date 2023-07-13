@@ -47,10 +47,14 @@ export default function Team2(props) {
                                 <h3 className='text-md font-bold'>{profile.name + ', ' + profile.title}</h3>
                                 <p className='h-8 mt-1 text-sm font-light'>{profile.school}</p>
                             </div>
-                            <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p>
-                            <div className='flex flex-col gap-1'>
-                                <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
-                            </div>
+                            { profile.shortSummary && 
+                                <p className='text-sm text-left line-clamp-4'>{profile.shortSummary}</p> 
+                            }
+                            { profile.infoLinks.length > 0 && 
+                                <div className='flex flex-col gap-1'>
+                                    <IconList items={profile.infoLinks} profile={profile.slug} url={profile.videoUrl} playVideo={playVideo} goToProfile={goToProfile} />
+                                </div>
+                            }
                         </div>
                     ))
                 }

@@ -4,6 +4,7 @@ import Skeleton from './Skeleton'
 import TitleBlock from '../Shared/TitleBlock'
 import ButtonFilter from './ButtonFilter'
 import { FaInfoCircle } from 'react-icons/fa'
+import Section from '../Shared/Section'
 
 export default function Body(props) {
 
@@ -17,9 +18,10 @@ export default function Body(props) {
             { id: 1, label: 'Arthritis & Joint Replacement', theme: 'secondary', filter: true},
         ],
         accordion,
+        buttonCategory = 0,
     } = props
 
-    const [ category, setCategory ] = useState(0)
+    const [ category, setCategory ] = useState(buttonCategory)
     const [ filteredAccordion, setFilteredAccordion ] = useState(accordion)
     const [ skeleton, setSkeleton ] = useState(null)
     const [ openDropdown, setOpenDropdown ] = useState(null)
@@ -59,7 +61,7 @@ export default function Body(props) {
 
     return (
         <div id='body-diagram' className='w-full'>
-            <div className='max-w-6xl mx-auto px-8 p-24'>
+            <Section>
                 
                 <TitleBlock 
                     title={title}
@@ -85,7 +87,6 @@ export default function Body(props) {
                             <div className='mt-6'>
                                 <Accordion 
                                     accordion={filteredAccordion} 
-                                    // title={`${conditionCategories[category].label}`}
                                     theme={`${conditionCategories[category].theme}`} 
                                     selected={openDropdown}
                                     handleClick={handleAccordionClick}
@@ -97,7 +98,7 @@ export default function Body(props) {
                         <Skeleton skeleton={skeleton} theme={conditionCategories[category].theme} handleAccordionClick={handleAccordionClick} selected={openDropdown}  />
                     </div>
                 </div>
-            </div>
+            </Section>
         </div>
     )
 }

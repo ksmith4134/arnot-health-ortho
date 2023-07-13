@@ -7,6 +7,7 @@ import ConditionHeader from '@/components/ConditionHeader'
 import VideoModal from '@/components/VideoModal'
 import { COMPONENTS } from '@/components/Theme'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import Section from '@/components/Shared/Section'
 
 
 export default function Condition(props) {
@@ -80,28 +81,30 @@ export default function Condition(props) {
             <div className='block md:hidden sticky top-24 z-10'>
                 <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openMobileIndex} />
             </div>
-            <div className='max-w-6xl min-h-screen my-16 mx-auto flex flex-row md:space-x-10 items-start px-8'>
-                <div className='hidden md:block md:basis-3/12 sticky top-8 flex-none'>
-                    <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
+            <Section page={true}>
+                <div className='flex flex-row md:gap-10 items-start'>
+                    <div className='hidden md:block md:basis-3/12 sticky top-8 flex-none'>
+                        <IndexesDesktop indexes={indexes} selected={index} selectIndex={handleIndexClick} />
+                    </div>
+                    {
+                        loading 
+                        ?   <div className='mt-12 w-full flex justify-center'>
+                                <LoadingSpinner />
+                            </div> 
+                        :   <div className='md:basis-9/12'>
+                                <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
+                                {
+                                    index && 
+                                    layout.find(item => item.index === index).components.map((component, i) => (
+                                        <div key={i} className={`flex flex-col mt-16`}>
+                                            { component }
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                    }
                 </div>
-                {
-                    loading 
-                    ?   <div className='mt-12 w-full flex justify-center'>
-                            <LoadingSpinner />
-                        </div> 
-                    :   <div className='md:basis-9/12'>
-                            <ConditionHeader bodyPart={params.body} label={index} title={conditionHeader.title} description={conditionHeader.description} />
-                            {
-                                index && 
-                                layout.find(item => item.index === index).components.map((component, i) => (
-                                    <div key={i} className={`flex flex-col mt-16`}>
-                                        { component }
-                                    </div>
-                                ))
-                            }
-                        </div>
-                }
-            </div>
+            </Section>
             {videoModal && <VideoModal url={videoModal} handleClick={closeModal} />}
         </div>
     )
