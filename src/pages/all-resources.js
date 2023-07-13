@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 export default function ProfessionalResources(props) {
 
     const {
-        downloads,
+        downloads = null,
     } = props;
 
     const [ contents, setContents ] = useState(null)
