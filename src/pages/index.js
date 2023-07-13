@@ -177,7 +177,7 @@ export async function getStaticProps() {
     });
 
     // filter by doctor = true and showOnHomepage = true
-    const doctors = doctorsResponse.data.stories.filter(item => item.content.doctor && item.content.homePage).map(item => ({
+    const doctors = doctorsResponse.data.stories.filter(item => item.content.doctor).map(item => ({
         id: item.id,
         doctor: item.content.doctor,
         profilePic: item.content.profilePic.filename,

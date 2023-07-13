@@ -81,7 +81,7 @@ export async function getStaticPaths() {
         version: 'published',
         cv: 'CURRENT_TIMESTAMP',
         starts_with: 'team',
-        filter_query: { doctor: { is: true }},
+        filter_query: { doctor: { is: true }, homePage: { is: true }},
     });
 
     let paths = data.stories.map((team) => ({
