@@ -11,9 +11,9 @@ export default function InfoCardLinks(props) {
 
     return (
         <div className='border border-slate-100'>
-            <div className='max-w-6xl px-8 mx-auto grid grid-cols-1 md:grid-cols-3'>
+            <div className='max-w-6xl md:px-8 mx-auto grid grid-cols-1 md:grid-cols-3'>
                 { cards.map((item) => (
-                    <Link key={item.id} href={item.url} className='py-8 md:p-12 flex flex-col justify-center hover:bg-slate-50 group'>
+                    <Link key={item.id} href={item.url} className='p-8 md:p-12 flex flex-col justify-center hover:bg-slate-50 group'>
                         <div className='flex items-center space-x-2'>
                             <IconImage icon={item.icon} alt='icon' className='w-8'/>
                             <h4 className={`font-semibold ${FONT_COLORS[item.titleColor]}`}>{item.title}</h4>
