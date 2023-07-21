@@ -13,12 +13,12 @@ import Section from '@/components/Shared/Section'
 export default function Person(props) {
     
     const {
-        hero,
-        about,
-        timeline,
-        credentials,
-        locations,
-        reviews,
+        hero = null,
+        about = null,
+        timeline = null,
+        credentials = null,
+        locations = null,
+        reviews = null,
     } = props
 
     const [ videoModal, setVideoModal ] = useState(null)
@@ -39,7 +39,7 @@ export default function Person(props) {
             
             <Section>
 
-                { about && 
+                { about && reviews && 
                     <div id='reviews'>
                         <About {...about} reviews={reviews} openModal={openModal}> 
                             { reviews.length > 0 ? <Testimonials reviews={reviews} /> : null }
@@ -47,7 +47,7 @@ export default function Person(props) {
                     </div>
                 }
 
-                { timeline[0] && credentials[0] &&
+                { timeline && credentials &&
                     <div className='mt-12 flex flex-col md:flex-row md:justify-between'>
                         <div className='order-1 pt-24 pb-12'>
                             <Timeline timeline={timeline} />
@@ -58,11 +58,13 @@ export default function Person(props) {
                     </div>
                 }
 
-                <div className='pt-24 pb-12'>
-                    <VideoFullWidth {...about} openModal={openModal} />
-                </div>
+                { about && 
+                    <div className='pt-24 pb-12'>
+                        <VideoFullWidth {...about} openModal={openModal} />
+                    </div>
+                }
 
-                { locations[0] && 
+                { locations && 
                     <div className='pt-24 pb-12'>
                         <GoogleMapDuex locations={locations} /> 
                     </div>

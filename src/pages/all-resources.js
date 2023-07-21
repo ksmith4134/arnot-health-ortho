@@ -105,7 +105,7 @@ export default function ProfessionalResources(props) {
             <section className='mt-12'>
                 <p className='text-arnotBlue font-bold uppercase text-sm'>Filters</p>
                 <div className='mt-4 flex flex-row flex-wrap gap-2 sm:gap-6'>
-                    { bodyParts.map(item => (
+                    { filter && bodyParts.map(item => (
                         <div 
                             key={item} 
                             onClick={() => setFilter(item)} 
