@@ -17,7 +17,7 @@ export default function Contact(props) {
             <div className='flex flex-col md:flex-row gap-8'>
                 <div className='basis-1/2 flex flex-col gap-8'>
                     <InfoBox textSize={'small'} richText={'<p>In case of an emergency, pelase call <b>911</b> or the Posion Control Hotline at <b>1-800-222-1222</b></p>'} />
-                    <div className='border rounded-md px-8 py-12 bg-slate-50 shadow-md shadow-slate-50'>
+                    <div className='border rounded-md px-8 py-12 bg-slate-50/50 shadow-md shadow-slate-50'>
                         <h2 className='font-bold text-2xl'>Contact Your Provider</h2>
                         <p className='mt-4 text-sm'>If you have any questions regarding your care, appointment schedule, or test results, please contact your provider&apos;s office directly at:</p>
                         <div className='inline-flex items-center mt-6'>

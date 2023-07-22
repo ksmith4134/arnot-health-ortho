@@ -71,17 +71,17 @@ export default function Locations(props) {
                             </div>
                         </form>
                     }
-                    <div className='flex flex-col mt-6'>
+                    <div className='flex flex-col mt-8'>
                         { locations
                             .filter(item => item.services.includes(locationFilter))
                             .map(item => (
                                 <div 
                                     key={item.id} 
                                     className={`
-                                        my-2 border px-6 py-3 rounded-md text-sm font-semibold hover:cursor-pointer 
+                                        my-2 border border-slate-200 px-6 py-3 rounded-md text-sm font-semibold hover:cursor-pointer 
                                         ${encodeURIComponent(item.street+', '+item.city+', '+item.state+' '+item.zip) === address 
-                                            ? 'text-white border-arnotBlue/20 bg-arnotBlue'
-                                            : 'hover:bg-arnotBlue/10 hover:border-arnotBlue/10 bg-slate-50/50'
+                                            ? 'text-white bg-arnotBlue border-arnotBlue'
+                                            : 'hover:bg-arnotBlue/20 hover:border-arnotBlue/20 bg-slate-50'
                                         }
                                     `} 
                                     onClick={() => setAddress(encodeURIComponent(item.street+', '+item.city+', '+item.state+' '+item.zip))}
