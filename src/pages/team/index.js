@@ -8,8 +8,8 @@ import { getStoryblokApi } from '@storyblok/react'
 export default function TeamHome(props) {
 
     const {
-        doctors,
-        notDoctors,
+        doctors = null,
+        notDoctors = null,
     } = props
 
     const [ videoModal, setVideoModal ] = useState(null)
