@@ -78,7 +78,7 @@ export default function Condition(props) {
 
     return (
         <div className='relative z-0 mb-40'>
-            <div className='block md:hidden sticky top-24 z-10'>
+            <div className='block md:hidden sticky top-20 z-10'>
                 <IndexesMobile indexes={indexes} selected={index} title={conditionHeader.title} selectIndex={handleIndexClick} openDropdownClick={openDropdownClick} opened={openMobileIndex} />
             </div>
             <Section page={true}>

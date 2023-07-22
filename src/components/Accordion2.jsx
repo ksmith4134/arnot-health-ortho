@@ -5,7 +5,6 @@ import { COMPONENTS } from './Theme'
 export default function Accordion2(props) {
   
     const {
-        id,
         title = null,
         contents = [], // Paragraph, DownloadList, or LinkList
         theme = 'primary',

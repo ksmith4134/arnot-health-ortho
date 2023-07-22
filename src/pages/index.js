@@ -50,9 +50,9 @@ export default function Home(props) {
                 />
                 <InfoCardLinks
                     cards={[
-                        { id: 0, url: '/contact', icon: 'telephone', title: 'Contact', titleColor: 'teal', body: 'For questions regarding your condition, treatment, appointment, or test results.', buttonLabel: 'Learn more'},
-                        { id: 1, url: '/contact#all-locations', icon: 'mapCircle', title: 'Locations', titleColor: 'red', body: 'Each physician sees patients in one of several facilities throughout central NY.', buttonLabel: 'Learn more'},
-                        { id: 2, url: '#highlight-reviews', icon: 'starCircle', title: 'Reviews', titleColor: 'yellow', body: 'Check out patient testimonials for each of our orthopedic physicians.', buttonLabel: 'Learn more'}
+                        { id: 0, url: '/contact', icon: 'telephone', title: 'Contact', titleColor: 'teal', body: 'For questions regarding your condition, treatment, appointment, or test results.', buttonLabel: 'Learn more', smoothScroll: false},
+                        { id: 1, url: '/contact#all-locations', icon: 'mapCircle', title: 'Locations', titleColor: 'red', body: 'Each physician sees patients in one of several facilities throughout central NY.', buttonLabel: 'Learn more', smoothScroll: false},
+                        { id: 2, url: '/#highlight-reviews', icon: 'starCircle', title: 'Reviews', titleColor: 'yellow', body: 'Check out patient testimonials for each of our orthopedic physicians.', buttonLabel: 'Learn more', smoothScroll: true}
                     ]} 
                 />
                 <Team
@@ -101,7 +101,7 @@ export default function Home(props) {
                     buttonLabel={'Watch Video'}
                     videoUrl={'https://www.youtube.com/embed/6nEnyI6mHAs'}
                     image={'/sports_medicine_kayak.png'}
-                    logos={['/logos/elmira_heights.png', '/logos/elmira_pioneers.png', '/logos/elmira_college.png', '/logos/campbell.png', '/logos/horseheads.png']}
+                    logos={['/logos/elmira_heights.png', '/logos/elmira_pioneers.png', '/logos/elmira_college.png', '/logos/horseheads.png']}
                     openModal={openModal}
                 />
                 <TestimonialsHome 

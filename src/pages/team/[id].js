@@ -6,7 +6,7 @@ import About from '@/components/Team/About'
 import Timeline from '@/components/Team/Timeline'
 import Credentials from '@/components/Team/Credentials'
 import Testimonials from '@/components/widgets/Testimonials'
-import GoogleMapDuex from '@/components/widgets/GoogleMapDuex'
+import Locations from '@/components/widgets/Locations'
 import VideoFullWidth from '@/components/VideoFullWidth'
 import Section from '@/components/Shared/Section'
 
@@ -66,7 +66,7 @@ export default function Person(props) {
 
                 { locations && 
                     <div className='pt-24 pb-12'>
-                        <GoogleMapDuex locations={locations} /> 
+                        <Locations locations={locations} showFilters={false} />
                     </div>
                 }
             </Section>
@@ -148,6 +148,7 @@ export async function getStaticProps(context) {
         city: item.content.city,
         state: item.content.state,
         zip: item.content.zip,
+        services: item.content.services
     }))
 
     const reviews = doctor.testimonials.map(item => ({

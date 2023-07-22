@@ -1,5 +1,6 @@
 import { BODY_ICONS } from '../Theme'
 import Image from 'next/image'
+import Link from 'next/link';
 import { useRouter } from 'next/router'
 
 export default function IconCards() {
@@ -11,9 +12,10 @@ export default function IconCards() {
     return (
         <div className='mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8'>
             { bodyIcons.map((item, index) => (
-                <div 
+                <Link 
                     key={index}
-                    onClick={() => router.push('#body-diagram')}
+                    href='/#body-diagram'
+                    scroll={false}
                     className='
                         mx-auto p-6 w-full h-full flex justify-center items-start md:items-center 
                         rounded-md text-center group border 
@@ -34,7 +36,7 @@ export default function IconCards() {
                             }
                         </p>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )

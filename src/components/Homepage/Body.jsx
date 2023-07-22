@@ -1,5 +1,6 @@
 import Accordion from '../Accordion'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Skeleton from './Skeleton'
 import TitleBlock from '../Shared/TitleBlock'
 import ButtonFilter from './ButtonFilter'
@@ -21,6 +22,8 @@ export default function Body(props) {
         buttonCategory = 0,
     } = props
 
+    const router = useRouter();
+
     const [ category, setCategory ] = useState(buttonCategory)
     const [ filteredAccordion, setFilteredAccordion ] = useState(accordion)
     const [ skeleton, setSkeleton ] = useState(null)
@@ -29,6 +32,7 @@ export default function Body(props) {
 
     const handleAccordionClick = (id) => {
         id === openDropdown ? setOpenDropdown(null) : setOpenDropdown(id)
+        router.push(`/#condition-accordion`, '', { scroll: false })
     }
 
     const handleFilterClick = (id) => {
@@ -71,7 +75,7 @@ export default function Body(props) {
                 <div className='mt-16 max-w-6xl mx-auto flex flex-row justify-between items-start md:border md:rounded-md md:px-16 md:pt-20 md:pb-36 md:shadow-md md:shadow-slate-50 md:gap-8'>
                     <div className='mt-4 order-1 w-full md:max-w-md shrink flex flex-col justify-center md:justify-start'>
 
-                        <div onClick={() => setInstructions(!instructions)} className={`flex flex-col items-start justify-center text-slate-600 rounded-md hover:cursor-pointer ${instructions ? '' : ''}`}>
+                        <div onClick={() => setInstructions(!instructions)} className={`flex flex-col items-start justify-center text-slate-600 hover:text-black rounded-md hover:cursor-pointer ${instructions ? '' : ''}`}>
                             <div className='inline-flex items-center gap-2'>
                                 <FaInfoCircle className={`w-8 h-8`} />
                                 <p className={`text-lg font-semibold`}>Instructions</p>
@@ -84,7 +88,7 @@ export default function Body(props) {
                         </div>
 
                         { filteredAccordion &&  
-                            <div className='mt-6'>
+                            <div id='condition-accordion' className='mt-6'>
                                 <Accordion 
                                     accordion={filteredAccordion} 
                                     theme={`${conditionCategories[category].theme}`} 

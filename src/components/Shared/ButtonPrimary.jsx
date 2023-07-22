@@ -8,12 +8,13 @@ export default function ButtonPrimary(props) {
         label = 'Learn More',
         url,
         type = 'primary',
+        scroll = true,
     } = props
 
     const buttonType = PRIMARY_BUTTON[type]
 
     return (
-        <Link href={url}>
+        <Link href={url} scroll={scroll}>
             <button className={`
                 ${ buttonType }
                 text-md flex justify-center items-center 

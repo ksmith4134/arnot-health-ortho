@@ -126,7 +126,7 @@ export default function ProfessionalResources(props) {
             {/* ACCORDION */}
             <section className='mt-12'>
                 { contents ? 
-                    <Accordion2 id={0} contents={contents} fontSize={'xLarge'} /> :
+                    <Accordion2 contents={contents} fontSize={'xLarge'} /> :
                     <LoadingSpinner />
                 }
             </section>

@@ -27,7 +27,7 @@ export default function Hero(props) {
     const [ index , setIndex ] = useState(0)
     
     const goToProfile = (id) => {
-        router.push(`/team/${id}`)
+        router.push(`/team/${id}`, '', { scroll: false })
     }
     
     const playVideo = (url) => {
@@ -85,7 +85,7 @@ export default function Hero(props) {
                         />
                         { buttonLabel && 
                             <div className='mt-12'>
-                                <ButtonPrimary label={buttonLabel} url={url} />
+                                <ButtonPrimary label={buttonLabel} url={url} scroll={false} />
                             </div> 
                         }
                         { icons && 

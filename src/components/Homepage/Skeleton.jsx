@@ -18,6 +18,7 @@ export default function Skeleton(props) {
                 skeleton.map(location => (
                     <div 
                         key={location.id}
+                        id={location.id}
                         onClick={() => handleAccordionClick(location.id)}
                         className={`
                             w-[72px] h-[72px] absolute rounded-full flex justify-center items-center text-xs
