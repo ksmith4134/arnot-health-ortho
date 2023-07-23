@@ -32,7 +32,7 @@ export default function DropdownCard(props) {
             </div>
             {
                 opened && 
-                <div className='py-4'>
+                <div className='py-8'>
                     <Prose richText={richText} />
                 </div>
             }
