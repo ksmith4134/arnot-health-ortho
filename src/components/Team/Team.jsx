@@ -5,7 +5,7 @@ import ButtonPrimary from '../Shared/ButtonPrimary'
 import TitleBlock from '../Shared/TitleBlock'
 import Section from '../Shared/Section'
 
-export default function Team2(props) {
+export default function Team(props) {
 
     const {
         showTitle = true,
